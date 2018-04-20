@@ -1,5 +1,12 @@
 .espacio {
  margin-top: .5em;
   margin-bottom: .5em;
+}
+.espacio1 {
+ margin-top: 2.5em;
+  margin-bottom: 2.5em;
+}
 
+.texto{
+ text-align: center
 }
