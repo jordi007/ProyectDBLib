@@ -5,10 +5,10 @@ USE biblioteca
 
 CREATE TABLE Suscriptor(
 SuscriptorId	INTEGER		PRIMARY KEY,
-Nombre		VARCHAR(50),
-Apellido	VARCHAR(50),
-Email		VARCHAR(50),
-Telefono	VARCHAR(8)
+Nombre			VARCHAR(50),
+Apellido		VARCHAR(50),
+Email			VARCHAR(50),
+Telefono		VARCHAR(8)
 );
 
 CREATE TABLE Autor(
@@ -34,12 +34,13 @@ Email		VARCHAR(50)
 );
 
 CREATE TABLE Prestamo(
-PrestamoId	INTEGER		PRIMARY KEY,
-LibroId		INTEGER,
-Indice		INTEGER,
+PrestamoId		INTEGER		PRIMARY KEY,
+LibroId			INTEGER,
+Indice			INTEGER,
 SuscriptorId	INTEGER,
-FechaSalida	DATE,
+FechaSalida		DATE,
 FechaEntrega	DATE,
-Entregado	BIT,
-Multa		DECIMAL(13,2)
+Entregado		BIT,
+Multa			DECIMAL(13,2)
+FOREIGN KEY (LibroId) REFERENCES 
 );

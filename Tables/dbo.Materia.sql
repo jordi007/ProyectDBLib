@@ -1,0 +1,16 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Materia] (
+		[MateriaId]     [int] NOT NULL,
+		[Nombre]        [varchar](50) COLLATE Modern_Spanish_CI_AS NULL,
+		CONSTRAINT [PK__Materia__0D019DE117E89177]
+		PRIMARY KEY
+		CLUSTERED
+		([MateriaId])
+	ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Materia] SET (LOCK_ESCALATION = TABLE)
+GO
