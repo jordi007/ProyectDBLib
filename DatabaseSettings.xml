@@ -1,7 +1,0 @@
-<DatabaseSettings>
-  <Collation>Modern_Spanish_CI_AS</Collation>
-  <ServerVersion>Sql2014</ServerVersion>
-  <ServerName>JELSYN</ServerName>
-  <DatabaseName>biblioteca</DatabaseName>
-  <DatabaseInformation Version="1" />
-</DatabaseSettings>
