@@ -10,11 +10,11 @@
 		private $baseDatos = 'BibliotecaDB';
 		private $link;
 
-		function __construct(argument) {
+		function __construct() {
 			$this->link = odbc_connect(
 				"Dsn=".$this->dsn.";Database=".$this->baseDatos,
-				$usuario,
-				$contrasena
+				$this->usuario,
+				$this->contrasena
 			);	
 		}
 
@@ -31,7 +31,7 @@
 		}
 
 		public function getLink() {
-			return $getLink;
+			return $this->link;
 		}
 	}
 ?>
