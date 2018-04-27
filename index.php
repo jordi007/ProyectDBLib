@@ -29,13 +29,13 @@
     <!-- Navigation -->
     <nav class="navbar navbar-light bg-light static-top">
      	 <div class="container">
-        	<a class="navbar-brand" href="inicio.html">Biblioteca 935</a>
+        	<a class="navbar-brand" href="inicio.php">Biblioteca 935</a>
         	<nav class="my-2 my-md-0 mr-md-3">
           		<a class="p-2 text-dark" href="#">Libros</a>
           		<a class="p-2 text-dark" href="#">Autores</a>
           		<a class="p-2 text-dark" href="#">Categorias</a>
         	</nav>
-        	<a class="btn btn-outline-primary" href="login.html">Iniciar Sesión</a>
+        	<a class="btn btn-outline-primary" href="login.php">Iniciar Sesión</a>
       	</div>
     </nav>
 
@@ -54,7 +54,7 @@
                   				<input type="text" class="form-control form-control-lg" placeholder="Nombre del libro...">
                 			</div>
                 			<div class="col-12 col-md-3">
-                 				<a href="inicio.html"><button type="button" class="btn btn-block btn-lg btn-primary">Buscar!</button></a>
+                 				<a href="inicio.php"><button type="submit" class="btn btn-block btn-lg btn-primary">Buscar!</button></a>
                 			</div>
               			</div>
             		</form>

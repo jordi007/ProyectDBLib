@@ -28,7 +28,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-light bg-light static-top">
       	<div class="container">
-        	<a class="navbar-brand" href="index.html">Biblioteca 935</a>
+        	<a class="navbar-brand" href="index.php">Biblioteca 935</a>
         	<a class="btn btn-outline-primary" href="#">Iniciar Sesión</a>
       	</div>
     </nav>
@@ -40,7 +40,7 @@
         	<div class="row">
           		<div class="col-lg-4">
             		<div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-              			<a href="libros.html">
+              			<a href="libros.php">
               				<div class="features-icons-icon d-flex">
         	        			<i class="icon-notebook m-auto text-primary"></i>
     	          			</div>
@@ -51,7 +51,7 @@
           		</div>
           		<div class="col-lg-4">
             		<div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-              			<a href="autor.html">
+              			<a href="autor.php">
               				<div class="features-icons-icon d-flex">
                 				<i class="icon-pencil m-auto text-primary"></i>
               				</div>
@@ -62,7 +62,7 @@
           		</div>
           		<div class="col-lg-4">
             		<div class="features-icons-item mx-auto mb-0 mb-lg-3">
-              			<a href="genero.html">
+              			<a href="genero.php">
               				<div class="features-icons-icon d-flex">
                 				<i class="icon-note m-auto text-primary"></i>
               				</div>
