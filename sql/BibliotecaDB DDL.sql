@@ -25,7 +25,7 @@ CREATE TABLE Bibliotecario(
 
 CREATE TABLE Pais(
 	PaisId 		INTEGER 		PRIMARY KEY,
-	Nombre 		VARCHAR(30)		NOT NULL UNIQUE
+	Nombre 		VARCHAR(40)		NOT NULL UNIQUE
 );
 
 CREATE TABLE Autor(
@@ -50,28 +50,30 @@ CREATE TABLE Editorial(
 		REFERENCES Pais(PaisId)
 );
 
-CREATE TABLE Categoria(
-	CategoriaId 	INTEGER 		PRIMARY KEY,
-	Nombre	 		VARCHAR(30) 	UNIQUE
+CREATE TABLE Materia(
+	MateriaId 		INTEGER 		PRIMARY KEY,
+	Nombre	 		VARCHAR(30) 	NOT NULL UNIQUE
 );
 
 CREATE TABLE Libro(
 	LibroId 		INTEGER			PRIMARY KEY,
 	EditorialId		INTEGER 		NOT NULL,
-	CategoriaId		INTEGER 		NOT NULL,
+	MateriaId		INTEGER 		NOT NULL,
+	Codigo			VARCHAR(10)		NOT NULL UNIQUE,
 	Titulo 			VARCHAR(90)		NOT NULL,
 	Edicion 		INTEGER			NOT NULL,
 	ISBN 			VARCHAR(50)		NOT NULL UNIQUE,
 	Anio 			INTEGER			CHECK (Anio > 0 AND Anio <= 9999),
-	Descripcion 	VARCHAR(300),
+	Descripcion 	VARCHAR(300)	NULL,
+	URLImg			VARCHAR(100)	NULL,
 
 	CONSTRAINT fkEditorial FOREIGN KEY (EditorialId) 
 		REFERENCES Editorial(EditorialId),
-	CONSTRAINT fkCategoria FOREIGN KEY (CategoriaId) 
-		REFERENCES Categoria(CategoriaId)
+	CONSTRAINT fkMateria FOREIGN KEY (MateriaId) 
+		REFERENCES Materia(MateriaId)
 );
 
-CREATE TABLE LibroxAutor(
+CREATE TABLE AutorxLibro(
 	AutorId 		INTEGER,
 	Indice 			INTEGER,
 	LibroId 		INTEGER 		NOT NULL,
@@ -88,11 +90,39 @@ CREATE TABLE Estado(
 
 CREATE TABLE Proveedor(
 	ProveedorId 	INTEGER 		PRIMARY KEY,
-	Proveedor 		VARCHAR(70) 	NOT NULL,
-	Direccion 		VARCHAR(100),
+	Nombre 			VARCHAR(70) 	NOT NULL,
 	Telefono 		VARCHAR(20)		NOT NULL UNIQUE,
 	Email	 		VARCHAR(50)		NOT NULL UNIQUE
 );	
+
+CREATE TABLE Ciudad (
+	CiudadId 		INTEGER 		PRIMARY KEY,
+	Nombre			VARCHAR(50)		NOT NULL UNIQUE
+);
+
+CREATE TABLE Colonia (
+	ColoniaId 		INTEGER,
+	CiudadId		INTEGER,
+	Nombre			VARCHAR(70)		NOT NULL,
+
+	PRIMARY KEY (ColoniaId, CiudadId),
+	CONSTRAINT fkCiudadColonia FOREIGN KEY (CiudadId)
+		REFERENCES Ciudad(CiudadId)
+);
+
+CREATE TABLE Direccion (
+	DireccionId 	INTEGER,
+	Indice 			INTEGER,
+	ProveedorId		INTEGER			NOT NULL, 		
+	CiudadId		INTEGER 		NOT NULL,
+	ColoniaId 		INTEGER 		NOT NULL,
+	Casa 			INTEGER 		NOT NULL,
+	Referencia		VARCHAR(100)	NULL,
+
+	PRIMARY KEY (DireccionId, Indice),
+	CONSTRAINT fkCiudadColoniaDireccion FOREIGN KEY (ColoniaId, CiudadId)
+		REFERENCES Colonia(ColoniaId, CiudadId)
+);
 
 CREATE TABLE Ejemplar(
 	LibroId 		INTEGER 		NOT NULL,

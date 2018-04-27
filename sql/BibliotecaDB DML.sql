@@ -6,16 +6,16 @@ INSERT INTO Estado VALUES (3, 'Obsoleto');
 
 SELECT * FROM Estado;
 
-INSERT INTO Categoria VALUES (1, 'Informática');
-INSERT INTO Categoria VALUES (2, 'Matemática');
-INSERT INTO Categoria VALUES (3, 'Filosofía');
-INSERT INTO Categoria VALUES (4, 'Socilogía');
-INSERT INTO Categoria VALUES (5, 'Economía');
-INSERT INTO Categoria VALUES (6, 'Física');
-INSERT INTO Categoria VALUES (7, 'Historia');
-INSERT INTO Categoria VALUES (8, 'Geografía');
-INSERT INTO Categoria VALUES (9, 'Química');
-INSERT INTO Categoria VALUES (10, 'Biología');
+INSERT INTO Materia VALUES (1, 'Informática');
+INSERT INTO Materia VALUES (2, 'Matemática');
+INSERT INTO Materia VALUES (3, 'Filosofía');
+INSERT INTO Materia VALUES (4, 'Socilogía');
+INSERT INTO Materia VALUES (5, 'Economía');
+INSERT INTO Materia VALUES (6, 'Física');
+INSERT INTO Materia VALUES (7, 'Historia');
+INSERT INTO Materia VALUES (8, 'Geografía');
+INSERT INTO Materia VALUES (9, 'Química');
+INSERT INTO Materia VALUES (10, 'Biología');
 
 INSERT INTO Pais VALUES (1, 'España');
 INSERT INTO Pais VALUES (2, 'Estados Unidos');
@@ -36,19 +36,19 @@ INSERT INTO Editorial VALUES (1, 1, 'Pearson Educación S.A.', 'pearson@mail.com'
 
 SELECT * FROM Editorial;
 
-INSERT INTO Libro VALUES (1, 1, 1, 'Fundamentos de Sistemas de Bases de datos',
-		5, '978-84-78-7829-085-7', 2007, 'Modelo relacional y SQL');
+INSERT INTO Libro VALUES (1, 1, 1, 'FS005','Fundamentos de Sistemas de Bases de datos',
+		5, '978-84-78-7829-085-7', 2007, 'Modelo relacional y SQL', NULL);
 
 SELECT * FROM Libro;
 
-INSERT INTO LibroxAutor VALUES (1,1,1);
-INSERT INTO LibroxAutor VALUES (2,1,1);
+INSERT INTO AutorxLibro VALUES (1,1,1);
+INSERT INTO AutorxLibro VALUES (2,1,1);
 
-SELECT * FROM LibroxAutor; 
+SELECT * FROM AutorxLibro; 
 
 SELECT A.Nombre, L.Titulo
 FROM  Autor AS A
-INNER JOIN LibroxAutor LA ON A.AutorId = LA.AutorId
+INNER JOIN AutorxLibro LA ON A.AutorId = LA.AutorId
 INNER JOIN Libro L ON LA.LibroId = L.LibroId
 WHERE L.LibroId = 1;
 
