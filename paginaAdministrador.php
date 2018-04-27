@@ -26,7 +26,9 @@
   </head>
   <body>    
  
-         <h1 class="texto espacio " >REGISTRAR LIBROS PORFAVOR..</h1>
+      <?php  include 'menuAdmin.php'; ?> 
+
+         <h1 class="texto espacio " >Admin Panel para Administradores ..</h1>
             <!--<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
             <form>
               <div class="form-row">
@@ -58,31 +60,62 @@
     <section class="features-icons bg-light text-center">
       <div class="container">
         <div class="row">
-          <div class="col-lg-4">
+          <!-- opciones para el administrador -->
+          <div class="col-md-12 col-lg-12 col-xl-12 mx-auto espacio">
+            <div class="container">
+              <div class="col-md-12 col-lg-12 col-xl-12 mx-auto">
+                <div class="espacioBajo">
+                  <h3>Buscar los libros requeridos aqui!</h3>
+                </div>
+              </div>
+                <div>
+                  <form>
+                    <div class="form-row">
+                      <div class="col-md-10 col-lg-10 col-xl-10 mx-auto">
+                          <input type="text" class="form-control form-control-lg" placeholder="Ingrese el código del libro...">
+                      </div>
+                      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
+                        <a href="#"><button type="submit" class="btn btn-block btn-lg btn-primary">Buscar!</button></a><br><br><br>
+                      </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+          </div><br><br>
+          <div class="col-lg-3">
             <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
               <div class="features-icons-icon d-flex">
                 <i class="icon-notebook m-auto text-primary"></i>
               </div>
-              <a href="formularioAutor.html"><h3>Libros</h3></a>
-              <p class="lead mb-0">Libros de nuestras biblioteca</p>
+              <a href="libros.php"><h3>Libros</h3></a>
+              <p class="lead mb-0">Agrega o edita libros</p>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-lg-3">
             <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
               <div class="features-icons-icon d-flex">
                 <i class="icon-pencil m-auto text-primary"></i>
               </div>
-              <a href="formularioEditorial.html"><h3>Editorial</h3></a>
-              <p class="lead mb-0">Autores de nuestros libros!</p>
+              <a href="formularioEditorial.php"><h3>Editorial</h3></a>
+              <p class="lead mb-0">Agrega editoriales</p>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-lg-3">
             <div class="features-icons-item mx-auto mb-0 mb-lg-3">
               <div class="features-icons-icon d-flex">
                 <i class="icon-note m-auto text-primary"></i>
               </div>
-              <a href="genero.html"><h3>Generos Literarios</h3></a>
-              <p class="lead mb-0">Nuestros generos!</p>
+              <a href="genero.php"><h3>Libros segun área de estudio</h3></a>
+              <p class="lead mb-0">Agrega materia</p>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+              <div class="features-icons-icon d-flex">
+                <i class="icon-people m-auto text-primary"></i>
+              </div>
+              <a href="formularioAutor.php"><h3>Autores</h3></a>
+              <p class="lead mb-0">Autores!</p>
             </div>
           </div>
         </div>

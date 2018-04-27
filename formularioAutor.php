@@ -26,6 +26,8 @@
   </head>
   <body>    
  
+      <?php  include 'menuAdmin.php'; ?> 
+
          <h1 class="texto espacio " >INGRESAR DATOS DEL AUTOR..</h1>
             <<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
             <form>

@@ -20,7 +20,7 @@
 <body class="text-center">
     <form class="form-signin">
     	<h1 class="h3 mb-3 font-weight-normal">
-    		<a class="text-dark" href="index.html">Biblioteca 935</a>
+    		<a class="text-dark" href="index.php">Biblioteca 935</a>
     	</h1>
     	<h1 class="h5 mb-3 font-weight-normal">Iniciar Sesión</h1>
       	<label for="inputEmail" class="sr-only">Email address</label>

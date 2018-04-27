@@ -26,6 +26,8 @@
   </head>
   <body>    
  
+      <?php  include 'menuAdmin.php'; ?> 
+
          <h1 class="texto espacio " >NUESTROS LIBROS DISPONIBLES</h1>
             <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
               <table class="table table-hover">
