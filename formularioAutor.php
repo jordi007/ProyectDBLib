@@ -29,7 +29,7 @@
       <?php  include 'menuAdmin.php'; ?> 
 
          <h1 class="texto espacio " >Ingresar datos del autor..</h1>
-            <<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
             <form>
               <div class="form-row">
                 <div class="col-12 col-md-9 mb-2 mb-md-0">
