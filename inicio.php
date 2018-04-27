@@ -12,7 +12,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/estilos.css" rel="stylesheet">
+
     <!-- Custom fonts for this template -->
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="css/simple-line-icons.css" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
 
   </head>
 
-  <body class="bg-light">
+  <body>
 
     <!-- Navigation -->
     <nav class="navbar navbar-light bg-light static-top">
@@ -33,55 +33,47 @@
       	</div>
     </nav>
 
-    <!-- BUSCQUEDA -->
-        <div class="bg-light">
-           <div class="container">
-          <div class="row">
-             <div class="col-md-10 col-lg-8 col-xl-7" >
-                <form action="GET">
-                    <div class="form-row">
-                      <div class="col-12 col-md-9 mb-2 mb-md-0">
-                          <input type="text" class="form-control form-control-lg" placeholder="Nombre del libro...">
-                      </div>
-                      <div class="col-12 col-md-3">
-                        <a href="inicio.html"><button type="button" class="btn btn-block btn-lg btn-primary">Buscar!</button></a>
-                      </div>
-                    </div>
-                </form>
-              </div>
-          </div>
-        </div>
-</div>
-<!-- TABLA-->
-<div class="espacio1"></div>
-
-
-  <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Libro</th>
-                    <th scope="col">Autor</th>
-                    <th scope="col">Otro campo</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                </tbody>
-              </table>
-          </div>
+    
+    <!-- Icons Grid -->
+    <section class="features-icons bg-light text-center">
+      	<div class="container">
+        	<div class="row">
+          		<div class="col-lg-4">
+            		<div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+              			<a href="libros.html">
+              				<div class="features-icons-icon d-flex">
+        	        			<i class="icon-notebook m-auto text-primary"></i>
+    	          			</div>
+	              			<h3>Libros</h3>
+	              		</a>
+              			<p class="lead mb-0">Libros de nuestras biblioteca</p>
+            		</div>
+          		</div>
+          		<div class="col-lg-4">
+            		<div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+              			<a href="autor.html">
+              				<div class="features-icons-icon d-flex">
+                				<i class="icon-pencil m-auto text-primary"></i>
+              				</div>
+              				<h3>Autores</h3>
+              			</a>
+              			<p class="lead mb-0">Autores de nuestros libros!</p>
+            		</div>
+          		</div>
+          		<div class="col-lg-4">
+            		<div class="features-icons-item mx-auto mb-0 mb-lg-3">
+              			<a href="genero.html">
+              				<div class="features-icons-icon d-flex">
+                				<i class="icon-note m-auto text-primary"></i>
+              				</div>
+              				<h3>Generos Literarios</h3>
+              			</a>
+              			<p class="lead mb-0">Nuestros generos!</p>
+            		</div>
+          		</div>
+        	</div>
+      	</div>
+    </section>
 
     <!-- Bootstrap core JavaScript -->
     <script src="js/jquery.min.js"></script>
