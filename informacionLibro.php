@@ -34,35 +34,79 @@
       	</div>
     </nav>
 
-<!-- BARRA DE BUSQUEDA -->
-
- <header class="bg-light">
-  <form action="inicio.php" method="GET">
-        <div class="overlay"></div>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-10 col-lg-8 col-xl-7>
-                <form action="inicio.php" method="GET">
-                    <div class="form-row">
-                      <div class="col-12 col-md-9 mb-2 mb-md-0">
-                          <input type="text" class="form-control form-control-lg" placeholder="Nombre del libro...">
-                      </div>
-                      <div class="col-12 col-md-3">
-                        <button type="submit" class="btn btn-block btn-lg btn-primary">Buscar!</button>
-                      </div>
-                    </div>
-                </form>
-              </div>
+<div class="espacio1" ></div>
+<!-- ESTRUCTURA LIBRO -->
+  <section class="bg-light text-center">
+  <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            	<img style="width:300px; height:400px;" src="img/ejemplo.jpg">
+           </div>
+          <div class="col-lg-8">
+            <h3 style="text-align: justify">TITULO DEL LIBRO</h3>
+            <div class="mx-auto">
+              <table style="text-align: justify">
+                  <tr>
+                    <th>Nombre Autor:</th>
+                    <td>Primer Nombre y Primer Apellido</td>
+                    </tr>
+                  <tr>
+                    <th>Seudonimo:</th>
+                    <td>Jacob</td>
+                  </tr>
+                  <tr>
+                    <th>Fecha nacimiento:</th>
+                    <td>Primer Nombre y Primer Apellido</td>
+                    </tr>
+                  <tr>
+                    <th>Pais:</th>
+                    <td>Jacob</td>
+                  </tr>
+                  <tr>
+                    <th>Editoial:</th>
+                    <td>Primer Nombre y Primer Apellido</td>
+                    </tr>
+                  <tr>
+                    <th>Categoria:</th>
+                    <td>Jacob</td>
+                  </tr>
+                  <tr>
+                    <th>Titulo:</th>
+                    <td>Primer Nombre y Primer Apellido</td>
+                    </tr>
+                  <tr>
+                    <th>Edicion:</th>
+                    <td>Jacob</td>
+                  </tr>
+                  <tr>
+                    <th>Año:</th>
+                    <td>Primer Nombre y Primer Apellido</td>
+                    </tr>
+                  <tr>
+                    <th>Descripcion</th>
+                    <td>Jacob</td>
+                  </tr>
+                  <tr>
+                    <th>Nombre Autor:</th>
+                    <td>Primer Nombre y Primer Apellido</td>
+                    </tr>
+                  <tr>
+                    <th>Seudonimo</th>
+                    <td>Jacob</td>
+                  </tr>
+              </table>
+          </div>
           </div>
         </div>
-  </form>
-</header> 
+      </div>
+ </section>
 
-<div class="espacio"></div>
+ <div class="espacio1"></div>
+
  <!-- TABLA DE DATOS -->
-
 <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
         <form action="" method=""></form>
+        <h3>EJEMPLARES</h3>
             <table class="table table-hover">
                 <thead>
                   <tr>
