@@ -28,21 +28,21 @@
  
       <?php  include 'menuAdmin.php'; ?> 
 
-         <h1 class="texto espacio " >INGRESAR DATOS EDITORIALES..</h1>
+         <h1 class="texto espacio " >Ingresar datos editoriales..</h1>
             <<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
             <form>
               <div class="form-row">
                 <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  NOMBRE<input type="buscar" class="form-control espacio" placeholder="INGRESAR NOMBRE">
+                  Nombre<input type="buscar" class="form-control espacio" placeholder="Ingresar nombre">
                 </div>
                 <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  APELLIDO<input type="buscar" class="form-control espacio" placeholder="INGRESAR APELLIDO">
+                  Apellido<input type="buscar" class="form-control espacio" placeholder="Ingresar apellido">
                 </div><div class="col-12 col-md-9 mb-2 mb-md-0">
-                  SEUDONIMO<input type="buscar" class="form-control espacio" placeholder="INGRESAR SEUDONIMO">
+                  Seudonimo<input type="buscar" class="form-control espacio" placeholder="Ingresar seudonimo">
                 </div><div class="col-12 col-md-9 mb-2 mb-md-0">
-                  FECHA DE NACIMIENTO<input type="buscar" class="form-control espacio" placeholder="INGRESAR FECHA NACIMIENTO">
+                  Fecha de nacimiento<input type="buscar" class="form-control espacio" placeholder="Ingresar fecha de nacimiento">
                 </div><div class="col-12 col-md-9 mb-2 mb-md-0">
-                  NACIONALIDAD<input type="buscar" class="form-control espacio " placeholder="INGRESAR NACIONALIDAD">
+                  Nacionalidad<input type="buscar" class="form-control espacio " placeholder="Seleccionar nacionalidad">
                 </div>
                 <div class="col-12 col-md-9 mb-2 mb-md-0">
                   <input type="buscar" class="form-control espacio" placeholder="...">

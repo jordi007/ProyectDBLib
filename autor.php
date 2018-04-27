@@ -26,7 +26,7 @@
   </head>
   <body>    
  
-         <h1 class="texto espacio " >NUESTROS AUTORES DISPONIBLES</h1>
+         <h1 class="texto espacio " >Autores de libros</h1>
           <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
            <table class="table table-hover">
                 <thead>
