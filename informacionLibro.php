@@ -36,84 +36,66 @@
 
 <div class="espacio1" ></div>
 <!-- ESTRUCTURA LIBRO -->
-  <section class="bg-light text-center">
   <div class="container">
         <div class="row">
-          <div class="col-lg-4">
-            	<img style="width:300px; height:400px;" src="img/ejemplo.jpg">
-           </div>
-          <div class="col-lg-8">
-            <h3 style="text-align: justify">TITULO DEL LIBRO</h3>
-            <div class="mx-auto">
-              <table style="text-align: justify">
+          <div class="col-md-4 text-right">
+            	<img style="width: 300px; height:400px;" src="img/ejemplo.jpg">
+          </div>
+          <div class="col-md-6">
+              <table class="table table-condensed">
                   <tr>
-                    <th>Nombre Autor:</th>
-                    <td>Primer Nombre y Primer Apellido</td>
-                    </tr>
+                    <th class="text-right">Título:</th>
+                    <td>Titulo del libro</td>
+                  </tr>
                   <tr>
-                    <th>Seudonimo:</th>
+                    <th class="text-right">Autor:</th>
+                    <td>Nombre y Apellido</td>
+                  </tr>
+                  <tr>
+                    <th class="text-right">Editorial:</th>
+                    <td>masdfasdf</td>
+                  </tr>
+                  <tr>
+                    <th class="text-right">Edicion:</th>
                     <td>Jacob</td>
                   </tr>
                   <tr>
-                    <th>Fecha nacimiento:</th>
+                    <th class="text-right">ISBN:</th>
                     <td>Primer Nombre y Primer Apellido</td>
-                    </tr>
                   <tr>
-                    <th>Pais:</th>
-                    <td>Jacob</td>
+                  <tr>
+                    <th class="text-right">Materia:</th>
+                    <td>Informatica</td>
                   </tr>
                   <tr>
-                    <th>Editoial:</th>
-                    <td>Primer Nombre y Primer Apellido</td>
-                    </tr>
-                  <tr>
-                    <th>Categoria:</th>
-                    <td>Jacob</td>
+                    <th class="text-right">Año:</th>
+                    <td>1999</td>
                   </tr>
                   <tr>
-                    <th>Titulo:</th>
-                    <td>Primer Nombre y Primer Apellido</td>
-                    </tr>
-                  <tr>
-                    <th>Edicion:</th>
-                    <td>Jacob</td>
-                  </tr>
-                  <tr>
-                    <th>Año:</th>
-                    <td>Primer Nombre y Primer Apellido</td>
-                    </tr>
-                  <tr>
-                    <th>Descripcion</th>
-                    <td>Jacob</td>
-                  </tr>
-                  <tr>
-                    <th>Nombre Autor:</th>
-                    <td>Primer Nombre y Primer Apellido</td>
-                    </tr>
-                  <tr>
-                    <th>Seudonimo</th>
+                    <th class="text-right">Descripcion</th>
                     <td>Jacob</td>
                   </tr>
               </table>
           </div>
-          </div>
         </div>
       </div>
- </section>
 
  <div class="espacio1"></div>
 
  <!-- TABLA DE DATOS -->
-<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-lg-8 col-xl-8">
         <form action="" method=""></form>
-        <h3>EJEMPLARES</h3>
+        <h3>Ejemplares</h3>
             <table class="table table-hover">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Libro</th>
-                    <th scope="col">Autor</th>
-                    <th scope="col">Ejemplares</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Observación</th>
+                    <th scope="col">Diponible</th>
+                    <th scope="col">Opciones</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -122,20 +104,22 @@
                     <td>Mark</td>
                     <td>Otto</td>
                     <td>@mdo</td>
-                    <td><a href="informacionLibro.php"><input type="submit" class="btn btn-primary btn-sm" value="Información"></a></td>
+                    <td><a href="#" class="btn btn-primary btn-sm">Prestar</a></td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
                     <td>Jacob</td>
                     <td>Thornton</td>
                     <td>@fat</td>
-                    <td><a href="informacionLibro.php"><input type="submit" class="btn btn-primary btn-sm" value="Información"></a></td>
+                    <td><a href="#" class="btn btn-primary btn-sm">Prestar</a></td>
                     
                   </tr>
                 </tbody>
               </table>
               </form>
           </div>
+        <div>
+      <div>
 
 
     <!-- Bootstrap core JavaScript -->

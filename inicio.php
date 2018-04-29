@@ -2,7 +2,6 @@
 <html lang="en">
 
   <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -34,10 +33,10 @@
       	</div>
     </nav>
 
-<!-- BARRA DE BUSQUEDA -->
+  <!-- BARRA DE BUSQUEDA -->
 
- <header class="bg-light">
-  <form action="inicio.php" method="GET">
+    <header class="bg-light">
+    <form action="inicio.php" method="GET">
         <div class="overlay"></div>
         <div class="container">
           <div class="row">
@@ -45,53 +44,60 @@
                 <form action="inicio.php" method="GET">
                     <div class="form-row">
                       <div class="col-12 col-md-9 mb-2 mb-md-0">
-                          <input type="text" class="form-control form-control-lg" placeholder="Nombre del libro...">
+                        <input type="text" name="buscar" class="form-control form-control-xs" value="<?php echo $_GET['buscar'] ?>" placeholder="Nombre del libro...">
                       </div>
                       <div class="col-12 col-md-3">
-                        <button type="submit" class="btn btn-block btn-lg btn-primary">Buscar!</button>
+                        <button type="submit" class="btn btn-block btn-xs btn-primary">Buscar!</button>
                       </div>
                     </div>
                 </form>
               </div>
           </div>
         </div>
-  </form>
-</header> 
+      </form>
+    </header> 
 
-<div class="espacio"></div>
- <!-- TABLA DE DATOS -->
+    <div class="espacio"></div>
+    <!-- TABLA DE DATOS -->
 
-<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-        <form action="" method=""></form>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-12 col-xl-12 mx-left">
+          <form action="" method=""></form>
             <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Libro</th>
-                    <th scope="col">Autor</th>
-                    <th scope="col">Ejemplares</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td><a href="informacionLibro.php"><input type="submit" class="btn btn-primary btn-sm" value="Información"></a></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td><a href="informacionLibro.php"><input type="submit" class="btn btn-primary btn-sm" value="Información"></a></td>
-                    
-                  </tr>
-                </tbody>
-              </table>
-              </form>
-          </div>
+              <thead>
+                <tr>
+                  <th scope="col">Codigo</th>
+                  <th scope="col">Libro</th>
+                  <th scope="col">Edición</th>
+                  <th scope="col">Autor</th>
+                  <th scope="col">Ejemplares</th>
+                  <th scope="col">Opción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Fundamentos de bases de datos</td>
+                  <td>5</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                  <td><a href="informacionLibro.php?codigo=1010">Ver más</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>1</td>
+                  <td>Thornton</td>
+                  <td>10</td>
+                  <td><a href="informacionLibro.php?codigo=1011">Ver más</a></td>        
+                </tr>
+              </tbody>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
 
 
     <!-- Bootstrap core JavaScript -->
