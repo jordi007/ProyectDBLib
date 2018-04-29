@@ -45,7 +45,7 @@
                   Nacionalidad<input type="buscar" class="form-control espacio " placeholder="Seleccionar nacionalidad">
                 </div>
                 <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  <input type="buscar" class="form-control espacio" placeholder="...">
+                  <input type="submit" class="form-control espacio" placeholder="Buscar...">
                 </div>
               </div>
             </form>

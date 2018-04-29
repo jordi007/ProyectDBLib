@@ -55,6 +55,54 @@
                 </tbody>
               </table>
           </div>
+          <!-- comienzo de los form -->
+
+          <div class="col-md-8 col-lg-7 col-xl-6 mx-auto">
+           <h3>Insertar libro</h3>
+            <form>
+              <div class="form-row">
+                <input class="form-control" type="" id="" name="" placeholder="Titulo del libro">
+                <input class="form-control" type="" id="" name="" placeholder="Editorial">
+                <input class="form-control" type="" id="" name="" placeholder="Categoria">
+                <input class="form-control" type="" id="" name="" placeholder="Codigo generado automaticamente">
+                <input class="form-control" type="" id="" name="" placeholder="Edicion">
+                <input class="form-control" type="" id="" name="" placeholder="ISBN">
+                <input class="form-control" type="" id="" name="" placeholder="Año de publicación">
+                <input class="form-control" type="" id="" name="" placeholder="Descripción del libro">
+                <input class="form-control" type="" id="" name="" placeholder="Url de la imagen"> 
+                <button type="submit" class="btn btn-info espacio">Insertar libro</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- modificar libro -->
+          <div class="col-md-8 col-lg-7 col-xl-6 mx-auto">
+           <h3>Modificar libro</h3>
+            <form>
+              <div class="form-row">
+                <input class="form-control" type="" id="" name="" placeholder="Titulo del libro">
+                <input class="form-control" type="" id="" name="" placeholder="alod">
+                <input class="form-control" type="" id="" name="" placeholder="aqw">
+                <input class="form-control" type="" id="" name="" placeholder="vvg">
+                <input class="form-control" type="" id="" name="" placeholder="fr"> 
+                <button type="submit" class="btn btn-info espacio">Insertar libro</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-md-8 col-lg-7 col-xl-6 mx-auto">
+           <h3>Borrar ejemplar del libro</h3>
+            <form>
+              <div class="form-row">
+                <input class="form-control" type="" id="" name="" placeholder="Titulo del libro">
+                <input class="form-control" type="" id="" name="" placeholder="alod">
+                <input class="form-control" type="" id="" name="" placeholder="aqw">
+                <input class="form-control" type="" id="" name="" placeholder="vvg">
+                <input class="form-control" type="" id="" name="" placeholder="fr"> 
+                <button type="submit" class="btn btn-info espacio">Insertar libro</button>
+              </div>
+            </form>
+          </div>
       
 
   
