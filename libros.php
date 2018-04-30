@@ -61,7 +61,7 @@
            <h3>Insertar libro</h3>
             <form>
               <div class="form-row">
-                <input class="form-control" type="" id="" name="" placeholder="Titulo del libro">
+                <input class="form-control" type="" id="" name="txt-titulo-libro" placeholder="Titulo del libro">
                 <input class="form-control" type="" id="" name="" placeholder="Editorial">
                 <input class="form-control" type="" id="" name="" placeholder="Categoria">
                 <input class="form-control" type="" id="" name="" placeholder="Codigo generado automaticamente">
@@ -80,11 +80,10 @@
            <h3>Modificar libro</h3>
             <form>
               <div class="form-row">
-                <input class="form-control" type="" id="" name="" placeholder="Titulo del libro">
-                <input class="form-control" type="" id="" name="" placeholder="alod">
-                <input class="form-control" type="" id="" name="" placeholder="aqw">
-                <input class="form-control" type="" id="" name="" placeholder="vvg">
-                <input class="form-control" type="" id="" name="" placeholder="fr"> 
+                <input class="form-control" type="" id="" name="txt-titulo-libro2" placeholder="Titulo del libro">
+                <input class="form-control" type="" id="" name="txt-publicacion-libro" placeholder="alodAño de publicación">
+                <input class="form-control" type="" id="" name="txt-descrip-libro" placeholder="Descripción del libro">
+                <input class="form-control" type="" id="" name="txt-url-libro" placeholder="Url de la imagen"> 
                 <button type="submit" class="btn btn-info espacio">Insertar libro</button>
               </div>
             </form>
@@ -95,11 +94,8 @@
             <form>
               <div class="form-row">
                 <input class="form-control" type="" id="" name="" placeholder="Titulo del libro">
-                <input class="form-control" type="" id="" name="" placeholder="alod">
-                <input class="form-control" type="" id="" name="" placeholder="aqw">
-                <input class="form-control" type="" id="" name="" placeholder="vvg">
-                <input class="form-control" type="" id="" name="" placeholder="fr"> 
-                <button type="submit" class="btn btn-info espacio">Insertar libro</button>
+                <input class="form-control" type="" id="" name="" placeholder="Codigo del ejemplar">
+                <button type="submit" class="btn btn-danger espacio">Borrar libro</button>
               </div>
             </form>
           </div>
