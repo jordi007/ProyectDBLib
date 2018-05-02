@@ -41,14 +41,14 @@ INSERT INTO Libro VALUES (1, 1, 1, 'FS005','Fundamentos de Sistemas de Bases de 
 
 SELECT * FROM Libro;
 
-INSERT INTO AutorxLibro VALUES (1,1,1);
-INSERT INTO AutorxLibro VALUES (2,1,1);
+INSERT INTO LibroxAutor VALUES (1,1,1);
+INSERT INTO LibroxAutor VALUES (2,1,1);
 
-SELECT * FROM AutorxLibro; 
+SELECT * FROM LibroxAutor; 
 
 SELECT A.Nombre, L.Titulo
 FROM  Autor AS A
-INNER JOIN AutorxLibro LA ON A.AutorId = LA.AutorId
+INNER JOIN LibroxAutor LA ON A.AutorId = LA.AutorId
 INNER JOIN Libro L ON LA.LibroId = L.LibroId
 WHERE L.LibroId = 1;
 

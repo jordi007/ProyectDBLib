@@ -6,7 +6,7 @@ CREATE DATABASE BibliotecaDB
 GO
 USE BibliotecaDB;
 
-CREATE TABLE Suscriptor(
+CREATE TABLE Suscriptor (
 	SuscriptorId 	INTEGER 		PRIMARY KEY,
 	Nombre 			VARCHAR(50) 	NOT NULL,
 	Apellido 		VARCHAR(50) 	NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE Suscriptor(
 	Telefono 		VARCHAR(20)		NULL
 );
 
-CREATE TABLE Bibliotecario(
+CREATE TABLE Bibliotecario (
 	SuscriptorId 	INTEGER 		PRIMARY KEY,
 	Contraseña		VARCHAR(50)		NOT NULL,
 	Salario			DECIMAL(13,2)	NOT NULL,
@@ -23,12 +23,12 @@ CREATE TABLE Bibliotecario(
 		REFERENCES Suscriptor(SuscriptorId)  
 );
 
-CREATE TABLE Pais(
+CREATE TABLE Pais (
 	PaisId 		INTEGER 		PRIMARY KEY,
 	Nombre 		VARCHAR(40)		NOT NULL UNIQUE
 );
 
-CREATE TABLE Autor(
+CREATE TABLE Autor (
 	AutorId 		INTEGER 		PRIMARY KEY,
 	Nombre		 	VARCHAR(50)		NOT NULL,
 	Apellido	 	VARCHAR(50)		NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE Autor(
 		REFERENCES Pais(PaisId)
 );
 
-CREATE TABLE Editorial(
+CREATE TABLE Editorial (
 	EditorialId 	INTEGER 		PRIMARY KEY,
 	PaisId 			INTEGER,
 	Nombre	 		VARCHAR(70),
@@ -50,12 +50,12 @@ CREATE TABLE Editorial(
 		REFERENCES Pais(PaisId)
 );
 
-CREATE TABLE Materia(
+CREATE TABLE Materia (
 	MateriaId 		INTEGER 		PRIMARY KEY,
 	Nombre	 		VARCHAR(30) 	NOT NULL UNIQUE
 );
 
-CREATE TABLE Libro(
+CREATE TABLE Libro (
 	LibroId 		INTEGER			PRIMARY KEY,
 	EditorialId		INTEGER 		NOT NULL,
 	MateriaId		INTEGER 		NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE Libro(
 		REFERENCES Materia(MateriaId)
 );
 
-CREATE TABLE AutorxLibro(
+CREATE TABLE LibroxAutor (
 	AutorId 		INTEGER,
 	Indice 			INTEGER,
 	LibroId 		INTEGER 		NOT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE AutorxLibro(
 	CONSTRAINT fkLibro FOREIGN KEY (LibroId) REFERENCES Libro(LibroId)
 );
 
-CREATE TABLE Estado(
+CREATE TABLE Estado (
 	EstadoId		INTEGER 		PRIMARY KEY,
 	Estado			VARCHAR(30)
 );
@@ -141,7 +141,7 @@ CREATE TABLE Ejemplar(
 		REFERENCES Proveedor(ProveedorId)
 );
 
-CREATE TABLE Prestamos(
+CREATE TABLE Prestamos (
 	PrestamoId 		INTEGER 	PRIMARY KEY,
 	LibroId 		INTEGER,
 	Indice 			INTEGER,
