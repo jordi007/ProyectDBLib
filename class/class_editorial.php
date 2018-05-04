@@ -1,18 +1,20 @@
 <?php
 
+	  include_once("class_pais.php");
+
 	class Editorial{
 
 		private $editorialId;
-		private $paisId;
+		private $pais;
 		private $nombre;
 		private $email;
 
 		public function __construct($editorialId,
-					$paisId,
+					$pais,
 					$nombre,
 					$email){
 			$this->editorialId = $editorialId;
-			$this->paisId = $paisId;
+			$this->pais = $pais;
 			$this->nombre = $nombre;
 			$this->email = $email;
 		}
@@ -22,11 +24,11 @@
 		public function setEditorialId($editorialId){
 			$this->editorialId = $editorialId;
 		}
-		public function getPaisId(){
-			return $this->paisId;
+		public function getPais(){
+			return $this->pais;
 		}
-		public function setPaisId($paisId){
-			$this->paisId = $paisId;
+		public function setPais($pais){
+			$this->pais = $pais;
 		}
 		public function getNombre(){
 			return $this->nombre;
@@ -42,7 +44,7 @@
 		}
 		public function __toString(){
 			return "EditorialId: " . $this->editorialId . 
-				" PaisId: " . $this->paisId . 
+				" Pais: " . $this->pais . 
 				" Nombre: " . $this->nombre . 
 				" Email: " . $this->email;
 		}

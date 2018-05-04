@@ -1,5 +1,7 @@
 <?php
 
+	  include_once("class_pais.php");
+
 	class Autor{
 
 		private $autorId;
@@ -7,20 +9,21 @@
 		private $apellido;
 		private $seudonimo;
 		private $fechanac;
-		private $paisId;
+		private $pais;
 
 		public function __construct($autorId,
 					$nombre,
 					$apellido,
 					$seudonimo,
 					$fechanac,
-					$paisId){
+					$pais){
 			$this->autorId = $autorId;
 			$this->nombre = $nombre;
 			$this->apellido = $apellido;
 			$this->seudonimo = $seudonimo;
 			$this->fechanac = $fechanac;
-			$this->paisId = $paisId;
+			$this->pais =  $pais;
+			//$this->pais = new Pais();
 		}
 		public function getAutorId(){
 			return $this->autorId;
@@ -52,11 +55,11 @@
 		public function setFechanac($fechanac){
 			$this->fechanac = $fechanac;
 		}
-		public function getPaisId(){
-			return $this->paisId;
+		public function getPais(){
+			return $this->pais;
 		}
-		public function setPaisId($paisId){
-			$this->paisId = $paisId;
+		public function setPais($pais){
+			$this->pais = $pais;
 		}
 		public function __toString(){
 			return "AutorId: " . $this->autorId . 
@@ -64,7 +67,7 @@
 				" Apellido: " . $this->apellido . 
 				" Seudonimo: " . $this->seudonimo . 
 				" Fechanac: " . $this->fechanac . 
-				" PaisId: " . $this->paisId;
+				" Pais: " . $this->pais;
 		}
 	}
 ?>
