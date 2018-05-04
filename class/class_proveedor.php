@@ -1,20 +1,25 @@
 <?php
 
+	  include_once("class_direccion.php");
+
 	class Proveedor{
 
 		private $proveedorId;
 		private $nombre;
 		private $telefono;
 		private $email;
+		private $direccion;
 
 		public function __construct($proveedorId,
 					$nombre,
 					$telefono,
-					$email){
+					$email,
+					$direccion){
 			$this->proveedorId = $proveedorId;
 			$this->nombre = $nombre;
 			$this->telefono = $telefono;
 			$this->email = $email;
+			$this->direccion = $direccion;
 		}
 		public function getProveedorId(){
 			return $this->proveedorId;
@@ -40,11 +45,18 @@
 		public function setEmail($email){
 			$this->email = $email;
 		}
+		public function getDireccion(){
+			return $this->direccion;
+		}
+		public function setDireccion(){
+			$this->direccion = $direccion;
+		}
 		public function __toString(){
 			return "ProveedorId: " . $this->proveedorId . 
 				" Nombre: " . $this->nombre . 
 				" Telefono: " . $this->telefono . 
-				" Email: " . $this->email;
+				" Email: " . $this->email.
+				"Direccion: ".$this->direccion;
 		}
 	}
 ?>

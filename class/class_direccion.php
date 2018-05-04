@@ -1,6 +1,6 @@
 <?php
 
-	class Direcccion{
+	class Direccion{
 
 		private $direccionId;
 		private $casa;
@@ -44,7 +44,7 @@
 			$this->colonia = $colonia;
 		}
 		public function getCiudad(){
-			return $this->ciudadId;
+			return $this->ciudad;
 		}
 		public function setCiudad($ciudad){
 			$this->ciudad = $ciudad;
