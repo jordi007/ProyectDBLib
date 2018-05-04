@@ -48,6 +48,10 @@
                     <td>Titulo del libro</td>
                   </tr>
                   <tr>
+                    <th class="text-right">Codigo:</th>
+                    <td>if-1001</td>
+                  </tr>
+                  <tr>
                     <th class="text-right">Autor:</th>
                     <td>Nombre y Apellido</td>
                   </tr>

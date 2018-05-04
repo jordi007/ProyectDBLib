@@ -1,21 +1,23 @@
 USE BibliotecaDB;
 
 INSERT INTO Estado VALUES (1, 'Optimo');
-INSERT INTO Estado VALUES (2, 'Regular');
-INSERT INTO Estado VALUES (3, 'Obsoleto');
+INSERT INTO Estado VALUES (2, 'Buen Estado');
+INSERT INTO Estado VALUES (3, 'Regular');
+INSERT INTO Estado VALUES (4, 'Dañado');
+INSERT INTO Estado VALUES (5, 'Ver y no tocar');
 
 SELECT * FROM Estado;
 
-INSERT INTO Materia VALUES (1, 'Informática');
-INSERT INTO Materia VALUES (2, 'Matemática');
-INSERT INTO Materia VALUES (3, 'Filosofía');
-INSERT INTO Materia VALUES (4, 'Socilogía');
-INSERT INTO Materia VALUES (5, 'Economía');
-INSERT INTO Materia VALUES (6, 'Física');
-INSERT INTO Materia VALUES (7, 'Historia');
-INSERT INTO Materia VALUES (8, 'Geografía');
-INSERT INTO Materia VALUES (9, 'Química');
-INSERT INTO Materia VALUES (10, 'Biología');
+INSERT INTO Materia VALUES (1, 'if', 'Informática');
+INSERT INTO Materia VALUES (2, 'mt', 'Matemática');
+INSERT INTO Materia VALUES (3, 'fl', 'Filosofía');
+INSERT INTO Materia VALUES (4, 'sc', 'Socilogía');
+INSERT INTO Materia VALUES (5, 'ec', 'Economía');
+INSERT INTO Materia VALUES (6, 'fs', 'Física');
+INSERT INTO Materia VALUES (7, 'hs', 'Historia');
+INSERT INTO Materia VALUES (8, 'gg', 'Geografía');
+INSERT INTO Materia VALUES (9, 'qm', 'Química');
+INSERT INTO Materia VALUES (10, 'bl', 'Biología');
 
 INSERT INTO Pais VALUES (1, 'España');
 INSERT INTO Pais VALUES (2, 'Estados Unidos');
@@ -24,25 +26,37 @@ INSERT INTO Pais VALUES (4, 'Brasil');
 INSERT INTO Pais VALUES (5, 'Honduras');
 INSERT INTO Pais VALUES (6, 'Argentina');
 INSERT INTO Pais VALUES (7, 'Egipto');
+INSERT INTO Pais VALUES (8, 'Canada');
 
 SELECT * FROM Pais;
 
 INSERT INTO Autor VALUES (1, 'Ramez', 'Elmasri', NULL, '1950-10-20', 6); 
 INSERT INTO Autor VALUES (2, 'Shamkant', 'Navathe', NULL, '1970-3-12', 2); 
+INSERT INTO Autor VALUES (3, 'John', 'Maxwell', 'jcmaxwell', '1960-4-15', 2); 
+INSERT INTO Autor VALUES (4, 'Doris', 'Appleby', 'apple', '1965-6-16', 8); 
+INSERT INTO Autor VALUES (5, 'Julius', 'Vandekople', NULL, '1955-7-11', 2); 
 
 SELECT * FROM Autor;
 
 INSERT INTO Editorial VALUES (1, 1, 'Pearson Educación S.A.', 'pearson@mail.com'); 
+INSERT INTO Editorial VALUES (2, 2, 'Lider Latino', 'liderinfo@latino.com'); 
+INSERT INTO Editorial VALUES (3, 2, 'McGraw-Hill', 'macgrawhill@mail.com'); 
 
 SELECT * FROM Editorial;
 
-INSERT INTO Libro VALUES (1, 1, 1, 'FS005','Fundamentos de Sistemas de Bases de datos',
+-- capos: id, codigo, editorial, materia, titulo, edicion, isbn, año, descripcion, urlImg
+INSERT INTO Libro VALUES (1, 'if-1001', 1, 1,'Fundamentos de Sistemas de Bases de datos',
 		5, '978-84-78-7829-085-7', 2007, 'Modelo relacional y SQL', NULL);
+INSERT INTO Libro VALUES (2, 'sc-2002', 2, 4,'El Líder 360°',
+		1, '0-88113-903-3', 2005, 'Para personas emprendedoras', NULL);
+INSERT INTO Libro VALUES (3, 'if-1002', 3, 1,'Lenguajes de Programación: Paradigma y Practica',
+		3, '970-10-1945-8', 1998, 'Paradigmas: imperativo y declarativo', NULL);
 
 SELECT * FROM Libro;
 
 INSERT INTO LibroxAutor VALUES (1,1,1);
 INSERT INTO LibroxAutor VALUES (2,1,1);
+INSERT INTO LibroxAutor VALUES (3,1,2);
 
 SELECT * FROM LibroxAutor; 
 

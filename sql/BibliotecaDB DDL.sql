@@ -52,14 +52,15 @@ CREATE TABLE Editorial (
 
 CREATE TABLE Materia (
 	MateriaId 		INTEGER 		PRIMARY KEY,
+	Codigo 			VARCHAR(2)		UNIQUE,
 	Nombre	 		VARCHAR(30) 	NOT NULL UNIQUE
 );
 
 CREATE TABLE Libro (
 	LibroId 		INTEGER			PRIMARY KEY,
+	Codigo			VARCHAR(7)		NOT NULL UNIQUE,
 	EditorialId		INTEGER 		NOT NULL,
 	MateriaId		INTEGER 		NOT NULL,
-	Codigo			VARCHAR(10)		NOT NULL UNIQUE,
 	Titulo 			VARCHAR(90)		NOT NULL,
 	Edicion 		INTEGER			NOT NULL,
 	ISBN 			VARCHAR(50)		NOT NULL UNIQUE,
@@ -131,7 +132,7 @@ CREATE TABLE Ejemplar(
 	EstadoId 		INTEGER,
 	Observacion 	VARCHAR(200),
 	FechaAdquiscion	DATE 			NOT NULL,
-	Precio 			DECIMAL(13,2)	NOT NULL,
+	Precio 			DECIMAL(13,2)	NOT NULL CHECK(Precio >= 0),
 
 	PRIMARY KEY (LibroId, Indice),
 	CONSTRAINT fkLibroEjemplar FOREIGN KEY (LibroId) REFERENCES Libro(LibroId),
@@ -142,15 +143,15 @@ CREATE TABLE Ejemplar(
 );
 
 CREATE TABLE Prestamos (
-	PrestamoId 		INTEGER 	PRIMARY KEY,
+	PrestamoId 		INTEGER 		PRIMARY KEY,
 	LibroId 		INTEGER,
 	Indice 			INTEGER,
 	BibliotecarioId INTEGER,
 	SuscriptorId 	INTEGER,
-	FechaSalida 	DATE 		NOT NULL,
-	FechaEntrega 	DATE 		NOT NULL,
-	Entregado 		BIT,
-	Multa 			DECIMAL(13,2),
+	FechaSalida 	DATE 			NOT NULL,
+	FechaEntrega 	DATE 			NOT NULL,
+	Entregado 		BIT 			DEFAULT 0,
+	Multa 			DECIMAL(13,2)	DEFAULT 0,
 
 	CONSTRAINT fkLibroPrestado FOREIGN KEY (LibroId, Indice) 
 		REFERENCES Ejemplar(LibroId, Indice),
