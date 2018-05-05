@@ -1,9 +1,12 @@
 <?php
 
+	  include_once("class_editorial.php");
+	  include_once("class_autor.php");
+
 	class Libro{
 
 		private $libroId;
-		private $editorialId;
+		private $editorial;
 		private $materia;
 		private $codigo;
 		private $titulo;
@@ -12,9 +15,10 @@
 		private $anio;
 		private $descipcion;
 		private $urlimg;
+		private $autor;
 
 		public function __construct($libroId,
-					$editorialId,
+					$editorial,
 					$materia,
 					$codigo,
 					$titulo,
@@ -22,9 +26,10 @@
 					$isbn,
 					$anio,
 					$descipcion,
-					$urlimg){
+					$urlimg,
+					$autor){
 			$this->libroId = $libroId;
-			$this->editorialId = $editorialId;
+			$this->editorial = $editorial;
 			$this->materia = $materia;
 			$this->codigo = $codigo;
 			$this->titulo = $titulo;
@@ -33,6 +38,7 @@
 			$this->anio = $anio;
 			$this->descipcion = $descipcion;
 			$this->urlimg = $urlimg;
+			$this->autor = $autor;
 		}
 		public function getLibroId(){
 			return $this->libroId;
@@ -40,11 +46,11 @@
 		public function setLibroId($libroId){
 			$this->libroId = $libroId;
 		}
-		public function getEditorialId(){
-			return $this->editorialId;
+		public function geteditorial(){
+			return $this->editorial;
 		}
-		public function setEditorialId($editorialId){
-			$this->editorialId = $editorialId;
+		public function seteditorial($editorial){
+			$this->editorial = $editorial;
 		}
 		public function getmateria(){
 			return $this->materia;
@@ -94,9 +100,15 @@
 		public function setUrlimg($urlimg){
 			$this->urlimg = $urlimg;
 		}
+		public function getAutor(){
+			return $this->autor;
+		}
+		public function setAutor(){
+			$this->autor = $autor;
+		}
 		public function __toString(){
 			return "LibroId: " . $this->libroId . 
-				" EditorialId: " . $this->editorialId . 
+				" editorial: " . $this->editorial . 
 				" materia: " . $this->materia . 
 				" Codigo: " . $this->codigo . 
 				" Titulo: " . $this->titulo . 
@@ -104,7 +116,8 @@
 				" Isbn: " . $this->isbn . 
 				" Anio: " . $this->anio . 
 				" Descipcion: " . $this->descipcion . 
-				" Urlimg: " . $this->urlimg;
+				" Urlimg: " . $this->urlimg .
+				" Autor: " . $this->autor;
 		}
 	}
 ?>

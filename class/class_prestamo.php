@@ -1,31 +1,35 @@
 <?php
 
+	  include_once("class_bibliotecario.php");
+	  include_once("class_suscriptor.php");
+	  include_once("class_ejemplar.php");
+
 	class Prestamo{
 
 		private $prestamoId;
-		private $libroId;
+		private $ejemplar;
 		private $indice;
-		private $bibliotecarioId;
-		private $suscriptorId;
+		private $bibliotecario;
+		private $suscriptor;
 		private $fechaSalida;
 		private $fechaEntrega;
 		private $entregago;
 		private $multa;
 
 		public function __construct($prestamoId,
-					$libroId,
+					$ejemplar,
 					$indice,
-					$bibliotecarioId,
-					$suscriptorId,
+					$bibliotecario,
+					$suscriptor,
 					$fechaSalida,
 					$fechaEntrega,
 					$entregago,
 					$multa){
 			$this->prestamoId = $prestamoId;
-			$this->libroId = $libroId;
+			$this->ejemplar = $ejemplar;
 			$this->indice = $indice;
-			$this->bibliotecarioId = $bibliotecarioId;
-			$this->suscriptorId = $suscriptorId;
+			$this->bibliotecario = $bibliotecario;
+			$this->suscriptor = $suscriptor;
 			$this->fechaSalida = $fechaSalida;
 			$this->fechaEntrega = $fechaEntrega;
 			$this->entregago = $entregago;
@@ -37,11 +41,11 @@
 		public function setPrestamoId($prestamoId){
 			$this->prestamoId = $prestamoId;
 		}
-		public function getLibroId(){
-			return $this->libroId;
+		public function getejemplar(){
+			return $this->ejemplar;
 		}
-		public function setLibroId($libroId){
-			$this->libroId = $libroId;
+		public function setejemplar($ejemplar){
+			$this->ejemplar = $ejemplar;
 		}
 		public function getIndice(){
 			return $this->indice;
@@ -49,17 +53,17 @@
 		public function setIndice($indice){
 			$this->indice = $indice;
 		}
-		public function getBibliotecarioId(){
-			return $this->bibliotecarioId;
+		public function getbibliotecario(){
+			return $this->bibliotecario;
 		}
-		public function setBibliotecarioId($bibliotecarioId){
-			$this->bibliotecarioId = $bibliotecarioId;
+		public function setbibliotecario($bibliotecario){
+			$this->bibliotecario = $bibliotecario;
 		}
-		public function getSuscriptorId(){
-			return $this->suscriptorId;
+		public function getsuscriptor(){
+			return $this->suscriptor;
 		}
-		public function setSuscriptorId($suscriptorId){
-			$this->suscriptorId = $suscriptorId;
+		public function setsuscriptor($suscriptor){
+			$this->suscriptor = $suscriptor;
 		}
 		public function getFechaSalida(){
 			return $this->fechaSalida;
@@ -87,10 +91,10 @@
 		}
 		public function __toString(){
 			return "PrestamoId: " . $this->prestamoId . 
-				" LibroId: " . $this->libroId . 
+				" ejemplar: " . $this->ejemplar . 
 				" Indice: " . $this->indice . 
-				" BibliotecarioId: " . $this->bibliotecarioId . 
-				" SuscriptorId: " . $this->suscriptorId . 
+				" bibliotecario: " . $this->bibliotecario . 
+				" suscriptor: " . $this->suscriptor . 
 				" FechaSalida: " . $this->fechaSalida . 
 				" FechaEntrega: " . $this->fechaEntrega . 
 				" Entregago: " . $this->entregago . 

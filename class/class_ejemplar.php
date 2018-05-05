@@ -1,35 +1,40 @@
 <?php
 
-	class Ejemplar{
+	  include_once("class_libros.php");
 
-		private $libroId;
+	class Ejemplar extends Libro{
+
 		private $indice;
-		private $proveedorId;
-		private $estadoId;
+		private $proveedor;
+		private $estado;
 		private $observacion;
 		private $fechaAdquisicion;
 		private $precio;
 
 		public function __construct($libroId,
+					$editorial,
+					$materia,
+					$codigo,
+					$titulo,
+					$edicion,
+					$isbn,
+					$anio,
+					$descipcion,
+					$urlimg,
+					$autor,
 					$indice,
-					$proveedorId,
-					$estadoId,
+					$proveedor,
+					$estado,
 					$observacion,
 					$fechaAdquisicion,
 					$precio){
-			$this->libroId = $libroId;
+			parent::__construct($libroId,$editorial,$materia,$codigo,$titulo,$edicion,$isbn,$anio,$descipcion,$urlimg,$autor);
 			$this->indice = $indice;
-			$this->proveedorId = $proveedorId;
-			$this->estadoId = $estadoId;
+			$this->proveedor = $proveedor;
+			$this->estado = $estado;
 			$this->observacion = $observacion;
 			$this->fechaAdquisicion = $fechaAdquisicion;
 			$this->precio = $precio;
-		}
-		public function getLibroId(){
-			return $this->libroId;
-		}
-		public function setLibroId($libroId){
-			$this->libroId = $libroId;
 		}
 		public function getIndice(){
 			return $this->indice;
@@ -37,17 +42,17 @@
 		public function setIndice($indice){
 			$this->indice = $indice;
 		}
-		public function getProveedorId(){
-			return $this->proveedorId;
+		public function getproveedor(){
+			return $this->proveedor;
 		}
-		public function setProveedorId($proveedorId){
-			$this->proveedorId = $proveedorId;
+		public function setproveedor($proveedor){
+			$this->proveedor = $proveedor;
 		}
-		public function getEstadoId(){
-			return $this->estadoId;
+		public function getestado(){
+			return $this->estado;
 		}
-		public function setEstadoId($estadoId){
-			$this->estadoId = $estadoId;
+		public function setestado($estado){
+			$this->estado = $estado;
 		}
 		public function getObservacion(){
 			return $this->observacion;
@@ -68,10 +73,10 @@
 			$this->precio = $precio;
 		}
 		public function __toString(){
-			return "LibroId: " . $this->libroId . 
+			return parent::__toString() .  
 				" Indice: " . $this->indice . 
-				" ProveedorId: " . $this->proveedorId . 
-				" EstadoId: " . $this->estadoId . 
+				" proveedor: " . $this->proveedor . 
+				" estado: " . $this->estado . 
 				" Observacion: " . $this->observacion . 
 				" FechaAdquisicion: " . $this->fechaAdquisicion . 
 				" Precio: " . $this->precio;
