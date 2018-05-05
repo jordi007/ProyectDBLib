@@ -56,8 +56,34 @@ $pais;*/
 	echo "El telefono del proveedor: ".$proveedor->getTelefono();
 	echo "<br>";
 	echo "El telefono del proveedor: ".$proveedor->getDireccion()->getCiudad();
+	echo "<br>";
+	echo "<br>";
 
-	/*  */
+	/* INSTANCIA DE SUSCRPTOR */
+	include_once("class/class_suscriptor.php");
+	$suscriptor = new Suscriptor(1,'Matusalen','Al Hazar','bomba@kabum.com','954516188112');
+	echo "El suscriptor es: ".$suscriptor;
+	echo "<br>";
+	echo "Apellido del suscriptor: ".$suscriptor->getApellido();
+	echo "<br>";
+	echo "<br>";
+	
+	/* INSTANCIA DE BIBLIOTECARIO */
+	include_once("class/class_bibliotecario.php");
+	$suscriptorId;
+$nombre;
+$apellido;
+$email;
+$telefono;
+$bibliotecarioId;
+$contrasenia;
+$salario;
+	$bibliotecario = new Bibliotecario(4,'kuasimodo','notreDam','joroba@booling.com','476841',1,'asd.456',23000);
+	echo "Este es el bibliotecario: ". $bibliotecario;
+	echo "<br>";
+	echo "salario del bibliotecario: ". $bibliotecario->getSalario();
+	echo "<br>";
+	echo "<br>";
 
 ?>
 </body>

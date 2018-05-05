@@ -4,7 +4,7 @@
 
 		private $libroId;
 		private $editorialId;
-		private $materiaId;
+		private $materia;
 		private $codigo;
 		private $titulo;
 		private $edicion;
@@ -15,7 +15,7 @@
 
 		public function __construct($libroId,
 					$editorialId,
-					$materiaId,
+					$materia,
 					$codigo,
 					$titulo,
 					$edicion,
@@ -25,7 +25,7 @@
 					$urlimg){
 			$this->libroId = $libroId;
 			$this->editorialId = $editorialId;
-			$this->materiaId = $materiaId;
+			$this->materia = $materia;
 			$this->codigo = $codigo;
 			$this->titulo = $titulo;
 			$this->edicion = $edicion;
@@ -46,11 +46,11 @@
 		public function setEditorialId($editorialId){
 			$this->editorialId = $editorialId;
 		}
-		public function getMateriaId(){
-			return $this->materiaId;
+		public function getmateria(){
+			return $this->materia;
 		}
-		public function setMateriaId($materiaId){
-			$this->materiaId = $materiaId;
+		public function setmateria($materia){
+			$this->materia = $materia;
 		}
 		public function getCodigo(){
 			return $this->codigo;
@@ -97,7 +97,7 @@
 		public function __toString(){
 			return "LibroId: " . $this->libroId . 
 				" EditorialId: " . $this->editorialId . 
-				" MateriaId: " . $this->materiaId . 
+				" materia: " . $this->materia . 
 				" Codigo: " . $this->codigo . 
 				" Titulo: " . $this->titulo . 
 				" Edicion: " . $this->edicion . 

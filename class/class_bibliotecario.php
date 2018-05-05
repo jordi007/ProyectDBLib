@@ -1,23 +1,31 @@
 <?php
 
-	class Bibliotecario{
+	  include_once("class_suscriptor.php");
 
-		private $suscriptorId;
+	class Bibliotecario extends Suscriptor {
+
+		private $bibliotecarioId;
 		private $contrasenia;
 		private $salario;
 
-		public function __construct($suscriptorId,
+				public function __construct($suscriptorId,
+					$nombre,
+					$apellido,
+					$email,
+					$telefono,
+					$bibliotecarioId,
 					$contrasenia,
 					$salario){
-			$this->suscriptorId = $suscriptorId;
+			parent::__construct($suscriptorId,$nombre,$apellido,$email,$telefono);
+			$this->bibliotecarioId = $bibliotecarioId;
 			$this->contrasenia = $contrasenia;
 			$this->salario = $salario;
 		}
-		public function getSuscriptorId(){
-			return $this->suscriptorId;
+		public function getBibliotecarioId(){
+			return $this->bibliotecarioId;
 		}
-		public function setSuscriptorId($suscriptorId){
-			$this->suscriptorId = $suscriptorId;
+		public function setBibliotecarioId($bibliotecarioId){
+			$this->bibliotecarioId = $bibliotecarioId;
 		}
 		public function getContrasenia(){
 			return $this->contrasenia;
@@ -32,7 +40,8 @@
 			$this->salario = $salario;
 		}
 		public function __toString(){
-			return "SuscriptorId: " . $this->suscriptorId . 
+			return parent::__toString() . 
+				"BibliotecarioId: " . $this->bibliotecarioId . 
 				" Contrasenia: " . $this->contrasenia . 
 				" Salario: " . $this->salario;
 		}
