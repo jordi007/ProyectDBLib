@@ -16,7 +16,7 @@
   <!-- Custom fonts for this template -->
   <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href="css/simple-line-icons.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"> -->
 
     <!-- Custom styles for this template -->
   <link href="css/landing-page.min.css" rel="stylesheet">
@@ -61,16 +61,18 @@
                 <input type="button"  class="btn btn-primary" id="btn-nuevo" value="Nuevo suscritor">
               </div>
             </div>
-            <div id="div-suscriptor">
+            <div id="div-suscriptor" class="form-group">
               <label for="txt-nombre">Nombre:</label>
               <input type="text" class="form-control" id="txt-nombre">
               <label for="txt-apellido">Apellido:</label>
               <input type="text" class="form-control" id="txt-apellido">
               <label for="txt-telefono">telefono:</label>
               <input type="text" class="form-control" id="txt-telefono">
-              <input type="button" class="btn btn-primary" name="btn-guardar" id="btn-guardar" value="Guardar suscritor">
+              <div>El usuario no existe...</div>
+              <br>
+              <input type="button" class="btn btn-primary" name="btn-guardar" id="btn-guardar" value="Crear">
+              <input type="button" class="btn btn-danger" name="btn-canselarc" id="btn-cancelarc" value="Cancelar">
             </div>
-            <div>El usuario no existe...</div>
           </div>
           <div class="form-group">
             <label for="txt-fecha-inicio">Fecha de Inicio:</label>
@@ -80,7 +82,7 @@
             <label for="txt-fecha-entrega">Fecha de entrega:</label>
             <input type="date" class="form-control" id="txt-fecha-entrega">
           </div>
-          <button type="submit" class="btn btn-outline-primary">Prestar</button>
+          <button type="submit" id="btn-prestar" class="btn btn-outline-primary">Prestar</button>
         </form>
       </div>
     </div>
