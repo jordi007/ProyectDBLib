@@ -48,7 +48,7 @@
           <table class="table table-hover">
             <thead>
               <tr>
-                <th scope="col">#</th>
+                <th scope="col">Codigo</th>
                 <th scope="col">Materia</th>
                 <th scope="col">Num. Libros</th>
                 <th scope="col">Opción</th>
@@ -56,7 +56,7 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">1</th>
+                <th scope="row">if</th>
                 <td>Informatica</td>
                 <td>15</td>
                 <td><a href="#">Ver libros</a></td>
