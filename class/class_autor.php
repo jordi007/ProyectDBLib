@@ -69,5 +69,27 @@
 				" Fechanac: " . $this->fechanac . 
 				" Pais: " . $this->pais;
 		}
+
+		static function buscarAutorLibro($conexion, $codigo) {
+			$sql = "SELECT A.Nombre, A.Apellido
+					FROM Libro L
+					INNER JOIN LibroxAutor LA ON L.LibroId = LA.LibroId
+					INNER JOIN Autor A ON A.AutorId = LA.AutorId
+					WHERE L.Codigo = '".$codigo."'";
+
+			$cursor = $conexion->ejecutarConsulta($sql); 
+
+			$resultado = array();
+
+			if ($cursor) {
+				while ($temp = $conexion->obtenerFila($cursor)) {
+					$resultado[] = $temp;
+				}
+			} else {
+				return false;
+			}
+
+			return $resultado;
+		}
 	}
 ?>

@@ -1,3 +1,8 @@
+<?php 
+  include 'class/class_conexion.php';
+  include 'class/class_libros.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,39 +65,50 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-md-10 col-lg-10 col-xl-10">
-          <form action="" method=""></form>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">Codigo</th>
-                  <th scope="col">Libro</th>
-                  <th scope="col">Edición</th>
-                  <th scope="col">Autor</th>
-                  <th scope="col">Ejemplares</th>
-                  <th scope="col">Opción</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Fundamentos de bases de datos</td>
-                  <td>5</td>
-                  <td>Otto</td>
-                  <td>3</td>
-                  <td><a href="informacionLibro.php?codigo=1010">Ver más</a></td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>1</td>
-                  <td>Thornton</td>
-                  <td>10</td>
-                  <td><a href="informacionLibro.php?codigo=1011">Ver más</a></td>        
-                </tr>
-              </tbody>
-            </table>
-          </form>
+        <div class="col-12">
+          <?php
+            $conn = New Conexion();
+            if ($conn->getLink()) {
+              $resultado = Libro::buscarLibro($conn, $_GET['buscar']);
+              if ($resultado) {
+                echo '<table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col">Codigo</th>
+                            <th scope="col">Libro</th>
+                            <th scope="col">Edición</th>
+                            <th scope="col">Autor</th>
+                            <th scope="col">Ejemplares</th>
+                            <th scope="col">Opción</th>
+                          </tr>
+                        </thead>
+                        <tbody>';
+                  foreach ($resultado as $llave => $valor) {
+                    $autores = '';
+                    $res = Autor::buscarAutorLibro($conn, $valor['Codigo']);
+
+                    if ($res) {
+                      foreach ($res as $autor) {
+                        $autores .= $autor['Nombre'] .' ' .$autor['Apellido'] . ' - ';
+                      }
+                    }
+
+                    echo '<tr>
+                          <th scope="row">'.$valor['Codigo'].'</th>
+                          <td>'.utf8_encode($valor['Titulo']).'</td>
+                          <td>'.$valor['Edicion'].'</td>
+                          <td>'.$autores.'</td>
+                          <td>'.$valor['NEjemplares'].'</td>
+                          <td><a href="informacionLibro.php?codigo='.$valor['Codigo'].'">Ver más</a></td>
+                        </tr>';
+                  }
+                  echo '</tbody>
+                       </table>';
+                } else {
+                  echo "<h2>No existe</h2>";
+                } 
+              }          
+          ?>
         </div>
       </div>
     </div>

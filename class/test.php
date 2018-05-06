@@ -8,6 +8,7 @@
 <body>
 	<?php 
 		include 'class_conexion.php';
+		include 'class_libros.php';
 
 		$conn = new Conexion();
 
@@ -32,11 +33,21 @@
    			<?php
   				if ($conn->getLink()) {
 					echo "conexion exitosa<br>";
-					$cursor = $conn->ejecutarConsulta("SELECT * FROM Suscriptor");
+					$resultado = Libro::buscarLibro($conn, "if");
+					if ($resultado) {
+						print_r($resultado);
+						$res = Autor::buscarAutorLibro($conn, 'if-1001');
+						if ($res) {
+							print_r($res);
+						}
+					} else {
+						echo "No coincide";
+					}
+					/*$cursor = $conn->ejecutarConsulta("SELECT * FROM Suscriptor");
 					while ($temp = $conn->obtenerFila($cursor)) {
 						echo '<tr><td>'.utf8_encode($temp['Nombre']).'</td>'.
 							'<td>'.utf8_encode($temp['Apellido']).'</td></tr>';
-					}
+					}*/
 				}
   			?>
   		</tbody>

@@ -119,5 +119,27 @@
 				" Urlimg: " . $this->urlimg .
 				" Autor: " . $this->autor;
 		}
+
+		static function buscarLibro($conexion, $cadena) {
+			$sql = "SELECT L.Codigo, L.Titulo, L.Edicion, COUNT(E.LibroId) AS NEjemplares
+					FROM Libro L
+					LEFT JOIN Ejemplar E ON L.LibroId = E.LibroId
+					WHERE L.Codigo LIKE '".$cadena."%' OR L.Titulo LIKE '%".$cadena."%'
+					GROUP BY L.Codigo, L.Titulo, L.Edicion";
+
+			$cursor = $conexion->ejecutarConsulta($sql); 
+
+			$resultado = array();
+
+			if ($cursor) {
+				while ($temp = $conexion->obtenerFila($cursor)) {
+					$resultado[] = $temp;
+				}
+			} else {
+				return false;
+			}
+
+			return $resultado;
+		}
 	}
 ?>

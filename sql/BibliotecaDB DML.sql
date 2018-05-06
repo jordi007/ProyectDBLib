@@ -57,6 +57,8 @@ SELECT * FROM Libro;
 INSERT INTO LibroxAutor VALUES (1,1,1);
 INSERT INTO LibroxAutor VALUES (2,1,1);
 INSERT INTO LibroxAutor VALUES (3,1,2);
+INSERT INTO LibroxAutor VALUES (4,1,3);
+INSERT INTO LibroxAutor VALUES (5,1,3);
 
 SELECT * FROM LibroxAutor; 
 
