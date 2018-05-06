@@ -52,8 +52,8 @@
                     <td>if-1001</td>
                   </tr>
                   <tr>
-                    <th class="text-right">Autor:</th>
-                    <td>Nombre y Apellido</td>
+                    <th class="text-right">Autor(es):</th>
+                    <td>Nombre y Apellido, nombre y apellido</td>
                   </tr>
                   <tr>
                     <th class="text-right">Editorial:</th>
@@ -65,7 +65,7 @@
                   </tr>
                   <tr>
                     <th class="text-right">ISBN:</th>
-                    <td>Primer Nombre y Primer Apellido</td>
+                    <td>123-1234-344</td>
                   <tr>
                   <tr>
                     <th class="text-right">Materia:</th>
@@ -108,14 +108,14 @@
                     <td>Mark</td>
                     <td>Otto</td>
                     <td>@mdo</td>
-                    <td><a href="#" class="btn btn-primary btn-sm">Prestar</a></td>
+                    <td><a href="prestarLibro.php?codigo=1001&ejemplar=2" class="btn btn-primary btn-sm">Prestar</a></td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
                     <td>Jacob</td>
                     <td>Thornton</td>
                     <td>@fat</td>
-                    <td><a href="#" class="btn btn-primary btn-sm">Prestar</a></td>
+                    <td><a href="prestarLibro.php?codigo=1001&ejemplar=2" class="btn btn-primary btn-sm">Prestar</a></td>
                     
                   </tr>
                 </tbody>

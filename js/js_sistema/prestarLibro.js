@@ -17,4 +17,8 @@ jQuery(document).ready(function(){
     $("#btn-prestar").removeAttr('disabled');
     $("#txt-fecha-entrega").removeAttr('disabled');
   });
+
+  $("#btn-guardar").click(function () {
+    alert("implementar ajax");
+  });
 }); 

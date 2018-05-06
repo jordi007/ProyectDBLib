@@ -29,7 +29,7 @@
   <nav class="navbar navbar-light bg-light static-top">
     	<div class="container">
       	<a class="navbar-brand" href="index.php">Biblioteca 935</a>
-      	<a class="btn btn-outline-primary" href="#">Iniciar Sesión</a>
+      	<a class="btn btn-outline-primary" href="login.php">Iniciar Sesión</a>
     	</div>
   </nav>
 
@@ -43,7 +43,7 @@
                 <form action="buscar.php" method="GET">
                     <div class="form-row">
                       <div class="col-12 col-md-9 mb-2 mb-md-0">
-                        <input type="text" name="buscar" class="form-control form-control-xs" value="<?php echo $_GET['buscar'] ?>" placeholder="Nombre del libro...">
+                        <input type="text" name="buscar" required class="form-control form-control-xs" value="<?php echo $_GET['buscar'] ?>" placeholder="Nombre del libro...">
                       </div>
                       <div class="col-12 col-md-3">
                         <button type="submit" class="btn btn-block btn-xs btn-primary">Buscar!</button>

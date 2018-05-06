@@ -29,7 +29,14 @@
   <nav class="navbar navbar-light bg-light static-top">
     	<div class="container">
       	<a class="navbar-brand" href="index.php">Biblioteca 935</a>
-      	<a class="btn btn-outline-primary" href="#">Iniciar Sesión</a>
+      	<!-- <a class="btn btn-outline-primary" href="#">Iniciar Sesión</a> -->  
+        <ul class="nav-item dropdown">
+          <span class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nombre</span>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="paginaAdministrador.php">Administrar</a>
+            <a class="dropdown-item" href="#">Salir</a>
+          </div>
+        </ul>
     	</div>
   </nav>
 
@@ -71,7 +78,7 @@
               <div>El usuario no existe...</div>
               <br>
               <input type="button" class="btn btn-primary" name="btn-guardar" id="btn-guardar" value="Crear">
-              <input type="button" class="btn btn-danger" name="btn-canselarc" id="btn-cancelarc" value="Cancelar">
+              <input type="button" class="btn btn-danger" name="btn-cancelarc" id="btn-cancelarc" value="Cancelar">
             </div>
           </div>
           <div class="form-group">
