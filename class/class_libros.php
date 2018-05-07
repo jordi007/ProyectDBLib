@@ -1,7 +1,8 @@
 <?php
 
-	  include_once("class_editorial.php");
-	  include_once("class_autor.php");
+	include_once("class_editorial.php");
+	include_once("class_pais.php");
+	include_once("class_autor.php");
 
 	class Libro{
 
@@ -13,9 +14,10 @@
 		private $edicion;
 		private $isbn;
 		private $anio;
-		private $descipcion;
+		private $descripcion;
 		private $urlimg;
 		private $autor;
+		private $ejemplar;
 
 		public function __construct($libroId,
 					$editorial,
@@ -25,9 +27,10 @@
 					$edicion,
 					$isbn,
 					$anio,
-					$descipcion,
+					$descripcion,
 					$urlimg,
-					$autor){
+					$autor,
+					$ejemplar){
 			$this->libroId = $libroId;
 			$this->editorial = $editorial;
 			$this->materia = $materia;
@@ -36,9 +39,10 @@
 			$this->edicion = $edicion;
 			$this->isbn = $isbn;
 			$this->anio = $anio;
-			$this->descipcion = $descipcion;
+			$this->descripcion = $descripcion;
 			$this->urlimg = $urlimg;
 			$this->autor = $autor;
+			$this->ejemplar = $ejemplar;
 		}
 		public function getLibroId(){
 			return $this->libroId;
@@ -88,11 +92,11 @@
 		public function setAnio($anio){
 			$this->anio = $anio;
 		}
-		public function getDescipcion(){
-			return $this->descipcion;
+		public function getDescripcion(){
+			return $this->descripcion;
 		}
-		public function setDescipcion($descipcion){
-			$this->descipcion = $descipcion;
+		public function setDescripcion($descripcion){
+			$this->descripcion = $descripcion;
 		}
 		public function getUrlimg(){
 			return $this->urlimg;
@@ -106,7 +110,17 @@
 		public function setAutor(){
 			$this->autor = $autor;
 		}
+		public function getEjemplar(){
+			return $this->ejemplar;
+		}
+		public function setEjemplar(){
+			$this->ejemplar = $ejemplar;
+		}
 		public function __toString(){
+			$aut = '';
+			foreach ($this->autor as $key => $value) {
+				$aut .=  $value->__toString() . ', ';
+			}
 			return "LibroId: " . $this->libroId . 
 				" editorial: " . $this->editorial . 
 				" materia: " . $this->materia . 
@@ -115,9 +129,9 @@
 				" Edicion: " . $this->edicion . 
 				" Isbn: " . $this->isbn . 
 				" Anio: " . $this->anio . 
-				" Descipcion: " . $this->descipcion . 
+				" Descripcion: " . $this->descripcion . 
 				" Urlimg: " . $this->urlimg .
-				" Autor: " . $this->autor;
+				" Autor: " . $aut;
 		}
 
 		static function buscarLibro($conexion, $cadena) {
@@ -140,6 +154,49 @@
 			}
 
 			return $resultado;
+		}
+
+		static function buscarLibroCodigo($conexion, $codigo) {
+			$sql = "SELECT L.LibroId, L.Codigo CodigoLib, L.Titulo, L.Edicion, 
+						L.ISBN, L.Anio, L.Descripcion, L.URLImg, M.MateriaId, 
+						M.Codigo CodigoMat, M.Nombre NombreM, E.EditorialId, 
+						E.Nombre NombreE, E.Email, P.PaisId, P.Nombre NombrePais
+					FROM Libro L
+					INNER JOIN Materia M ON M.MateriaId = L.MateriaId
+					INNER JOIN Editorial E ON E.EditorialId = L.EditorialId
+					INNER JOIN Pais P ON P.PaisId = E.PaisId
+					WHERE L.Codigo = '".$codigo."'";
+
+			$cursor = $conexion->ejecutarConsulta($sql); 
+
+			$libro;
+
+			if ($cursor) {
+				if ($temp = $conexion->obtenerFila($cursor)) {
+					$autores = Autor::buscarAutorLibro($conexion, $codigo);
+					$ejemplares = Ejemplar::buscarEjeplarLibro($conexion, $temp['LibroId']);
+					$libro = new Libro(
+							$temp['LibroId'],
+							new Editorial($temp['EditorialId'], 
+								new Pais($temp['PaisId'],$temp['NombrePais']),
+								$temp['NombreE'], $temp['Email']),
+							$temp['NombreM'],
+							$temp['CodigoLib'],
+							$temp['Titulo'],
+							$temp['Edicion'],
+							$temp['ISBN'],
+							$temp['Anio'],
+							$temp['Descripcion'],
+							$temp['URLImg'],
+							$autores,
+							$ejemplares
+						);
+				}
+			} else {
+				return false;
+			}
+
+			return $libro;
 		}
 	}
 ?>

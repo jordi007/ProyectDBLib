@@ -93,25 +93,33 @@
 		}
 
 		static function buscarAutorLibro($conexion, $codigo) {
-			$sql = "SELECT A.Nombre, A.Apellido
+			$sql = "SELECT A.AutorId, A.Nombre, A.Apellido, A.Seudonimo, A.FechaNac, P.PaisId, P.Nombre NombrePais
 					FROM Libro L
 					INNER JOIN LibroxAutor LA ON L.LibroId = LA.LibroId
 					INNER JOIN Autor A ON A.AutorId = LA.AutorId
+					INNER JOIN Pais P ON A.PaisId = P.PaisId
 					WHERE L.Codigo = '".$codigo."'";
 
 			$cursor = $conexion->ejecutarConsulta($sql); 
 
-			$resultado = array();
+			$autores = array();
 
 			if ($cursor) {
 				while ($temp = $conexion->obtenerFila($cursor)) {
-					$resultado[] = $temp;
+					$autores[] = new Autor(
+							$temp['AutorId'],
+							$temp['Nombre'],
+							$temp['Apellido'],
+							$temp['Seudonimo'],
+							$temp['FechaNac'],
+							new Pais($temp['PaisId'], $temp['NombrePais'])
+						);;
 				}
 			} else {
 				return false;
 			}
 
-			return $resultado;
+			return $autores;
 		}
 
 		static function listaDeAutores($conexion) {

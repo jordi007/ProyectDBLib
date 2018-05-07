@@ -76,3 +76,26 @@ INSERT INTO Suscriptor VALUES (5, 'Susan', 'Gutierrez', 'susan_gut@gmail.com', '
 
 
 SELECT * FROM Suscriptor;
+
+INSERT INTO Ciudad VALUES (1, 'Tegucigalpa');
+INSERT INTO Ciudad VALUES (2, 'San Pedro Sula');
+
+SELECT * FROM Ciudad;
+
+INSERT INTO Colonia VALUES (1, 1, 'Kennedy');
+INSERT INTO Colonia VALUES (2, 1, 'Centroamerica');
+INSERT INTO Colonia VALUES (3, 1, 'Lomas');
+
+SELECT * FROM Colonia;
+
+INSERT INTO Proveedor VALUES (1, 'Distribuciones S.A.', '22456521', 'distro_sa@mail.hn');
+INSERT INTO Proveedor VALUES (2, 'Don Quijote', '22453221', 'quijote_honduras@gmail.com');
+
+SELECT * FROM Proveedor;
+DELETE  FROM Ejemplar;
+INSERT INTO Ejemplar VALUES (1, 1, 2, 3, 'Desgaste en la pasta', '2017-1-1', 1200);
+INSERT INTO Ejemplar VALUES (1, 2, 2, 3, 'Falta hoja # 150', '2017-1-1', 1200);
+INSERT INTO Ejemplar VALUES (1, 3, 2, 1, 'Ninguna', '2017-1-1', 1200);
+INSERT INTO Ejemplar VALUES (1, 4, 2, 1, 'Ninguna', '2017-1-1', 1200);
+INSERT INTO Ejemplar VALUES (3, 1, 1, 4, 'Desgaste en la pasta', '2007-2-15', 800);
+INSERT INTO Ejemplar VALUES (3, 2, 1, 3, 'Desgaste en la pasta', '2007-2-15', 800);

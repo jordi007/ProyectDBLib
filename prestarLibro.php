@@ -49,15 +49,15 @@
         <form>
           <div class="form-group">
             <label for="txt-titulo">Título:</label>
-            <input type="text" class="form-control" id="txt-titulo" value="Hola mundo" disabled>
+            <input type="text" class="form-control" id="txt-titulo" value="<?php echo $_GET['titulo'] ?>" disabled>
           </div>
           <div class="form-group">
             <label for="txt-codigo">Codigo:</label>
-            <input type="text" class="form-control col-sm-3" value="FS-1010" id="txt-codigo" disabled>
+            <input type="text" class="form-control col-sm-3" value="<?php echo $_GET['codigo'] ?>" id="txt-codigo" disabled>
           </div>
           <div class="form-group">
             <label for="txt-nejemplar">Num. de Ejemplar</label>
-            <input type="text" class="form-control col-sm-3" id="txt-nejemplar" disabled>
+            <input type="text" class="form-control col-sm-3" value="<?php echo $_GET['ejemplar'] ?>" id="txt-nejemplar" disabled>
           </div>
           <div class="form-group">
             <label for="txt-email">Email suscritor:</label>
@@ -89,7 +89,7 @@
             <label for="txt-fecha-entrega">Fecha de entrega:</label>
             <input type="date" class="form-control" id="txt-fecha-entrega">
           </div>
-          <button type="submit" id="btn-prestar" class="btn btn-outline-primary">Prestar</button>
+          <button type="button" id="btn-prestar" class="btn btn-outline-primary">Prestar</button>
         </form>
       </div>
     </div>

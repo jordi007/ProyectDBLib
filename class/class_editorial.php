@@ -1,6 +1,6 @@
 <?php
 
-	  include_once("class_pais.php");
+	 include_once("class_pais.php");
 
 	class Editorial{
 

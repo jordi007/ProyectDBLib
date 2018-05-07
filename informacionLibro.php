@@ -1,3 +1,8 @@
+<?php 
+  include('class/class_conexion.php');
+  include('class/class_libros.php');
+  include('class/class_ejemplar.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,44 +47,57 @@
             	<img style="width: 300px; height:400px;" src="img/ejemplo.jpg">
           </div>
           <div class="col-md-6">
-              <table class="table table-condensed">
-                  <tr>
-                    <th class="text-right">Título:</th>
-                    <td>Titulo del libro</td>
-                  </tr>
-                  <tr>
-                    <th class="text-right">Codigo:</th>
-                    <td>if-1001</td>
-                  </tr>
-                  <tr>
-                    <th class="text-right">Autor(es):</th>
-                    <td>Nombre y Apellido, nombre y apellido</td>
-                  </tr>
-                  <tr>
-                    <th class="text-right">Editorial:</th>
-                    <td>masdfasdf</td>
-                  </tr>
-                  <tr>
-                    <th class="text-right">Edicion:</th>
-                    <td>Jacob</td>
-                  </tr>
-                  <tr>
-                    <th class="text-right">ISBN:</th>
-                    <td>123-1234-344</td>
-                  <tr>
-                  <tr>
-                    <th class="text-right">Materia:</th>
-                    <td>Informatica</td>
-                  </tr>
-                  <tr>
-                    <th class="text-right">Año:</th>
-                    <td>1999</td>
-                  </tr>
-                  <tr>
-                    <th class="text-right">Descripcion</th>
-                    <td>Jacob</td>
-                  </tr>
-              </table>
+            <?php 
+              $conn = new Conexion();
+
+              if ($conn->getLink()) {
+                $libro = Libro::buscarLibroCodigo($conn, $_GET['codigo']);
+                if ($libro) {
+                  $autores = '';
+                  foreach ($libro->getAutor() as $autor) {
+                    $autores .= $autor->getNombre().' '.$autor->getApellido().'<br>'; 
+                  }
+                  echo '<table class="table table-condensed">
+                          <tr>
+                            <th class="text-right">Título:</th>
+                            <td>'.$libro->getTitulo().'</td>
+                          </tr>
+                          <tr>
+                            <th class="text-right">Codigo:</th>
+                            <td>'.$libro->getCodigo().'</td>
+                          </tr>
+                          <tr>
+                            <th class="text-right">Autor(es):</th>
+                            <td>'.$autores.'</td>
+                          </tr>
+                          <tr>
+                            <th class="text-right">Editorial:</th>
+                            <td>'.$libro->getEditorial()->getNombre().'</td>
+                          </tr>
+                          <tr>
+                            <th class="text-right">Edicion:</th>
+                            <td>'.$libro->getEdicion().'</td>
+                          </tr>
+                          <tr>
+                            <th class="text-right">ISBN:</th>
+                            <td>'.$libro->getIsbn().'</td>
+                          <tr>
+                          <tr>
+                            <th class="text-right">Materia:</th>
+                            <td>'.$libro->getMateria().'</td>
+                          </tr>
+                          <tr>
+                            <th class="text-right">Año:</th>
+                            <td>'.$libro->getAnio().'</td>
+                          </tr>
+                          <tr>
+                            <th class="text-right">Descripcion</th>
+                            <td>'.$libro->getDescripcion().'</td>
+                          </tr>
+                      </table>';
+                }
+              }
+            ?>
           </div>
         </div>
       </div>
@@ -90,37 +108,39 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-lg-8 col-xl-8">
-        <form action="" method=""></form>
-        <h3>Ejemplares</h3>
-            <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Estado</th>
-                    <th scope="col">Observación</th>
-                    <th scope="col">Diponible</th>
-                    <th scope="col">Opciones</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td><a href="prestarLibro.php?codigo=1001&ejemplar=2" class="btn btn-primary btn-sm">Prestar</a></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td><a href="prestarLibro.php?codigo=1001&ejemplar=2" class="btn btn-primary btn-sm">Prestar</a></td>
-                    
-                  </tr>
-                </tbody>
-              </table>
-              </form>
+        <h3>Ejemplares:</h3>
+          <?php 
+            if ($libro) {
+              if(count($libro->getEjemplar()) > 0) {
+                echo '<table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Estado</th>
+                          <th scope="col">Observación</th>
+                          <th scope="col">Diponible</th>
+                          <th scope="col">Opciones</th>
+                        </tr>
+                      </thead>
+                      <tbody>';
+                foreach ($libro->getEjemplar() as $i => $ejemplar) {
+                  echo '<tr>
+                          <th scope="row">'.($i+1).'</th>
+                          <td>'.$ejemplar->getEstado().'</td>
+                          <td>'.$ejemplar->getObservacion().'</td>
+                          <td>SI</td>
+                          <td><a href="prestarLibro.php?codigo='.$libro->getCodigo()
+                          .'&ejemplar='.$ejemplar->getIndice()
+                          .'&titulo='.$libro->getTitulo().'"class="btn btn-primary btn-sm">Prestar</a></td>
+                        </tr>';
+                }
+                echo '</tbody>
+                    </table>';
+              } else {
+                echo "<h5>No hay ejemplares disponibles</h5>";
+              }
+            }
+          ?>
           </div>
         <div>
       <div>

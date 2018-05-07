@@ -10,14 +10,15 @@ WHERE L.Codigo LIKE 'if%' OR L.Titulo LIKE '%if-1001%'
 GROUP BY L.Codigo, L.Titulo, L.Edicion;
 
 -- Query para buscar los autores de un libro
-SELECT A.Nombre, A.Apellido
+SELECT A.AutorId, A.Nombre, A.Apellido, A.Seudonimo, A.FechaNac, P.PaisId, P.Nombre NombrePais
 FROM Libro L
 INNER JOIN LibroxAutor LA ON L.LibroId = LA.LibroId
 INNER JOIN Autor A ON A.AutorId = LA.AutorId
-WHERE L.Codigo = 'if-1002';
+INNER JOIN Pais P ON A.PaisId = P.PaisId
+WHERE L.Codigo = 'if-1001';
 
 -- query para obtener todos los autores
-SELECT A.AutorId, A.Nombre, A.Apellido, A.Seudonimo, A.FechaNac, P.PaisId, P.NombrePais
+SELECT A.AutorId, A.Nombre, A.Apellido, A.Seudonimo, A.FechaNac, P.PaisId, P.Nombre NombrePais
 FROM Autor A 
 INNER JOIN Pais P ON A.PaisId = P.PaisId;
 
@@ -39,3 +40,19 @@ FROM Editorial E
 LEFT JOIN Libro L ON E.EditorialId = L.MateriaId
 WHERE E.EditorialId = 1
 GROUP BY E.EditorialId
+
+-- query para buscar libro por codigo 
+SELECT L.LibroId, L.Codigo CodigoLib, L.Titulo, L.Edicion, L.ISBN, L.Anio, L.Descripcion, L.URLImg,
+		M.MateriaId, M.Codigo CodigoMat, M.Nombre NombreM, E.EditorialId, E.Nombre NombreE, E.Email,
+		P.PaisId, P.Nombre NombrePais
+FROM Libro L
+INNER JOIN Materia M ON M.MateriaId = L.MateriaId
+INNER JOIN Editorial E ON E.EditorialId = L.EditorialId
+INNER JOIN Pais P ON P.PaisId = E.PaisId
+WHERE L.Codigo = 'if-1001';
+
+-- buscar ejemplares de libro por LibroId
+SELECT E.Indice, E.ProveedorId, Es.Estado, E.Observacion, E.FechaAdquiscion, E.Precio 
+FROM Ejemplar E
+INNER JOIN Estado Es ON E.EstadoId = Es.EstadoId
+WHERE LibroId = 1;

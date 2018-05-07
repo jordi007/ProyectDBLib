@@ -1,9 +1,5 @@
 <?php
-
-	  include_once("class_libros.php");
-
-	class Ejemplar extends Libro{
-
+	class Ejemplar {
 		private $indice;
 		private $proveedor;
 		private $estado;
@@ -11,24 +7,13 @@
 		private $fechaAdquisicion;
 		private $precio;
 
-		public function __construct($libroId,
-					$editorial,
-					$materia,
-					$codigo,
-					$titulo,
-					$edicion,
-					$isbn,
-					$anio,
-					$descipcion,
-					$urlimg,
-					$autor,
+		public function __construct(
 					$indice,
 					$proveedor,
 					$estado,
 					$observacion,
 					$fechaAdquisicion,
 					$precio){
-			parent::__construct($libroId,$editorial,$materia,$codigo,$titulo,$edicion,$isbn,$anio,$descipcion,$urlimg,$autor);
 			$this->indice = $indice;
 			$this->proveedor = $proveedor;
 			$this->estado = $estado;
@@ -42,16 +27,16 @@
 		public function setIndice($indice){
 			$this->indice = $indice;
 		}
-		public function getproveedor(){
+		public function getProveedor(){
 			return $this->proveedor;
 		}
-		public function setproveedor($proveedor){
+		public function setProveedor($proveedor){
 			$this->proveedor = $proveedor;
 		}
-		public function getestado(){
+		public function getEstado(){
 			return $this->estado;
 		}
-		public function setestado($estado){
+		public function setEstado($estado){
 			$this->estado = $estado;
 		}
 		public function getObservacion(){
@@ -73,13 +58,40 @@
 			$this->precio = $precio;
 		}
 		public function __toString(){
-			return parent::__toString() .  
-				" Indice: " . $this->indice . 
+			return " Indice: " . $this->indice . 
 				" proveedor: " . $this->proveedor . 
 				" estado: " . $this->estado . 
 				" Observacion: " . $this->observacion . 
 				" FechaAdquisicion: " . $this->fechaAdquisicion . 
 				" Precio: " . $this->precio;
+		}
+
+		static function buscarEjeplarLibro($conexion, $idLibro) {
+			$sql = 'SELECT E.Indice, E.ProveedorId, Es.Estado, E.Observacion, E.FechaAdquiscion, E.Precio 
+					FROM Ejemplar E
+					INNER JOIN Estado Es ON E.EstadoId = Es.EstadoId
+					WHERE LibroId = '.$idLibro;
+
+			$cursor = $conexion->ejecutarConsulta($sql); 
+
+			$Ejemplares = array();
+
+			if ($cursor) {
+				while ($temp = $conexion->obtenerFila($cursor)) {
+					$Ejemplares[] = new Ejemplar(
+						$temp['Indice'], 
+						$temp['ProveedorId'], 
+						$temp['Estado'], 
+						$temp['Observacion'],
+						$temp['FechaAdquiscion'],
+						$temp['Precio']
+					);
+				}
+			} else {
+				return false;
+			}
+
+			return $Ejemplares;
 		}
 	}
 ?>

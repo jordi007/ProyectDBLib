@@ -89,7 +89,7 @@
 
                     if ($res) {
                       foreach ($res as $autor) {
-                        $autores .= $autor['Nombre'] .' ' .$autor['Apellido'] . ' - ';
+                        $autores .= $autor->getNombre() .' ' .$autor->getApellido() . ' - ';
                       }
                     }
 
