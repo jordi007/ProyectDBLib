@@ -46,24 +46,24 @@
         <h1 class="h1">Prestar Libro</h1>
       </div>
       <div class="col-md-5 col-lg-5 col-xl-5 mx-auto">
-        <form>
+        <form method="POST" action="accionPrestar.php">
           <div class="form-group">
             <label for="txt-titulo">Título:</label>
-            <input type="text" class="form-control" id="txt-titulo" value="<?php echo $_GET['titulo'] ?>" disabled>
+            <input type="text" disabled class="form-control" name='txt-titulo' id="txt-titulo" value="<?php echo $_GET['titulo'] ?>">
           </div>
           <div class="form-group">
             <label for="txt-codigo">Codigo:</label>
-            <input type="text" class="form-control col-sm-3" value="<?php echo $_GET['codigo'] ?>" id="txt-codigo" disabled>
+            <input type="text" name="txt-codigo" disabled class="form-control col-sm-3" value="<?php echo $_GET['codigo'] ?>" id="txt-codigo">
           </div>
           <div class="form-group">
             <label for="txt-nejemplar">Num. de Ejemplar</label>
-            <input type="text" class="form-control col-sm-3" value="<?php echo $_GET['ejemplar'] ?>" id="txt-nejemplar" disabled>
+            <input type="text" name="txt-ejemplar" disabled class="form-control col-sm-3" value="<?php echo $_GET['ejemplar'] ?>" id="txt-nejemplar">
           </div>
           <div class="form-group">
             <label for="txt-email">Email suscritor:</label>
             <div class="container">
               <div class="row">
-                <input type="email" class="form-control col-7" id="txt-email">
+                <input type="email" name="txt-email" class="form-control col-7" required id="txt-email">
                 <span class="col-1"></span>
                 <input type="button"  class="btn btn-primary" id="btn-nuevo" value="Nuevo suscritor">
               </div>
@@ -83,13 +83,13 @@
           </div>
           <div class="form-group">
             <label for="txt-fecha-inicio">Fecha de Inicio:</label>
-            <input type="date" class="form-control" id="txt-fecha-inicio" disabled>
+            <input type="text" class="form-control" name="txt-fecha-inicio" id="txt-fecha-inicio" disabled value="<?php echo date('d/m/Y'); ?>">
           </div>
           <div class="form-group">
             <label for="txt-fecha-entrega">Fecha de entrega:</label>
-            <input type="date" class="form-control" id="txt-fecha-entrega">
+            <input type="date" class="form-control" required  name="txt-fecha-entrega" id="txt-fecha-entrega" min="<?php echo date('Y-m-d'); ?>">
           </div>
-          <button type="button" id="btn-prestar" class="btn btn-outline-primary">Prestar</button>
+          <input type="button" id="btn-prestar" name="btn-prestar" class="btn btn-outline-primary" value="Prestar">
         </form>
       </div>
     </div>

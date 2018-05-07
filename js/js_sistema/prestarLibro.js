@@ -21,4 +21,25 @@ jQuery(document).ready(function(){
   $("#btn-guardar").click(function () {
     alert("implementar ajax");
   });
+
+  $("#btn-prestar").click(function () {
+    var datos = "txt-codigo="+$("#txt-codigo").val()+"&"+
+                "txt-nejemplar="+$("#txt-nejemplar").val()+"&"+
+                "txt-email="+$("#txt-email").val()+"&"+
+                "txt-fecha-entrega="+$("#txt-fecha-entrega").val();
+    $.ajax({
+      url:'ajax/prestar.php',
+      data: datos,
+      method: 'POST',
+      dataType:"html",
+      success: function(resultado){
+        alert(resultado);
+      },
+      error:function(e){
+        
+      }
+    });
+  });
+
+
 }); 

@@ -74,6 +74,7 @@ INSERT INTO Suscriptor VALUES (2, 'Jose', 'Juarez', 'jjuarez@gmail.com', '9978-2
 INSERT INTO Suscriptor VALUES (4, 'Mario', 'Molina', 'mario.molina@hotmail.com', NULL);
 INSERT INTO Suscriptor VALUES (5, 'Susan', 'Gutierrez', 'susan_gut@gmail.com', '9315-7890');
 
+INSERT INTO Bibliotecario VALUES (1, 'asd.456', 10800);
 
 SELECT * FROM Suscriptor;
 
@@ -99,3 +100,7 @@ INSERT INTO Ejemplar VALUES (1, 3, 2, 1, 'Ninguna', '2017-1-1', 1200);
 INSERT INTO Ejemplar VALUES (1, 4, 2, 1, 'Ninguna', '2017-1-1', 1200);
 INSERT INTO Ejemplar VALUES (3, 1, 1, 4, 'Desgaste en la pasta', '2007-2-15', 800);
 INSERT INTO Ejemplar VALUES (3, 2, 1, 3, 'Desgaste en la pasta', '2007-2-15', 800);
+
+SELECT * FROM Prestamos;
+INSERT INTO Prestamos VALUES (1, 1, 2, 1, 2, '2018-5-7', '2018-5-15', 0, 0);
+INSERT INTO Prestamos VALUES (2, 1, 1, 1, 3, '2018-5-1', '2018-5-5', 1, 0);

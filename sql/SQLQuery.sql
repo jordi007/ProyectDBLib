@@ -56,3 +56,12 @@ SELECT E.Indice, E.ProveedorId, Es.Estado, E.Observacion, E.FechaAdquiscion, E.P
 FROM Ejemplar E
 INNER JOIN Estado Es ON E.EstadoId = Es.EstadoId
 WHERE LibroId = 1;
+
+-- Retorna el proximo Id en Prestamos
+SELECT IIF (MAX(PrestamoId) IS NULL, 1, MAX(PrestamoId) + 1) PrestamoId
+FROM Prestamos;
+
+-- Selecciona el id de el suscriptor por email
+SELECT SuscriptorId, Nombre, Apellido, Email, Telefono
+FROM Suscriptor
+WHERE Email = 'maria97@gmail.com';
