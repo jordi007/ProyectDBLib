@@ -52,7 +52,7 @@ INNER JOIN Pais P ON P.PaisId = E.PaisId
 WHERE L.Codigo = 'if-1001';
 
 -- buscar ejemplares de libro por LibroId
-SELECT E.Indice, E.ProveedorId, Es.Estado, E.Observacion, E.FechaAdquiscion, E.Precio 
+SELECT E.LibroId, E.Indice, E.ProveedorId, Es.Estado, E.Observacion, E.FechaAdquiscion, E.Precio 
 FROM Ejemplar E
 INNER JOIN Estado Es ON E.EstadoId = Es.EstadoId
 WHERE LibroId = 1;

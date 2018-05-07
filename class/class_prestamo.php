@@ -8,7 +8,6 @@
 
 		private $prestamoId;
 		private $ejemplar;
-		private $indice;
 		private $bibliotecario;
 		private $suscriptor;
 		private $fechaSalida;
@@ -18,7 +17,6 @@
 
 		public function __construct($prestamoId,
 					$ejemplar,
-					$indice,
 					$bibliotecario,
 					$suscriptor,
 					$fechaSalida,
@@ -27,7 +25,6 @@
 					$multa){
 			$this->prestamoId = $prestamoId;
 			$this->ejemplar = $ejemplar;
-			$this->indice = $indice;
 			$this->bibliotecario = $bibliotecario;
 			$this->suscriptor = $suscriptor;
 			$this->fechaSalida = $fechaSalida;
@@ -41,22 +38,16 @@
 		public function setPrestamoId($prestamoId){
 			$this->prestamoId = $prestamoId;
 		}
-		public function getejemplar(){
+		public function getEjemplar(){
 			return $this->ejemplar;
 		}
-		public function setejemplar($ejemplar){
+		public function setEjemplar($ejemplar){
 			$this->ejemplar = $ejemplar;
 		}
-		public function getIndice(){
-			return $this->indice;
-		}
-		public function setIndice($indice){
-			$this->indice = $indice;
-		}
-		public function getbibliotecario(){
+		public function getBibliotecario(){
 			return $this->bibliotecario;
 		}
-		public function setbibliotecario($bibliotecario){
+		public function setBibliotecario($bibliotecario){
 			$this->bibliotecario = $bibliotecario;
 		}
 		public function getsuscriptor(){
@@ -92,13 +83,43 @@
 		public function __toString(){
 			return "PrestamoId: " . $this->prestamoId . 
 				" ejemplar: " . $this->ejemplar . 
-				" Indice: " . $this->indice . 
 				" bibliotecario: " . $this->bibliotecario . 
 				" suscriptor: " . $this->suscriptor . 
 				" FechaSalida: " . $this->fechaSalida . 
 				" FechaEntrega: " . $this->fechaEntrega . 
 				" Entregago: " . $this->entregago . 
 				" Multa: " . $this->multa;
+		}
+
+		static function siguientePrestamoId($conexion) {
+			$sql = 'SELECT IIF (MAX(PrestamoId) IS NULL, 1, MAX(PrestamoId) + 1) PrestamoId
+					FROM Prestamos';
+
+			$cursor = $conexion->ejecutarConsulta($sql); 
+
+			$prestamoId = false;
+
+			if ($cursor) {
+				if ($temp = $conexion->obtenerFila($cursor)) {
+					$prestamoId = $temp['PrestamoId'];
+				}
+			}
+
+			return $prestamoId;
+		}
+
+		static function nuevoPrestamo($conexion, $prestamoId, $libroId, $indice,
+				$bibliotecarioId, $suscriptorId, $fechaSalida, $fechaEntrega) {
+			$sql = "INSERT INTO Prestamos 
+					VALUES (".$prestamoId.",".$libroId.", ".$indice.", 
+							".$bibliotecarioId.", ".$suscriptorId.", '".$fechaSalida."',
+							 '".$fechaEntrega."', 0, 0)";
+
+			if (strtotime($fechaSalida) < strtotime($fechaEntrega)) {
+				echo "La fecha es correcta";
+			} else {
+				echo $fechaEntrega . "<=" .$fechaSalida;
+			}
 		}
 	}
 ?>

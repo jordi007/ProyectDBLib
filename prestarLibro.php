@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="ISO-8859-1">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -89,7 +89,10 @@
             <label for="txt-fecha-entrega">Fecha de entrega:</label>
             <input type="date" class="form-control" required  name="txt-fecha-entrega" id="txt-fecha-entrega" min="<?php echo date('Y-m-d'); ?>">
           </div>
-          <input type="button" id="btn-prestar" name="btn-prestar" class="btn btn-outline-primary" value="Prestar">
+          <div class="form-group">
+            <input type="button" id="btn-prestar" name="btn-prestar" class="btn btn-outline-primary" value="Prestar">
+          </div>
+          <div id="div-msg"></div>
         </form>
       </div>
     </div>

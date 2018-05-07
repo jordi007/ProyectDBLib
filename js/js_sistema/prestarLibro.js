@@ -28,12 +28,12 @@ jQuery(document).ready(function(){
                 "txt-email="+$("#txt-email").val()+"&"+
                 "txt-fecha-entrega="+$("#txt-fecha-entrega").val();
     $.ajax({
-      url:'ajax/prestar.php',
+      url:'ajax/accionPrestar.php',
       data: datos,
       method: 'POST',
       dataType:"html",
       success: function(resultado){
-        alert(resultado);
+        $("#div-msg").html(resultado);
       },
       error:function(e){
         

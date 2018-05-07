@@ -56,5 +56,29 @@
 				" Email: " . $this->email . 
 				" Telefono: " . $this->telefono;
 		}
+
+		static function buscarSuscriptorEmail($conexion, $email) {
+			$sql = "SELECT SuscriptorId, Nombre, Apellido, Email, Telefono
+					FROM Suscriptor
+					WHERE Email = '".$email."'";
+
+			$cursor = $conexion->ejecutarConsulta($sql); 
+
+			$suscriptor = array();
+
+			if ($cursor) {
+				while ($temp = $conexion->obtenerFila($cursor)) {
+					$suscriptor = new Suscriptor(
+						$temp['SuscriptorId'], 
+						$temp['Nombre'], 
+						$temp['Apellido'],
+						$temp['Email'],
+						$temp['Telefono']
+					);
+				}
+			}
+
+			return $suscriptor;
+		}
 	}
 ?>
