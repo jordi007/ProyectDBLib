@@ -1,3 +1,8 @@
+<?php
+  include('class/class_conexion.php');
+  include('class/class_autor.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +29,7 @@
   <link href="css/landing-page.min.css" rel="stylesheet">
 
 </head>
-<body>
+<body class="bg-light">
   <!-- Navigation -->
   <nav class="navbar navbar-light bg-light static-top">
       <div class="container">
@@ -45,7 +50,44 @@
         <h2>Autores:</h2>
       </div>
       <div class="col-md-10 col-lg-10 col-xl-10 mx-auto">
-        <table class="table table-hover">
+        <?php 
+          $conn = new Conexion();
+          if ($conn->getLink()) {
+            $autores = Autor::listaDeAutores($conn);
+            
+            if ($autores) {
+              echo '<table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Seudonimo</th>
+                        <th scope="col">Pais</th>
+                        <th scope="col">Num. Libros</th>
+                        <th scope="col">Opción</th>
+                      </tr>
+                    </thead>
+                    <tbody>';
+              foreach ($autores as $llave => $autor) {
+                echo '<tr>
+                        <th scope="row">'.($llave + 1).'</th>
+                        <td>'.$autor->getNombre().'</td>
+                        <td>'.$autor->getApellido().'</td>
+                        <td>'.(($autor->getSeudonimo()) ? $autor->getSeudonimo()
+                              : '--NINGUNO--').'</td>
+                        <td>'.$autor->getPais()->getNombre().'</td>
+                        <td>'.$autor->numeroLibros($conn).'</td>
+                        <td><a href="#'.$autor->getAutorId().'">Ver libros</a></td>
+                      </tr>';
+              }
+              echo '</tbody>
+                  </table>';
+            }
+          }
+
+        ?>
+        <!-- <table class="table table-hover">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -65,10 +107,10 @@
               <td>ninguno</td>
               <td>España</td>
               <td>2</td>
-              <td><a href="buscar.php?buscar=Juan+Martin">Ver libros</a></td>
+              <td><a href="#">Ver libros</a></td>
             </tr>
           </tbody>
-        </table>
+        </table> -->
       </div>
   
     </div>

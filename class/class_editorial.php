@@ -48,5 +48,50 @@
 				" Nombre: " . $this->nombre . 
 				" Email: " . $this->email;
 		}
+
+		public function numeroLibros($conexion) {
+			$sql = 'SELECT COUNT(E.EditorialId) NEditoriales
+					FROM Editorial E
+					LEFT JOIN Libro L ON E.EditorialId = L.MateriaId
+					WHERE E.EditorialId = '. $this->editorialId
+					.' GROUP BY E.EditorialId';
+
+			$cursor = $conexion->ejecutarConsulta($sql); 
+
+			if ($cursor) {
+				if ($temp = $conexion->obtenerFila($cursor)) {
+					return $temp['NEditoriales'];	
+				}
+			} else {
+				return false;
+			}
+
+			return 0;
+		}
+
+		static function listaEditoriales($conexion) {
+			$sql = 'SELECT E.EditorialId, E.Nombre, E.Email, P.PaisId, P.Nombre NombrePais
+					FROM Editorial E
+					INNER JOIN Pais P ON E.PaisId = P.PaisId';
+
+			$cursor = $conexion->ejecutarConsulta($sql); 
+
+			$editoriales = array();
+
+			if ($cursor) {
+				while ($temp = $conexion->obtenerFila($cursor)) {
+					$editoriales[] = new Editorial(
+						$temp['EditorialId'], 
+						new Pais($temp['PaisId'], $temp['NombrePais']), 
+						$temp['Nombre'], 
+						$temp['Email']
+					);
+				}
+			} else {
+				return false;
+			}
+
+			return $editoriales;
+		}
 	}
 ?>

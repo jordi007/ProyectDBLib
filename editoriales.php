@@ -1,3 +1,7 @@
+<?php
+  include('class/class_conexion.php');
+  include('class/class_editorial.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,7 +49,38 @@
           <h2 class="h2">Editoriales:</h2>
         </div>
         <div class="col-md-6 mx-auto">
-          <table class="table table-hover">
+          <?php
+            $conn = new Conexion();
+
+            if ($conn->getLink()) {
+              $editoriales = Editorial::listaEditoriales($conn);
+              if ($editoriales) {
+                echo '<table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Editorial</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Num. Libros</th>
+                            <th scope="col">Opción</th>
+                          </tr>
+                        </thead>
+                        <tbody>';
+                foreach ($editoriales as $llave => $editorial) {
+                  echo '<tr>
+                          <th scope="row">'.($llave+1).'</th>
+                          <td>'.$editorial->getNombre().'</td>
+                          <td>'.$editorial->getEmail().'</td>
+                          <td>'.$editorial->numeroLibros($conn).'</td>
+                          <td><a href="#">Ver libros</a></td>
+                        </tr>';
+                }
+                echo '</tbody>
+                    </table>';
+              }
+            }
+          ?>
+          <!-- <table class="table table-hover">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -64,7 +99,7 @@
                 <td><a href="#">Ver libros</a></td>
               </tr>
             </tbody>
-          </table>
+          </table> -->
         </div>
       </div>
     </div>

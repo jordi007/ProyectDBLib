@@ -70,6 +70,28 @@
 				" Pais: " . $this->pais;
 		}
 
+		public function numeroLibros($conexion) {
+			$sql = 'SELECT COUNT(A.AutorId) NLibros
+					FROM Autor A
+					LEFT JOIN LibroxAutor LA ON A.AutorId = LA.AutorId
+					WHERE A.AutorId = '.$this->autorId
+					.' GROUP BY A.AutorId';
+
+			$cursor = $conexion->ejecutarConsulta($sql); 
+
+			$numLibros = 0;
+
+			if ($cursor) {
+				if ($temp = $conexion->obtenerFila($cursor)) {
+					return $temp['NLibros'];
+				}
+			} else {
+				return false;
+			}
+
+			return $numeroLibros;
+		}
+
 		static function buscarAutorLibro($conexion, $codigo) {
 			$sql = "SELECT A.Nombre, A.Apellido
 					FROM Libro L
@@ -84,6 +106,34 @@
 			if ($cursor) {
 				while ($temp = $conexion->obtenerFila($cursor)) {
 					$resultado[] = $temp;
+				}
+			} else {
+				return false;
+			}
+
+			return $resultado;
+		}
+
+		static function listaDeAutores($conexion) {
+			$sql = "SELECT A.AutorId, A.Nombre, A.Apellido, A.Seudonimo, 
+						A.FechaNac, P.PaisId, P.Nombre AS NombrePais
+					FROM Autor A 
+					INNER JOIN Pais P ON A.PaisId = P.PaisId";
+
+			$cursor = $conexion->ejecutarConsulta($sql); 
+
+			$resultado = array();
+
+			if ($cursor) {
+				while ($temp = $conexion->obtenerFila($cursor)) {
+				$resultado[] = new Autor(
+							$temp['AutorId'],
+							$temp['Nombre'],
+							$temp['Apellido'],
+							$temp['Seudonimo'],
+							$temp['FechaNac'],
+							new Pais($temp['PaisId'], $temp['NombrePais'])
+						);
 				}
 			} else {
 				return false;
