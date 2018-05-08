@@ -56,32 +56,33 @@
               $materias = Materia::listaLibros($conn);
               if ($materias) {
                 echo '<table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Codigo</th>
-                <th scope="col">Materia</th>
-                <th scope="col">Num. Libros</th>
-                <th scope="col">Opción</th>
-              </tr>
-            </thead>
-            <tbody>';
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Codigo</th>
+                        <th scope="col">Materia</th>
+                        <th scope="col">Num. Libros</th>
+                        <th scope="col">Opción</th>
+                      </tr>
+                    </thead>
+                    <tbody>';
               foreach ($materias as $llave => $materia) {
-
-                  echo '<tr>
-                <th scope="row">'.($llave+1).'</th>
-                <td>'.$materia->getCodigo().'</td>
-                <td>'.$materia->getNombre().'</td>
-                <td>'.$materia->numeroLibros($conn).'</td>
-                <td><a href="'.'detallesMateria.php?'.$materia->getMateriaId().'">Ver libros</a></td>
-              </tr>';
+                echo '<tr>
+                      <th scope="row">'.($llave+1).'</th>
+                      <td>'.$materia->getCodigo().'</td>
+                      <td>'.$materia->getNombre().'</td>
+                      <td>'.($n = $materia->numeroLibros($conn)).'</td>';
+                if ($n >= 1) {
+                  echo '<td><a href="detallesMateria.php?materia='.$materia->getNombre().
+                            '&codigo='.$materia->getCodigo().'">Ver libros</a></td>
+                        </tr>';
+                }
+              }
+              echo'</tbody>
+                </table>';
             }
-            echo'
-            </tbody>
-          </table>';
-        }
-      }
-  ?>
+          }
+        ?>
         </div>
       </div>
   
