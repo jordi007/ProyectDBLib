@@ -2,7 +2,7 @@ USE BibliotecaDB;
 
 SELECT * FROM Libro;
 
--- Query para buscar libros por codigo o título
+-- Query para buscar libros por codigo o tÃ­tulo
 SELECT L.Codigo, L.Titulo, L.Edicion, COUNT(E.LibroId) AS NEjemplares
 FROM Libro L
 LEFT JOIN Ejemplar E ON L.LibroId = E.LibroId
@@ -136,9 +136,6 @@ WHERE E.EditorialId = 1
 
 SELECT *
 FROM Libro
-=======
+
 SELECT * FROM Ejemplar;
->>>>>>> df7cf6d377e7aae14241d2a2c3fa4f9717ccebca
-=======
-SELECT * FROM Ejemplar;
->>>>>>> df7cf6d377e7aae14241d2a2c3fa4f9717ccebca
+
