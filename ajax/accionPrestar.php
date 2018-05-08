@@ -38,5 +38,5 @@
 		}
 	}
 
-	echo json_encode($respuesta).'<br>';
+	echo json_encode($respuesta);
 ?>

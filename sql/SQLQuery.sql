@@ -73,6 +73,17 @@ LEFT JOIN (SELECT P.LibroId, P.Indice, MAX(P.FechaSalida) FechaSalida
 	GROUP BY P.LibroId, P.Indice) AS T 
 	ON T.LibroId = E.LibroId AND T.Indice = E.Indice
 LEFT JOIN Prestamos PT ON PT.LibroId = E.LibroId AND PT.Indice = E.Indice AND PT.FechaSalida = T.FechaSalida
+WHERE E.LibroId = 1;
+
+SELECT IIF (PT.Entregado IS NULL, 1, PT.Entregado) Disponible
+FROM Ejemplar E
+INNER JOIN Estado Es ON E.EstadoId = Es.EstadoId
+LEFT JOIN (SELECT P.LibroId, P.Indice, MAX(P.FechaSalida) FechaSalida
+	FROM Prestamos P
+	GROUP BY P.LibroId, P.Indice) AS T 
+	ON T.LibroId = E.LibroId AND T.Indice = E.Indice
+LEFT JOIN Prestamos PT ON PT.LibroId = E.LibroId AND PT.Indice = E.Indice AND PT.FechaSalida = T.FechaSalida
+WHERE E.LibroId = 1 AND E.Indice = 10
 
 -- Retorna el proximo Id en Prestamos
 SELECT IIF (MAX(PrestamoId) IS NULL, 1, MAX(PrestamoId) + 1) PrestamoId

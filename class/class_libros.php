@@ -169,7 +169,7 @@
 
 			$cursor = $conexion->ejecutarConsulta($sql); 
 
-			$libro;
+			$libro = false;
 
 			if ($cursor) {
 				if ($temp = $conexion->obtenerFila($cursor)) {
@@ -193,8 +193,6 @@
 							$ejemplares
 						);
 				}
-			} else {
-				return false;
 			}
 
 			return $libro;

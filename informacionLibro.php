@@ -44,10 +44,10 @@
 <!-- ESTRUCTURA LIBRO -->
   <div class="container">
         <div class="row">
-          <div class="col-md-4 text-right">
+          <!-- <div class="col-md-4 text-right">
             	<img style="width: 300px; height:400px;" src="img/ejemplo.jpg">
-          </div>
-          <div class="col-md-6">
+          </div> -->
+          <div class="col-md-6 mx-auto">
             <?php 
               $conn = new Conexion();
 
@@ -58,11 +58,8 @@
                   foreach ($libro->getAutor() as $autor) {
                     $autores .= $autor->getNombre().' '.$autor->getApellido().'<br>'; 
                   }
-                  echo '<table class="table table-condensed">
-                          <tr>
-                            <th class="text-right">Título:</th>
-                            <td>'.$libro->getTitulo().'</td>
-                          </tr>
+                  echo '<div class="text-center"><h4>'.$libro->getTitulo().'</h4></div>
+                        <table class="table table-condensed">
                           <tr>
                             <th class="text-right">Codigo:</th>
                             <td>'.$libro->getCodigo().'</td>
@@ -96,6 +93,8 @@
                             <td>'.$libro->getDescripcion().'</td>
                           </tr>
                       </table>';
+                } else {
+                  echo '<h3>Ups... Este libro no existe</h3>';
                 }
               }
             ?>
@@ -108,12 +107,12 @@
  <!-- TABLA DE DATOS -->
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-lg-8 col-xl-8">
-        <h3>Ejemplares:</h3>
+      <div class="col-9 mx-auto">
           <?php 
             if ($libro) {
               if(count($libro->getEjemplar()) > 0) {
-                echo '<table class="table table-hover">
+                echo '<h4>Ejemplares:</h4>
+                    <table class="table table-hover">
                       <thead>
                         <tr>
                           <th scope="col">#</th>

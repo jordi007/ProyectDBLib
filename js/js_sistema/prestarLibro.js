@@ -31,9 +31,22 @@ jQuery(document).ready(function(){
       url:'ajax/accionPrestar.php',
       data: datos,
       method: 'POST',
-      dataType:"html",
+      dataType:'json',
       success: function(resultado){
-        $("#div-msg").html(resultado);
+        if (!resultado['realizado']) {
+          if (!resultado['email']) {
+            $("#div-msg").html("El email no es valido");
+            $("#txt-email").focus();
+          } else if (!resultado['fecha']) {
+            $("#div-msg").html("La fecha de entrega no es valida");
+            $("#txt-fecha-entrega").focus();
+          } else if (!resultado['libro']) {
+            $("#div-msg").html("Libro no disponible");
+          }
+        } else {
+          $("#div-msg").html("Prestamo realizado correctamente");
+          setTimeout("location.href='informacionLibro.php?codigo="+$("#txt-codigo").val()+"'", 2000);
+        }
       },
       error:function(e){
         
