@@ -1,13 +1,14 @@
 <?php
   include('class/class_conexion.php');
   include('class/class_materia.php');
+  include('class/class_libros.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-  	<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -32,49 +33,50 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-light bg-light static-top">
-     	 <div class="container">
-        	<a class="navbar-brand" href="index.php">Biblioteca 935</a>
-        	<nav class="my-2 my-md-0 mr-md-3">
+       <div class="container">
+          <a class="navbar-brand" href="index.php">Biblioteca 935</a>
+          <nav class="my-2 my-md-0 mr-md-3">
               <a class="p-2 text-dark" href="autores.php">Autores</a>
               <a class="p-2 text-dark" href="editoriales.php">Editoriales</a>
               <a class="p-2 text-dark" href="#">Materias</a>
           </nav>
-        	<a class="btn btn-outline-primary" href="login.php">Iniciar Sesión</a>
-      	</div>
+          <a class="btn btn-outline-primary" href="login.php">Iniciar Sesión</a>
+        </div>
     </nav>
 
     <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-       <h2 class="h2">Materias:</h2>
-        </div>
-        <div class="col-md-6 mx-auto">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2>Autores:</h2>
+      </div>
+      <div class="col-md-10 col-lg-10 col-xl-10 mx-auto">
           <?php
             $conn = new Conexion();
+             if ($conn->getLink()) {
 
-            if ($conn->getLink()) {
-              $materias = Materia::listaLibros($conn);
-              if ($materias) {
+              $libros = Materia::listaDelAutores($conn);
+            
+              if ($libros) {
+                foreach ($libros as $llave => $libro) {
+               echo '<th scope="col">'.$llave."=".$libro.'<br>';              
+           
+            }
                 echo '<table class="table table-hover">
             <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Codigo</th>
-                <th scope="col">Materia</th>
-                <th scope="col">Num. Libros</th>
-                <th scope="col">Opción</th>
+              <tr> <th scope="col">#</th>
+                 <th scope="col">Codigo</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Edicion</th>
+                <th scope="col">ISBN</th>
+                <th scope="col">Año</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Nombre De La Materia</th>
               </tr>
             </thead>
             <tbody>';
-              foreach ($materias as $llave => $materia) {
-
-                  echo '<tr>
-                <th scope="row">'.($llave+1).'</th>
-                <td>'.$materia->getCodigo().'</td>
-                <td>'.$materia->getNombre().'</td>
-                <td>'.$materia->numeroLibros($conn).'</td>
-                <td><a href="'.'detallesMateria.php?'.$materia->getMateriaId().'">Ver libros</a></td>
-              </tr>';
+              foreach ($libros as $llave => $libro) {
+               echo '<th scope="col">'.$llave."=".$libro.'<br>';              
+           
             }
             echo'
             </tbody>

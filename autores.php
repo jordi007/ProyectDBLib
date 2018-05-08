@@ -78,7 +78,7 @@
                               : '--NINGUNO--').'</td>
                         <td>'.$autor->getPais()->getNombre().'</td>
                         <td>'.$autor->numeroLibros($conn).'</td>
-                        <td><a href="#'.$autor->getAutorId().'">Ver libros</a></td>
+                        <td><a href="'.'detallesLibro.php?'.$autor->getAutorId().'">Ver libros</a></td>
                       </tr>';
               }
               echo '</tbody>

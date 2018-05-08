@@ -57,6 +57,34 @@ FROM Ejemplar E
 INNER JOIN Estado Es ON E.EstadoId = Es.EstadoId
 WHERE LibroId = 1;
 
+-- buscar si un ejeplar esta disponible 
+SELECT * FROM Prestamos;
+SELECT P.LibroId, P.Indice, MAX(P.FechaSalida) FechaSalida
+FROM Prestamos P
+WHERE P.LibroId = 1 AND P.Indice = 1
+GROUP BY P.LibroId, P.Indice;
+
+SELECT E.LibroId, E.Indice, E.ProveedorId, Es.Estado, E.Observacion, E.FechaAdquiscion, E.Precio, 
+	IIF (PT.Entregado IS NULL, 1, PT.Entregado) Disponible
+FROM Ejemplar E
+INNER JOIN Estado Es ON E.EstadoId = Es.EstadoId
+LEFT JOIN (SELECT P.LibroId, P.Indice, MAX(P.FechaSalida) FechaSalida
+	FROM Prestamos P
+	GROUP BY P.LibroId, P.Indice) AS T 
+	ON T.LibroId = E.LibroId AND T.Indice = E.Indice
+LEFT JOIN Prestamos PT ON PT.LibroId = E.LibroId AND PT.Indice = E.Indice AND PT.FechaSalida = T.FechaSalida
+WHERE E.LibroId = 1;
+
+SELECT IIF (PT.Entregado IS NULL, 1, PT.Entregado) Disponible
+FROM Ejemplar E
+INNER JOIN Estado Es ON E.EstadoId = Es.EstadoId
+LEFT JOIN (SELECT P.LibroId, P.Indice, MAX(P.FechaSalida) FechaSalida
+	FROM Prestamos P
+	GROUP BY P.LibroId, P.Indice) AS T 
+	ON T.LibroId = E.LibroId AND T.Indice = E.Indice
+LEFT JOIN Prestamos PT ON PT.LibroId = E.LibroId AND PT.Indice = E.Indice AND PT.FechaSalida = T.FechaSalida
+WHERE E.LibroId = 1 AND E.Indice = 10
+
 -- Retorna el proximo Id en Prestamos
 SELECT IIF (MAX(PrestamoId) IS NULL, 1, MAX(PrestamoId) + 1) PrestamoId
 FROM Prestamos;
@@ -65,3 +93,48 @@ FROM Prestamos;
 SELECT SuscriptorId, Nombre, Apellido, Email, Telefono
 FROM Suscriptor
 WHERE Email = 'maria97@gmail.com';
+
+<<<<<<< HEAD
+-- query para contar el numero de libros de una materia
+SELECT COUNT(M.MateriaId)
+FROM Materia M
+INNER JOIN Libro L 
+ON M.MateriaId = L.MateriaId
+GROUP BY M.MateriaId
+
+SELECT *FROM Libro
+SELECT *FROM Materia
+
+SELECT *FROM Autor
+
+-- LIBROS POR MATERIA
+SELECT L.Codigo, L.Titulo, L.Edicion, L.ISBN, L.Anio, L.Descripcion, M.Nombre
+FROM Libro L
+INNER JOIN Materia M 
+ON M.MateriaId = L.MateriaId
+WHERE M.Codigo = 'if'
+
+-- LIBROS POR AUTOR
+SELECT L.Codigo, L.Titulo, L.Edicion, L.ISBN, L.Anio, L.Descripcion, A.Nombre
+FROM Libro L
+INNER JOIN LibroxAutor LA
+ON L.LibroId = LA.LibroId
+INNER JOIN Autor A
+ON LA.AutorId = A.AutorId
+--WHERE LA.AutorId = 4
+ORDER BY LA.AutorId
+
+-- LIBROS POR EDITORIALES
+SELECT L.Codigo, L.Titulo, L.Edicion, L.ISBN, L.Anio, L.Descripcion, E.Nombre
+FROM Libro L
+INNER JOIN Editorial E
+ON L.EditorialId = E.EditorialId
+INNER JOIN Pais P
+ON E.PaisId = E.PaisId
+WHERE E.EditorialId = 1
+
+SELECT *
+FROM Libro
+=======
+SELECT * FROM Ejemplar;
+>>>>>>> df7cf6d377e7aae14241d2a2c3fa4f9717ccebca

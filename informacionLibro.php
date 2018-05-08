@@ -1,5 +1,6 @@
 <?php 
   include('class/class_conexion.php');
+  include('class/class_materia.php');
   include('class/class_libros.php');
   include('class/class_ejemplar.php');
 ?>
@@ -43,10 +44,10 @@
 <!-- ESTRUCTURA LIBRO -->
   <div class="container">
         <div class="row">
-          <div class="col-md-4 text-right">
+          <!-- <div class="col-md-4 text-right">
             	<img style="width: 300px; height:400px;" src="img/ejemplo.jpg">
-          </div>
-          <div class="col-md-6">
+          </div> -->
+          <div class="col-md-6 mx-auto">
             <?php 
               $conn = new Conexion();
 
@@ -57,11 +58,8 @@
                   foreach ($libro->getAutor() as $autor) {
                     $autores .= $autor->getNombre().' '.$autor->getApellido().'<br>'; 
                   }
-                  echo '<table class="table table-condensed">
-                          <tr>
-                            <th class="text-right">Título:</th>
-                            <td>'.$libro->getTitulo().'</td>
-                          </tr>
+                  echo '<div class="text-center"><h4>'.$libro->getTitulo().'</h4></div>
+                        <table class="table table-condensed">
                           <tr>
                             <th class="text-right">Codigo:</th>
                             <td>'.$libro->getCodigo().'</td>
@@ -84,7 +82,7 @@
                           <tr>
                           <tr>
                             <th class="text-right">Materia:</th>
-                            <td>'.$libro->getMateria().'</td>
+                            <td>'.$libro->getMateria()->getNombre().'</td>
                           </tr>
                           <tr>
                             <th class="text-right">Año:</th>
@@ -95,6 +93,8 @@
                             <td>'.$libro->getDescripcion().'</td>
                           </tr>
                       </table>';
+                } else {
+                  echo '<h3>Ups... Este libro no existe</h3>';
                 }
               }
             ?>
@@ -107,12 +107,12 @@
  <!-- TABLA DE DATOS -->
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-lg-8 col-xl-8">
-        <h3>Ejemplares:</h3>
+      <div class="col-9 mx-auto">
           <?php 
             if ($libro) {
               if(count($libro->getEjemplar()) > 0) {
-                echo '<table class="table table-hover">
+                echo '<h4>Ejemplares:</h4>
+                    <table class="table table-hover">
                       <thead>
                         <tr>
                           <th scope="col">#</th>
@@ -127,12 +127,16 @@
                   echo '<tr>
                           <th scope="row">'.($i+1).'</th>
                           <td>'.$ejemplar->getEstado().'</td>
-                          <td>'.$ejemplar->getObservacion().'</td>
-                          <td>SI</td>
+                          <td>'.$ejemplar->getObservacion().'</td>';
+                  if ($ejemplar->isDisponible()) {
+                    echo '<td>Si</td>
                           <td><a href="prestarLibro.php?codigo='.$libro->getCodigo()
                           .'&ejemplar='.$ejemplar->getIndice()
-                          .'&titulo='.$libro->getTitulo().'"class="btn btn-primary btn-sm">Prestar</a></td>
-                        </tr>';
+                          .'&titulo='.$libro->getTitulo().'"class="btn btn-primary btn-sm">Prestar</a></td>';
+                  } else {
+                    echo '<td>No</td>';
+                  }
+                  echo  '</tr>';
                 }
                 echo '</tbody>
                     </table>';

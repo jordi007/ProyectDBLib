@@ -169,7 +169,7 @@
 
 			$cursor = $conexion->ejecutarConsulta($sql); 
 
-			$libro;
+			$libro = false;
 
 			if ($cursor) {
 				if ($temp = $conexion->obtenerFila($cursor)) {
@@ -180,7 +180,8 @@
 							new Editorial($temp['EditorialId'], 
 								new Pais($temp['PaisId'],$temp['NombrePais']),
 								$temp['NombreE'], $temp['Email']),
-							$temp['NombreM'],
+							new Materia($temp['MateriaId'],
+								$temp['NombreM'], $temp['CodigoMat']),
 							$temp['CodigoLib'],
 							$temp['Titulo'],
 							$temp['Edicion'],
@@ -192,8 +193,6 @@
 							$ejemplares
 						);
 				}
-			} else {
-				return false;
 			}
 
 			return $libro;
