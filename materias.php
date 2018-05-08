@@ -1,3 +1,7 @@
+<?php
+  include('class/class_conexion.php');
+  include('class/class_materia.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,10 +46,16 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h2 class="h2">Materias:</h2>
+       <h2 class="h2">Materias:</h2>
         </div>
         <div class="col-md-6 mx-auto">
-          <table class="table table-hover">
+          <?php
+            $conn = new Conexion();
+
+            if ($conn->getLink()) {
+              $materias = Materia::listaLibros($conn);
+              if ($materias) {
+                echo '<table class="table table-hover">
             <thead>
               <tr>
                 <th scope="col">Codigo</th>
@@ -54,18 +64,24 @@
                 <th scope="col">Opción</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th scope="row">if</th>
-                <td>Informatica</td>
-                <td>15</td>
+            <tbody>';
+              foreach ($materias as $llave => $materia) {
+                  echo '<tr>
+                <th scope="row">'.($llave+1).'</th>
+                <td>'.$materia->getNombre().'</td>
+                <td>'.$materia->numeroLibros($conn).'</td>
                 <td><a href="#">Ver libros</a></td>
-              </tr>
+              </tr>';
+            }
+            echo'
             </tbody>
-          </table>
+          </table>';
+        }
+      }
+  ?>
         </div>
       </div>
-    </div>
+  
     
     <!-- Bootstrap core JavaScript -->
     <script src="js/jquery.min.js"></script>
