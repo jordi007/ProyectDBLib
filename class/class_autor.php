@@ -1,7 +1,7 @@
 <?php
 
 	include_once("class_pais.php");
-
+	include_once("class/class_materia.php");
 	class Autor{
 
 		private $autorId;
@@ -142,6 +142,29 @@
 							$temp['FechaNac'],
 							new Pais($temp['PaisId'], $temp['NombrePais'])
 						);
+				}
+			} else {
+				return false;
+			}
+
+			return $resultado;
+		}
+		//-------------------------------------
+		static function listaDeAutoresLibro($conexion) {
+			$sql = "SELECT L.Codigo, L.Titulo, L.Edicion, L.ISBN, L.Anio, L.Descripcion, M.Nombre
+				FROM Libro L
+				INNER JOIN Materia M 
+				ON M.MateriaId = L.MateriaId
+				WHERE M.Codigo = 'if'";
+
+			$cursor = $conexion->ejecutarConsulta($sql); 
+
+			$resultado = array();
+
+			if ($cursor) {
+				while ($temp = $conexion->obtenerFila($cursor)) {
+				$resultado[] = $temp;
+				//print_r($resultado);
 				}
 			} else {
 				return false;

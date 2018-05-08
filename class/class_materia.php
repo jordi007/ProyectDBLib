@@ -81,35 +81,5 @@ include_once("class_materia.php");
 
 			return $materias;
 		}
-
-		//----------
-		static function listaDelAutores($conexion) {
-			$sql = "SELECT L.Codigo, L.Titulo, L.Edicion, L.ISBN, L.Anio, L.Descripcion, M.Nombre
-				FROM Libro L
-				INNER JOIN Materia M
-				ON L.MateriaId = M.MateriaId
-				WHERE M.Codigo = 'if'";
-
-			$cursor = $conexion->ejecutarConsulta($sql); 
-
-			$libros = array();
-			if ($cursor) {
-
-				while ($temp = $conexion->obtenerFila($cursor)) {
-
-					$libros[] = new Materia(
-						$temp['Codigo'], 
-						$temp['Titulo'], 
-						$temp['Edicion'],
-						$temp['ISBN'], 
-						$temp['Anio'],
-						$temp['Descripcion']);
-				}
-			} else {
-				return false;
-			}
-
-			return $libros;
-		}
 	}
 ?>

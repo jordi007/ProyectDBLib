@@ -1,7 +1,9 @@
 <?php
-  include('class/class_conexion.php');
-  include('class/class_materia.php');
-  include('class/class_libros.php');
+  include_once('class/class_conexion.php');
+  include_once('class/class_materia.php');
+  include_once('class/class_libros.php');
+  include_once('class/class_autor.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,15 +54,11 @@
       <div class="col-md-10 col-lg-10 col-xl-10 mx-auto">
           <?php
             $conn = new Conexion();
-             if ($conn->getLink()) {
 
-              $libros = Materia::listaDelAutores($conn);
-            
-              if ($libros) {
-                foreach ($libros as $llave => $libro) {
-               echo '<th scope="col">'.$llave."=".$libro.'<br>';              
-           
-            }
+            if ($conn->getLink()) {
+              $resultado = Autor::listaDeAutoresLibro($conn);
+              if ($resultado) {
+                print_r($resultado);
                 echo '<table class="table table-hover">
             <thead>
               <tr> <th scope="col">#</th>
@@ -74,9 +72,9 @@
               </tr>
             </thead>
             <tbody>';
-              foreach ($libros as $llave => $libro) {
-               echo '<th scope="col">'.$llave."=".$libro.'<br>';              
-           
+              foreach ($resultado as $llave => $resul) {
+                //print_r($llave."=".$resul."<br>");
+                echo $llave."<br>";
             }
             echo'
             </tbody>
