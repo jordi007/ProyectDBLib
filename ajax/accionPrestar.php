@@ -1,14 +1,15 @@
 <?php 
 	include('../class/class_conexion.php');
 	include('../class/class_suscriptor.php');
+	include('../class/class_materia.php');
 	include('../class/class_libros.php');
 	include('../class/class_prestamo.php');
 	// print_r($_POST);
 
 	$conn = new Conexion();
 
-	$respuesta['fecha'] = false;
 	$respuesta['email'] = false;
+	$respuesta['fecha'] = false;
 	$respuesta['libro'] = false;
 	$respuesta['realizado'] = false;
 
@@ -20,14 +21,16 @@
 				$respuesta['fecha'] = true;
 				
 				if ($libro = Libro::buscarLibroCodigo($conn, $_POST['txt-codigo'])) {
-					$respuesta['libro'] = true;
+					if (Ejemplar::ejemplarDisponible($conn, $libro->getLibroId(), $_POST['txt-nejemplar'])) {
+						$respuesta['libro'] = true;
 
-					if ($prestamoId = Prestamo::siguientePrestamoId($conn)) {
-						if (Prestamo::nuevoPrestamo($conn, $prestamoId, $libro->getLibroId(),
-								$_POST['txt-nejemplar'], 1, $suscriptor->getSuscriptorId(), date('Y-m-d'), 
-							$_POST['txt-fecha-entrega'])) {
+						if ($prestamoId = Prestamo::siguientePrestamoId($conn)) {
+							if (Prestamo::nuevoPrestamo($conn, $prestamoId, $libro->getLibroId(),
+									$_POST['txt-nejemplar'], 1, $suscriptor->getSuscriptorId(), date('Y-m-d'), 
+								$_POST['txt-fecha-entrega'])) {
 
-							$respuesta['realizado'] = true;
+								$respuesta['realizado'] = true;
+							}
 						}
 					}
 				}

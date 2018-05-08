@@ -1,5 +1,6 @@
 <?php 
   include('class/class_conexion.php');
+  include('class/class_materia.php');
   include('class/class_libros.php');
   include('class/class_ejemplar.php');
 ?>
@@ -84,7 +85,7 @@
                           <tr>
                           <tr>
                             <th class="text-right">Materia:</th>
-                            <td>'.$libro->getMateria().'</td>
+                            <td>'.$libro->getMateria()->getNombre().'</td>
                           </tr>
                           <tr>
                             <th class="text-right">Año:</th>
@@ -127,12 +128,16 @@
                   echo '<tr>
                           <th scope="row">'.($i+1).'</th>
                           <td>'.$ejemplar->getEstado().'</td>
-                          <td>'.$ejemplar->getObservacion().'</td>
-                          <td>SI</td>
+                          <td>'.$ejemplar->getObservacion().'</td>';
+                  if ($ejemplar->isDisponible()) {
+                    echo '<td>Si</td>
                           <td><a href="prestarLibro.php?codigo='.$libro->getCodigo()
                           .'&ejemplar='.$ejemplar->getIndice()
-                          .'&titulo='.$libro->getTitulo().'"class="btn btn-primary btn-sm">Prestar</a></td>
-                        </tr>';
+                          .'&titulo='.$libro->getTitulo().'"class="btn btn-primary btn-sm">Prestar</a></td>';
+                  } else {
+                    echo '<td>No</td>';
+                  }
+                  echo  '</tr>';
                 }
                 echo '</tbody>
                     </table>';

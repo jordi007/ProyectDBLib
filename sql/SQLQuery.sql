@@ -57,6 +57,23 @@ FROM Ejemplar E
 INNER JOIN Estado Es ON E.EstadoId = Es.EstadoId
 WHERE LibroId = 1;
 
+-- buscar si un ejeplar esta disponible 
+SELECT * FROM Prestamos;
+SELECT P.LibroId, P.Indice, MAX(P.FechaSalida) FechaSalida
+FROM Prestamos P
+WHERE P.LibroId = 1 AND P.Indice = 1
+GROUP BY P.LibroId, P.Indice;
+
+SELECT E.LibroId, E.Indice, E.ProveedorId, Es.Estado, E.Observacion, E.FechaAdquiscion, E.Precio, 
+	IIF (PT.Entregado IS NULL, 1, PT.Entregado) Disponible
+FROM Ejemplar E
+INNER JOIN Estado Es ON E.EstadoId = Es.EstadoId
+LEFT JOIN (SELECT P.LibroId, P.Indice, MAX(P.FechaSalida) FechaSalida
+	FROM Prestamos P
+	GROUP BY P.LibroId, P.Indice) AS T 
+	ON T.LibroId = E.LibroId AND T.Indice = E.Indice
+LEFT JOIN Prestamos PT ON PT.LibroId = E.LibroId AND PT.Indice = E.Indice AND PT.FechaSalida = T.FechaSalida
+
 -- Retorna el proximo Id en Prestamos
 SELECT IIF (MAX(PrestamoId) IS NULL, 1, MAX(PrestamoId) + 1) PrestamoId
 FROM Prestamos;
@@ -65,3 +82,5 @@ FROM Prestamos;
 SELECT SuscriptorId, Nombre, Apellido, Email, Telefono
 FROM Suscriptor
 WHERE Email = 'maria97@gmail.com';
+
+SELECT * FROM Ejemplar;
