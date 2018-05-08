@@ -35,7 +35,7 @@
       <div class="container">
         <a class="navbar-brand" href="index.php">Biblioteca 935</a>
         <nav class="my-2 my-md-0 mr-md-3">
-              <a class="p-2 text-dark" href="#">Autores</a>
+              <a class="p-2 text-dark" href="autores.php">Autores</a>
               <a class="p-2 text-dark" href="editoriales.php">Editoriales</a>
               <a class="p-2 text-dark" href="materias.php">Materias</a>
           </nav>
@@ -77,12 +77,15 @@
                         <td>'.(($autor->getSeudonimo()) ? $autor->getSeudonimo()
                               : '--NINGUNO--').'</td>
                         <td>'.$autor->getPais()->getNombre().'</td>
-                        <td>'.$autor->numeroLibros($conn).'</td>
-                        <td><a href="'.'detallesLibro.php?'.$autor->getAutorId().'">Ver libros</a></td>
-                      </tr>';
+                      <td>'.($n = $autor->numeroLibros($conn)).'</td>';
+                if ($n >= 1) {
+                  echo '<td><a href="detallesAutor.php?autor='.$autor->getNombre().
+                            '&codigo='.$autor->getAutorId().'">Ver libros</a></td>
+                        </tr>';
+                }
               }
-              echo '</tbody>
-                  </table>';
+              echo'</tbody>
+                </table>';
             }
           }
 
