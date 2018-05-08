@@ -95,6 +95,7 @@ FROM Suscriptor
 WHERE Email = 'maria97@gmail.com';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 -- query para contar el numero de libros de una materia
 SELECT COUNT(M.MateriaId)
 FROM Materia M
@@ -135,6 +136,9 @@ WHERE E.EditorialId = 1
 
 SELECT *
 FROM Libro
+=======
+SELECT * FROM Ejemplar;
+>>>>>>> df7cf6d377e7aae14241d2a2c3fa4f9717ccebca
 =======
 SELECT * FROM Ejemplar;
 >>>>>>> df7cf6d377e7aae14241d2a2c3fa4f9717ccebca
