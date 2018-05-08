@@ -69,7 +69,7 @@
                   echo '<tr>
                 <th scope="row">'.($llave+1).'</th>
                 <td>'.$materia->getNombre().'</td>
-                <td>EN PROCESO</td>
+                <td>'.$materia->numeroLibros($conn).'</td>
                 <td><a href="#">Ver libros</a></td>
               </tr>';
             }

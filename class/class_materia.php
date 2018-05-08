@@ -39,7 +39,7 @@
 				" codigo: " . $this->codigo;
 		}
 
-		/*public function numeroLibros($conexion) {
+		public function numeroLibros($conexion) {
 			$sql = 'SELECT COUNT(M.MateriaId) NLibros
 					FROM Materia M
 					INNER JOIN Libro L ON M.MateriaId = L.MateriaId
@@ -57,7 +57,7 @@
 			}
 
 			return 0;
-		}*/
+		}
 
 		static function listaLibros($conexion) {
 			$sql = 'SELECT M.MateriaId, M.Nombre, M.codigo
