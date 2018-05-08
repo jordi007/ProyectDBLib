@@ -139,3 +139,6 @@ FROM Libro
 
 SELECT * FROM Ejemplar;
 
+-- El siguiente id del suscriptor
+SELECT IIF (MAX(SuscriptorId) IS NULL, 1, MAX(SuscriptorId) + 1) SuscriptorIdId
+FROM Suscriptor

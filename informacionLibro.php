@@ -1,4 +1,5 @@
 <?php 
+  // header('Content-Type: text/html; charset=ISO-8859-1');
   include('class/class_conexion.php');
   include('class/class_materia.php');
   include('class/class_libros.php');
@@ -94,7 +95,8 @@
                           </tr>
                       </table>';
                 } else {
-                  echo '<h3>Ups... Este libro no existe</h3>';
+                  echo '<h3>Ups... Este libro no existe</h3>
+                        <a class="link" href="index.php">Regresar a inicio</a>';
                 }
               }
             ?>

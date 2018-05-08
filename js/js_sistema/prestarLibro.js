@@ -19,7 +19,40 @@ jQuery(document).ready(function(){
   });
 
   $("#btn-guardar").click(function () {
-    alert("implementar ajax");
+    var datos = "txt-email="+$("#txt-email").val()+"&"+
+                "txt-telefono="+$("#txt-telefono").val()+"&"+
+                "txt-apellido="+$("#txt-apellido").val()+"&"+
+                "txt-nombre="+$("#txt-nombre").val();
+    $.ajax({
+      url:'ajax/crearUsuario.php',
+      data: datos,
+      method: 'POST',
+      dataType:'json',
+      success: function(resultado){
+        // alert(resultado['email']);
+        if (!resultado['realizado']) {
+          if (!resultado['email']) {
+            $("#txt-email").focus();
+          } else if (!resultado['nombre']) {
+            $("#txt-nombre").focus();
+          } else if (!resultado['apellido']) {
+            $("#txt-apellido").focus();
+          } else if (!resultado['telefono']){
+            $("#txt-telefono").focus();
+          } 
+          $("#div-msgu").html(resultado['msg']);
+        } else {
+          $("#div-msg").html(resultado['msg']);
+          $("#div-suscriptor").hide();
+          $("#txt-email").focus();
+          $("#btn-prestar").removeAttr('disabled');
+          $("#txt-fecha-entrega").removeAttr('disabled');
+        }
+      },
+      error:function(e){
+        
+      }
+    });
   });
 
   $("#btn-prestar").click(function () {
@@ -42,9 +75,12 @@ jQuery(document).ready(function(){
             $("#txt-fecha-entrega").focus();
           } else if (!resultado['libro']) {
             $("#div-msg").html("Libro no disponible");
+            $("#btn-prestar").hide();
+            setTimeout("location.href='informacionLibro.php?codigo="+$("#txt-codigo").val()+"'", 2000);
           }
         } else {
           $("#div-msg").html("Prestamo realizado correctamente");
+          $("#btn-prestar").hide();
           setTimeout("location.href='informacionLibro.php?codigo="+$("#txt-codigo").val()+"'", 2000);
         }
       },

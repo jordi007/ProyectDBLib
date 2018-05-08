@@ -18,6 +18,7 @@
 			$this->apellido = $apellido;
 			$this->email = $email;
 			$this->telefono = $telefono;
+
 		}
 		public function getSuscriptorId(){
 			return $this->suscriptorId;
@@ -55,6 +56,37 @@
 				" Apellido: " . $this->apellido . 
 				" Email: " . $this->email . 
 				" Telefono: " . $this->telefono;
+		}
+
+		public function guardarSuscriptor($conexion) {
+			$sql = "INSERT INTO Suscriptor 
+					VALUES (".$this->suscriptorId.", 
+							'".$this->nombre."',
+							'".$this->apellido."', 
+							'".$this->email."', 
+							".(($this->telefono == '') ? "NULL" : "'".$this->telefono."'").")";
+			
+			if ($conexion->ejecutarConsulta($sql)) {
+				return true;
+			}
+			return false;
+		}
+
+		static function siguienteSuscriptorId($conexion) {
+			$sql = 'SELECT IIF (MAX(SuscriptorId) IS NULL, 1, MAX(SuscriptorId) + 1) SuscriptorId
+					FROM Suscriptor';
+
+			$cursor = $conexion->ejecutarConsulta($sql); 
+
+			$SuscriptorId = false;
+
+			if ($cursor) {
+				if ($temp = $conexion->obtenerFila($cursor)) {
+					$SuscriptorId = $temp['SuscriptorId'];
+				}
+			}
+
+			return $SuscriptorId;
 		}
 
 		static function buscarSuscriptorEmail($conexion, $email) {

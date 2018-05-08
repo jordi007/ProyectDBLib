@@ -74,8 +74,8 @@
               <label for="txt-apellido">Apellido:</label>
               <input type="text" class="form-control" id="txt-apellido">
               <label for="txt-telefono">telefono:</label>
-              <input type="text" class="form-control" id="txt-telefono">
-              <div>El usuario no existe...</div>
+              <input type="text" class="form-control" id="txt-telefono" placeholder="dddd-dddd">
+              <div id="div-msgu"></div>
               <br>
               <input type="button" class="btn btn-primary" name="btn-guardar" id="btn-guardar" value="Crear">
               <input type="button" class="btn btn-danger" name="btn-cancelarc" id="btn-cancelarc" value="Cancelar">
