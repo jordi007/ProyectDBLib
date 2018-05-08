@@ -115,11 +115,11 @@
 							".$bibliotecarioId.", ".$suscriptorId.", '".$fechaSalida."',
 							 '".$fechaEntrega."', 0, 0)";
 
-			if (strtotime($fechaSalida) < strtotime($fechaEntrega)) {
-				echo "La fecha es correcta";
-			} else {
-				echo $fechaEntrega . "<=" .$fechaSalida;
+			
+			if ($conexion->ejecutarConsulta($sql)) {
+				return true;
 			}
+			return false;
 		}
 	}
 ?>
