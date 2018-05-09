@@ -69,15 +69,21 @@ INNER JOIN LibroxAutor LA ON A.AutorId = LA.AutorId
 INNER JOIN Libro L ON LA.LibroId = L.LibroId
 WHERE L.LibroId = 1;*/
 
-INSERT INTO Suscriptor VALUES (1, 'María', 'Medina', 'maria97@gmail.com', '9979-2117');
+INSERT INTO Suscriptor VALUES (1, 'Denis', 'Henriquez', 'root@mail.com', '9999-9999');
 INSERT INTO Suscriptor VALUES (3, 'Tereza', 'Ramos', 'tramos98@yahoo.com', '8991-1234');
 INSERT INTO Suscriptor VALUES (2, 'Jose', 'Juarez', 'jjuarez@gmail.com', '9978-2134');
 INSERT INTO Suscriptor VALUES (4, 'Mario', 'Molina', 'mario.molina@hotmail.com', NULL);
 INSERT INTO Suscriptor VALUES (5, 'Susan', 'Gutierrez', 'susan_gut@gmail.com', '9315-7890');
+INSERT INTO Suscriptor VALUES (6, 'María', 'Medina', 'maria97@gmail.com', '9979-2117');
 
-INSERT INTO Bibliotecario VALUES (1, 'asd.456', 10800);
+-- el passwor es asd.456 y el password root es asd.456
+INSERT INTO Bibliotecario VALUES (1, 'bcdcb29ed2aab16d48c11485264df665e906bdd9', 99999);
 
---SELECT * FROM Suscriptor;
+
+-- DELETE FROM Suscriptor;
+-- DELETE FROM Bibliotecario
+-- SELECT * FROM Bibliotecario;
+-- SELECT * FROM Suscriptor;
 
 INSERT INTO Ciudad VALUES (1, 'Tegucigalpa');
 INSERT INTO Ciudad VALUES (2, 'San Pedro Sula');
