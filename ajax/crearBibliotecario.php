@@ -22,7 +22,7 @@
 						$resultado['apellido'] = true;
 						if (preg_match("/^[1-9][0-9]{3}-[0-9]{4}$/", $_POST['txt-telefono'])) {
 							$resultado['telefono'] = true;
-							if (preg_match("/^[0-9]*.[0-9]{2}$/", $_POST['txt-sueldo'])) {
+							if (preg_match("/^[0-9]*(.[0-9]{2})?$/", $_POST['txt-sueldo'])) {
 								$resultado['sueldo'] = true;
 								if ($_POST['txt-password1'] != '' 
 									and $_POST['txt-password1'] == $_POST['txt-password2']) {
@@ -47,14 +47,30 @@
 												$resultado['msg'] = 'Falla al guardar el suscriptor';
 											}
 										}
+									} else {
+										$resultado['msg'] = 'El password del root no es valida';
 									}
+								} else {
+									$resultado['msg'] = 'La password no es correcto';
 								}
+							} else {
+								$resultado['msg'] = 'El sallario no es valido';
 							}
+						} else {
+							$resultado['msg'] = 'El telefono no cumple el formato';
 						}
+					} else {
+						$resultado['msg'] = 'Solo caracteres y un apellido';
 					}
+				} else {
+					$resultado['msg'] = 'Solo caracteres un nombre';
 				}
+			} else {
+				$resultado['msg'] = 'El email ya existe';
 			} 
-		} 
+		} else {
+			$resultado['msg'] = 'El email no cumple el formato';
+		}
 	}
 
 	echo json_encode($resultado);
