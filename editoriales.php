@@ -28,7 +28,7 @@
 
 </head>
 
-<body>
+<body class="bg-light">
 
     <!-- Navigation -->
     <nav class="navbar navbar-light bg-light static-top">

@@ -1,3 +1,9 @@
+<?php 
+  session_start();
+  if (!isset($_SESSION["id"])){
+    header("Location: index.php");
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,10 +37,10 @@
       	<a class="navbar-brand" href="index.php">Biblioteca 935</a>
       	<!-- <a class="btn btn-outline-primary" href="#">Iniciar Sesión</a> -->  
         <ul class="nav-item dropdown">
-          <span class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nombre</span>
+          <span class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['nombre'].' '.$_SESSION['apellido']; ?></span>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" href="paginaAdministrador.php">Administrar</a>
-            <a class="dropdown-item" href="#">Salir</a>
+            <a class="dropdown-item" href="logout.php">Salir</a>
           </div>
         </ul>
     	</div>

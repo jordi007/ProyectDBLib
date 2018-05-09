@@ -1,3 +1,4 @@
+USE master;
 USE BibliotecaDB;
 
 SELECT * FROM Libro;
@@ -35,10 +36,10 @@ FROM Editorial E
 INNER JOIN Pais P ON E.PaisId = P.PaisId;
 
 -- query para contar el numero de libros de una editorial
-SELECT COUNT(E.EditorialId)
+SELECT E.EditorialId, COUNT(E.EditorialId)
 FROM Editorial E
-LEFT JOIN Libro L ON E.EditorialId = L.MateriaId
-WHERE E.EditorialId = 1
+INNER JOIN Libro L ON E.EditorialId = L.EditorialId
+--WHERE E.EditorialId = 1
 GROUP BY E.EditorialId
 
 -- query para buscar libro por codigo 
@@ -94,8 +95,6 @@ SELECT SuscriptorId, Nombre, Apellido, Email, Telefono
 FROM Suscriptor
 WHERE Email = 'maria97@gmail.com';
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 -- query para contar el numero de libros de una materia
 SELECT COUNT(M.MateriaId)
 FROM Materia M
@@ -150,6 +149,12 @@ SELECT IIF (P.Entregado = 0, 1, 0) Responsable
 FROM Prestamos P
 WHERE P.Entregado = 0 AND P.LibroId = 1 AND P.Indice = 2 AND P.SuscriptorId = 2;
 
+-- busca un bibliotecario por email
+SELECT B.SuscriptorId, S.Nombre, S.Apellido, S.Email, S.Telefono, B.Contraseña Contrasena, B.Salario
+FROM Suscriptor S
+INNER JOIN Bibliotecario B ON S.SuscriptorId = B.SuscriptorId
+WHERE S.Email = 'maria97@gmail.com';
+
 -- SUSCRITORES
 SELECT *FROM Suscriptor
 --SELECT *FROM Bibliotecario
@@ -159,9 +164,12 @@ SELECT S.Nombre, S.Apellido, S.Email, S.Telefono
 FROM Bibliotecario B
 INNER JOIN Suscriptor S
 ON S.SuscriptorId = B.SuscriptorId
+<<<<<<< HEAD
 
 
 
 
 
 
+=======
+>>>>>>> 2c59a1a99f137db322a35ca85aae5a13564b7c9d

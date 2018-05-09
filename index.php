@@ -35,7 +35,20 @@
           		<a class="p-2 text-dark" href="editoriales.php">Editoriales</a>
           		<a class="p-2 text-dark" href="materias.php">Materias</a>
         	</nav>
-        	<a class="btn btn-outline-primary" href="login.php">Iniciar Sesión</a>
+          <?php
+            session_start();
+            if (isset($_SESSION["id"])){
+              echo '<div class="nav-item dropdown">
+                      <span class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$_SESSION['nombre'].' '.$_SESSION['apellido'].'</span>
+                      <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="paginaAdministrador.php">Administrar</a>
+                        <a class="dropdown-item" href="logout.php">Salir</a>
+                      </div>
+                    </div>';
+            } else {
+        	   echo '<a class="btn btn-outline-primary" href="login.php">Iniciar Sesión</a>';
+            }
+          ?>
       	</div>
     </nav>
 

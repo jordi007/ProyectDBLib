@@ -16,7 +16,7 @@ CREATE TABLE Suscriptor (
 
 CREATE TABLE Bibliotecario (
 	SuscriptorId 	INTEGER 		PRIMARY KEY,
-	Contraseña		VARCHAR(50)		NOT NULL,
+	Contrasenia		VARCHAR(50)		NOT NULL,
 	Salario			DECIMAL(13,2)	NOT NULL,
 	
 	CONSTRAINT fkSuscriptorEnBibliotecario FOREIGN KEY(SuscriptorId)
