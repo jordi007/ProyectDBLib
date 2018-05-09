@@ -111,7 +111,7 @@ INSERT INTO Ejemplar VALUES (3, 2, 1, 3, 'Desgaste en la pasta', '2007-2-15', 80
 --SELECT * FROM Prestamos INNER JOIN Suscriptor ON Prestamos.SuscriptorId = Suscriptor.SuscriptorId;
 
 INSERT INTO Prestamos VALUES (1, 1, 2, 1, 2, '2018-5-7', '2018-5-15', 0, 0);
-INSERT INTO Prestamos VALUES (2, 1, 1, 1, 3, '2018-5-1', '2018-5-5', 1, 0);
+INSERT INTO Prestamos VALUES (2, 1, 1, 1, 3, '2018-5-1', '2018-5-5', 0, 0);
 INSERT INTO Prestamos VALUES (3, 3, 1, 1, 3, GETDATE(), '2018-5-19', 1, 0);
 --DELETE FROM Prestamos WHERE PrestamoId IN (4,5,6);
 

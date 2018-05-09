@@ -57,23 +57,29 @@
         
         <!--Formulario-->
           <!--<div id="div-suscriptor" class="form-group">-->
-              <label for="txt-nombre">Email:</label>
+              <label for="txt-email">Email:</label>
               <input type="email" class="form-control" id="txt-email">
-              <label for="txt-nombre">Contraseña:</label>
-              <input type="password" class="form-control" id="txt-nombre">
               <label for="txt-nombre">Nombre:</label>
               <input type="text" class="form-control" id="txt-nombre">
               <label for="txt-apellido">Apellido:</label>
               <input type="text" class="form-control" id="txt-apellido">
               <label for="txt-telefono">telefono:</label>
               <input type="text" class="form-control" id="txt-telefono" placeholder="dddd-dddd">
-              <div id="div-msgu"></div>
+              <label for="txt-sueldo">Salario:</label>
+              <input type="text" class="form-control" id="txt-sueldo">
+              <label for="txt-password1">Contraseña:</label>
+              <input type="password" class="form-control" id="txt-password1">
+              <label for="txt-password2">Repetir Contraseña:</label>
+              <input type="password" class="form-control" id="txt-password2">
+              <label for="txt-password3">Contraseña root:</label>
+              <input type="password" class="form-control" id="txt-password3">
+              <div id="div-msg">registrando usuario</div>
               <br>
         <!--Fin formularios-->
       </div>
       <div class="modal-footer">
-        <input type="button" class="btn btn-primary" name="btn-guardar" id="btn-guardar" value="Crear">
-        <input type="button" class="btn btn-danger" name="btn-cancelarc" id="btn-cancelarc" value="Cancelar">
+        <input type="button" class="btn btn-primary" name="btn-registrar" id="btn-registrar" value="Registrar">
+        <input type="button" class="btn btn-success" name="btn-cancelarc" id="btn-cancelarc" value="Limpiar">
       </div>
     </div>
   </div>
@@ -183,6 +189,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/js_sistema/registrarBibliotecarios.js"></script>
 
   </body>
 
