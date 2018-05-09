@@ -1,13 +1,16 @@
 <?php
   include('class/class_conexion.php');
   include('class/class_materia.php');
+  header('Content-Type: text/html; charset=iso-8859-1');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-  	<meta charset="utf-8">
+    <!--<meta charset="utf-8">-->
+    ISO-8859-15
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
