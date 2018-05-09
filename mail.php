@@ -8,7 +8,7 @@ require 'PHPMailer/src/SMTP.php';
 class Correo{
 
     $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
-    public static function enviarCorreo($receptores, $libro, $fecha){
+    public static function enviarCorreo($receptor, $libro, $multa, $nombre){
         $mail = new PHPMailer(true); 
         try {
             //Server settings
@@ -23,7 +23,7 @@ class Correo{
 
             //Recipients
             $mail->setFrom('biblioteca935bd@outlook.com', 'Biblioteca 935');
-            $mail->addAddress('gabo21gonzalez@gmail.com', 'Suscriptor'); 
+            $mail->addAddress($receptor, 'Suscriptor'); 
                 // Add a recipient
             //$mail->addAddress('ellen@example.com');               // Name is optional
             $mail->addReplyTo('biblioteca935bd@outlook.com', 'Biblioteca 935');
@@ -38,7 +38,7 @@ class Correo{
             $mail->isHTML(true);                                  // Set email format to HTML
             $mail->Subject = 'Informacion de prestamo del libro';
             $mail->Body    = 'El motivo del presente correo es para darle informacion sobre el prestamo de libro en la biblioteca 935.
-                <p> Estimado <nombre> usted retiro el libro '.$libro.' con programacion de devoluacion la fecha'. $fecha. '.
+                <p> Estimado '.$nombre.' usted retiro el libro '.$libro.' hace un tiempo y se ha vencido su plazo, por lo tanto tiene una multa de: '.$multa. '.
                 <P> Agradeceriamos cuide el material que usted y a muchos otro les sirve.
                 <p> Recuerde devolver el libro en el tiempo estipulado de lo contrario nos veremos obligados a cobrar una multa. Gracias';
             $mail->AltBody = '';
