@@ -1,6 +1,7 @@
 <?php
 
 	 include_once("class_pais.php");
+	 include_once("class_conexion.php");
 
 	class Editorial{
 
@@ -92,6 +93,17 @@
 			}
 
 			return $editoriales;
+		}
+		
+		static function nuevaEditorial($conexion,$editorialId,$pais,$nombre,$email){
+			$sql = "INSERT INTO Editorial 
+					VALUES (".$editorialId.", ".$pais.", '.$nombre.',  
+							'.$email.')";
+			
+			if ($conexion->ejecutarConsulta($sql)) {
+				return true;
+			}
+			return false;
 		}
 	}
 ?>
