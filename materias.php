@@ -8,8 +8,8 @@
 
 <head>
 
-    <!--<meta charset="utf-8">-->
-    ISO-8859-15
+    <meta charset="utf-8">
+   
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -42,7 +42,7 @@
               <a class="p-2 text-dark" href="editoriales.php">Editoriales</a>
               <a class="p-2 text-dark" href="materias.php">Materias</a>
           </nav>
-        	<a class="btn btn-outline-primary" href="login.php">Iniciar Sesión</a>
+        	<a class="btn btn-outline-primary" href="login.php">Iniciar Sesi&oacuten</a>
       	</div>
     </nav>
 
@@ -65,7 +65,7 @@
                         <th scope="col">Codigo</th>
                         <th scope="col">Materia</th>
                         <th scope="col">Num. Libros</th>
-                        <th scope="col">Opción</th>
+                        <th scope="col">Opci&oacuten</th>
                       </tr>
                     </thead>
                     <tbody>';

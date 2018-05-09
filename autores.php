@@ -1,6 +1,9 @@
 <?php
   include('class/class_conexion.php');
   include('class/class_autor.php');
+  header('Content-Type: text/html; charset=iso-8859-1');
+  //&oacute
+
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +42,7 @@
               <a class="p-2 text-dark" href="editoriales.php">Editoriales</a>
               <a class="p-2 text-dark" href="materias.php">Materias</a>
           </nav>
-        <a class="btn btn-outline-primary" href="#">Iniciar Sesión</a>
+        <a class="btn btn-outline-primary" href="#">Iniciar Sesi&oacuten</a>
       </div>
   </nav>
 
@@ -65,7 +68,7 @@
                         <th scope="col">Seudonimo</th>
                         <th scope="col">Pais</th>
                         <th scope="col">Num. Libros</th>
-                        <th scope="col">Opción</th>
+                        <th scope="col">Opci&oacuten</th>
                       </tr>
                     </thead>
                     <tbody>';
