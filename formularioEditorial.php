@@ -26,33 +26,30 @@
   </head>
   <body>    
  
-      <?php  include 'menuAdmin.php'; ?> 
+      <?php  include 'menuAdmin.php';
+             include('class/class_conexion.php'); 
+       ?> 
 
          <h1 class="texto espacio " >Ingresar datos editoriales..</h1>
             <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <form>
+            <form action="enviarFormulario.php" method="POST">
               <div class="form-row">
                 <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  Nombre<input type="buscar" class="form-control espacio" placeholder="Ingresar nombre">
+                  Nombre de la editorial<input type="text" name="txt-nombre" class="form-control espacio" required placeholder="Ingresar nombre">
                 </div>
                 <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  Apellido<input type="buscar" class="form-control espacio" placeholder="Ingresar apellido">
-                </div><div class="col-12 col-md-9 mb-2 mb-md-0">
-                  Seudonimo<input type="buscar" class="form-control espacio" placeholder="Ingresar seudonimo">
-                </div><div class="col-12 col-md-9 mb-2 mb-md-0">
-                  Fecha de nacimiento<input type="buscar" class="form-control espacio" placeholder="Ingresar fecha de nacimiento">
-                </div><div class="col-12 col-md-9 mb-2 mb-md-0">
-                  Nacionalidad<input type="buscar" class="form-control espacio " placeholder="Seleccionar nacionalidad">
+                  E-mail<input type="email" name="txt-email" class="form-control espacio" required placeholder="Ingresar el E-mail">
                 </div>
                 <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  <input type="submit" class="form-control espacio" placeholder="Buscar...">
+                  Pais de la editorial<input type="text" name="txt-pais" class="form-control espacio " required placeholder="Ingrese el pais de procedencia">
+                </div>
+                <div class="col-12 col-md-9 mb-2 mb-md-0">
+                  <input type="submit" class="btn btn-primary espacio" placeholder="Buscar...">
                 </div>
               </div>
             </form>
           </div>
-      
-
-   
+         
 <div class="espacio1"></div>
 
     <!-- Bootstrap core JavaScript -->
