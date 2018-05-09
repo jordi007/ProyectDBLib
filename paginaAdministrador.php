@@ -31,14 +31,55 @@
       <a class="navbar-brand" href="index.php">Biblioteca 935</a>
     <!-- <a class="btn btn-outline-primary" href="#">Iniciar Sesión</a> -->  
       <ul class="nav-item dropdown">
-        <span class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nombre</span>
+        <span class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Acciones</span>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
           <a class="dropdown-item" href="paginaAdministrador.php">Administrar</a>
+         <button type="button" class="dropdown-item" data-toggle="modal" data-target="#bibliotecario">Nuevo Bibliotecario
+          </button>
           <a class="dropdown-item" href="#">Salir</a>
+
         </div>
       </ul>
     </div>
-  </nav> 
+  </nav>
+
+   <!-- Modal -->
+  <div class="modal fade" id="bibliotecario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nuevo Bibliotecario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <!--Formulario-->
+          <!--<div id="div-suscriptor" class="form-group">-->
+              <label for="txt-nombre">Email:</label>
+              <input type="email" class="form-control" id="txt-email">
+              <label for="txt-nombre">Contraseña:</label>
+              <input type="password" class="form-control" id="txt-nombre">
+              <label for="txt-nombre">Nombre:</label>
+              <input type="text" class="form-control" id="txt-nombre">
+              <label for="txt-apellido">Apellido:</label>
+              <input type="text" class="form-control" id="txt-apellido">
+              <label for="txt-telefono">telefono:</label>
+              <input type="text" class="form-control" id="txt-telefono" placeholder="dddd-dddd">
+              <div id="div-msgu"></div>
+              <br>
+        <!--Fin formularios-->
+      </div>
+      <div class="modal-footer">
+        <input type="button" class="btn btn-primary" name="btn-guardar" id="btn-guardar" value="Crear">
+        <input type="button" class="btn btn-danger" name="btn-cancelarc" id="btn-cancelarc" value="Cancelar">
+      </div>
+    </div>
+  </div>
+</div>
+  <!--Modal fin-->
+
 
   <h1 class="texto espacio" >Admin Panel para Administradores ..</h1>
             <!--<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
