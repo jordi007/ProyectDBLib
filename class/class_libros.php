@@ -15,7 +15,6 @@
 		private $isbn;
 		private $anio;
 		private $descripcion;
-		private $urlimg;
 		private $autor;
 		private $ejemplar;
 
@@ -28,7 +27,6 @@
 					$isbn,
 					$anio,
 					$descripcion,
-					$urlimg,
 					$autor,
 					$ejemplar){
 			$this->libroId = $libroId;
@@ -40,7 +38,6 @@
 			$this->isbn = $isbn;
 			$this->anio = $anio;
 			$this->descripcion = $descripcion;
-			$this->urlimg = $urlimg;
 			$this->autor = $autor;
 			$this->ejemplar = $ejemplar;
 		}
@@ -97,12 +94,6 @@
 		}
 		public function setDescripcion($descripcion){
 			$this->descripcion = $descripcion;
-		}
-		public function getUrlimg(){
-			return $this->urlimg;
-		}
-		public function setUrlimg($urlimg){
-			$this->urlimg = $urlimg;
 		}
 		public function getAutor(){
 			return $this->autor;
@@ -202,7 +193,7 @@
 
 		static function buscarLibroCodigo($conexion, $codigo) {
 			$sql = "SELECT L.LibroId, L.Codigo CodigoLib, L.Titulo, L.Edicion, 
-						L.ISBN, L.Anio, L.Descripcion, L.URLImg, M.MateriaId, 
+						L.ISBN, L.Anio, L.Descripcion, M.MateriaId, 
 						M.Codigo CodigoMat, M.Nombre NombreM, E.EditorialId, 
 						E.Nombre NombreE, E.Email, P.PaisId, P.Nombre NombrePais
 					FROM Libro L
@@ -232,7 +223,6 @@
 							$temp['ISBN'],
 							$temp['Anio'],
 							$temp['Descripcion'],
-							$temp['URLImg'],
 							$autores,
 							$ejemplares
 						);

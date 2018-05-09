@@ -121,5 +121,37 @@
 			}
 			return false;
 		}
+
+		static function esResponsable($conexion, $libroId, $indice, $suscriptorId) {
+			$sql = 'SELECT IIF (P.Entregado = 0, 1, 0) Responsable
+					FROM Prestamos P
+					WHERE P.Entregado = 0 AND P.LibroId = '.$libroId.' 
+					AND P.Indice = '.$indice.' AND P.SuscriptorId = '.$suscriptorId;
+
+			$cursor = $conexion->ejecutarConsulta($sql); 
+
+			$responsable = false;
+
+			if ($cursor) {
+				if ($temp = $conexion->obtenerFila($cursor)) {
+					$responsable = $temp['Responsable'] == 1;
+				}
+			}
+
+			return $responsable;
+		}
+
+		static function resgresarPrestamo($conexion, $libroId, $indice, $suscriptorId) {
+			$sql = "UPDATE Prestamos SET Entregado = 1
+					WHERE Entregado = 0 AND LibroId = ".$libroId." 
+					AND Indice = ".$indice." AND SuscriptorId = ".$suscriptorId;
+
+			
+			if ($conexion->ejecutarConsulta($sql)) {
+				return true;
+			}
+
+			return false;
+		}
 	}
 ?>

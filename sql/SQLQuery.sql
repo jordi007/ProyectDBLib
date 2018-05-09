@@ -42,7 +42,7 @@ WHERE E.EditorialId = 1
 GROUP BY E.EditorialId
 
 -- query para buscar libro por codigo 
-SELECT L.LibroId, L.Codigo CodigoLib, L.Titulo, L.Edicion, L.ISBN, L.Anio, L.Descripcion, L.URLImg,
+SELECT L.LibroId, L.Codigo CodigoLib, L.Titulo, L.Edicion, L.ISBN, L.Anio, L.Descripcion,
 		M.MateriaId, M.Codigo CodigoMat, M.Nombre NombreM, E.EditorialId, E.Nombre NombreE, E.Email,
 		P.PaisId, P.Nombre NombrePais
 FROM Libro L
@@ -83,7 +83,7 @@ LEFT JOIN (SELECT P.LibroId, P.Indice, MAX(P.FechaSalida) FechaSalida
 	GROUP BY P.LibroId, P.Indice) AS T 
 	ON T.LibroId = E.LibroId AND T.Indice = E.Indice
 LEFT JOIN Prestamos PT ON PT.LibroId = E.LibroId AND PT.Indice = E.Indice AND PT.FechaSalida = T.FechaSalida
-WHERE E.LibroId = 1 AND E.Indice = 10
+WHERE E.LibroId = 1 AND E.Indice = 2
 
 -- Retorna el proximo Id en Prestamos
 SELECT IIF (MAX(PrestamoId) IS NULL, 1, MAX(PrestamoId) + 1) PrestamoId
@@ -144,3 +144,8 @@ SELECT * FROM Ejemplar;
 -- El siguiente id del suscriptor
 SELECT IIF (MAX(SuscriptorId) IS NULL, 1, MAX(SuscriptorId) + 1) SuscriptorIdId
 FROM Suscriptor
+
+-- El suscriptor responsable de la entrega
+SELECT IIF (P.Entregado = 0, 1, 0) Responsable
+FROM Prestamos P
+WHERE P.Entregado = 0 AND P.LibroId = 1 AND P.Indice = 2 AND P.SuscriptorId = 2;

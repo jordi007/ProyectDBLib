@@ -66,7 +66,6 @@ CREATE TABLE Libro (
 	ISBN 			VARCHAR(50)		NOT NULL UNIQUE,
 	Anio 			INTEGER			CHECK (Anio > 0 AND Anio <= 9999),
 	Descripcion 	VARCHAR(300)	NULL,
-	URLImg			VARCHAR(100)	NULL,
 
 	CONSTRAINT fkEditorial FOREIGN KEY (EditorialId) 
 		REFERENCES Editorial(EditorialId),

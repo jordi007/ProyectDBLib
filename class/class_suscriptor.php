@@ -96,10 +96,10 @@
 
 			$cursor = $conexion->ejecutarConsulta($sql); 
 
-			$suscriptor = array();
+			$suscriptor = false;
 
 			if ($cursor) {
-				while ($temp = $conexion->obtenerFila($cursor)) {
+				if ($temp = $conexion->obtenerFila($cursor)) {
 					$suscriptor = new Suscriptor(
 						$temp['SuscriptorId'], 
 						$temp['Nombre'], 

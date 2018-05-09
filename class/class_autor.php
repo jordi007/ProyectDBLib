@@ -1,7 +1,6 @@
 <?php
 
 	include_once("class_pais.php");
-	include_once("class/class_materia.php");
 	class Autor{
 
 		private $autorId;
