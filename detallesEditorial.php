@@ -57,7 +57,7 @@
           <?php
             $conn = new Conexion();
             if ($conn->getLink()) {
-              $resultado = Libro::buscarLibro($conn, $_GET['codigo']);
+              $resultado = Libro::buscarLibroEditorial($conn, $_GET['codigo']);
               if ($resultado) {
                 echo '<table class="table table-hover">
                         <thead>

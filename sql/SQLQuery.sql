@@ -135,7 +135,9 @@ ON E.PaisId = E.PaisId
 WHERE E.EditorialId = 1
 
 SELECT *
-FROM Libro
+FROM Libro L
+INNER JOIN LibroxAutor LA
+ON L.LibroId = LA.LibroId;
 
 SELECT * FROM Ejemplar;
 
