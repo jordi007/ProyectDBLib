@@ -52,7 +52,7 @@
 		public function numeroLibros($conexion) {
 			$sql = 'SELECT COUNT(E.EditorialId) NEditoriales
 					FROM Editorial E
-					LEFT JOIN Libro L ON E.EditorialId = L.MateriaId
+					LEFT JOIN Libro L ON E.EditorialId = L.EditorialId
 					WHERE E.EditorialId = '. $this->editorialId
 					.' GROUP BY E.EditorialId';
 

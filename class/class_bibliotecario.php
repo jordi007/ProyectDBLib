@@ -1,31 +1,22 @@
 <?php
 
-	  include_once("class_suscriptor.php");
+	include_once("class_suscriptor.php");
 
 	class Bibliotecario extends Suscriptor {
 
-		private $bibliotecarioId;
 		private $contrasenia;
 		private $salario;
 
-				public function __construct($suscriptorId,
+		public function __construct($suscriptorId,
 					$nombre,
 					$apellido,
 					$email,
 					$telefono,
-					$bibliotecarioId,
 					$contrasenia,
 					$salario){
 			parent::__construct($suscriptorId,$nombre,$apellido,$email,$telefono);
-			$this->bibliotecarioId = $bibliotecarioId;
 			$this->contrasenia = $contrasenia;
 			$this->salario = $salario;
-		}
-		public function getBibliotecarioId(){
-			return $this->bibliotecarioId;
-		}
-		public function setBibliotecarioId($bibliotecarioId){
-			$this->bibliotecarioId = $bibliotecarioId;
 		}
 		public function getContrasenia(){
 			return $this->contrasenia;
@@ -44,6 +35,34 @@
 				"BibliotecarioId: " . $this->bibliotecarioId . 
 				" Contrasenia: " . $this->contrasenia . 
 				" Salario: " . $this->salario;
+		}
+
+		static function buscarBibliotecarioEmail($conexion, $email) {
+			$sql = "SELECT B.SuscriptorId, S.Nombre, S.Apellido, S.Email, 
+					S.Telefono, B.Contrasenia, B.Salario
+				FROM Suscriptor S
+				INNER JOIN Bibliotecario B ON S.SuscriptorId = B.SuscriptorId
+				WHERE S.Email = '".$email."'";
+			
+			$cursor = $conexion->ejecutarConsulta($sql); 
+
+			$suscriptor = false;
+
+			if ($cursor) {
+				if ($temp = $conexion->obtenerFila($cursor)) {
+					$suscriptor = new Bibliotecario (
+						$temp['SuscriptorId'],
+						$temp['Nombre'], 
+						$temp['Apellido'],
+						$temp['Email'],
+						$temp['Telefono'],
+						$temp['Contrasenia'],
+						$temp['Salario']
+					);
+				}
+			}
+
+			return $suscriptor;
 		}
 	}
 ?>

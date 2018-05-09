@@ -1,3 +1,4 @@
+USE Master;
 USE BibliotecaDB;
 
 INSERT INTO Estado VALUES (1, 'Optimo');
