@@ -146,6 +146,50 @@
 
 			return $resultado;
 		}
+		static function buscarLibroEditorial($conexion, $codigo) {
+			$sql = "SELECT L.Codigo, L.Titulo, L.Edicion, COUNT(E.LibroId) AS NEjemplares
+					FROM Libro L
+					LEFT JOIN Ejemplar E ON L.LibroId = E.LibroId
+					WHERE L.EditorialId = '".$codigo."'
+					GROUP BY L.Codigo, L.Titulo, L.Edicion";
+
+			$cursor = $conexion->ejecutarConsulta($sql); 
+
+			$resultado = array();
+
+			if ($cursor) {
+				while ($temp = $conexion->obtenerFila($cursor)) {
+					$resultado[] = $temp;
+				}
+			} else {
+				return false;
+			}
+
+			return $resultado;
+		}
+
+		static function buscarLibroAutor($conexion, $codigo) {
+			$sql = "SELECT L.Codigo, L.Titulo, L.Edicion, COUNT(E.LibroId) AS NEjemplares
+					FROM Libro L
+					LEFT JOIN Ejemplar E ON L.LibroId = E.LibroId
+					INNER JOIN LibroxAutor LA ON LA.LibroId = L.LibroId
+					WHERE LA.AutorId = '".$codigo."'
+					GROUP BY L.Codigo, L.Titulo, L.Edicion";
+
+			$cursor = $conexion->ejecutarConsulta($sql); 
+
+			$resultado = array();
+
+			if ($cursor) {
+				while ($temp = $conexion->obtenerFila($cursor)) {
+					$resultado[] = $temp;
+				}
+			} else {
+				return false;
+			}
+
+			return $resultado;
+		}
 
 		static function buscarLibroCodigo($conexion, $codigo) {
 			$sql = "SELECT L.LibroId, L.Codigo CodigoLib, L.Titulo, L.Edicion, 

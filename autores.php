@@ -29,7 +29,7 @@
   <link href="css/landing-page.min.css" rel="stylesheet">
 
 </head>
-<body class="bg-light">
+<body class="">
   <!-- Navigation -->
   <nav class="navbar navbar-light bg-light static-top">
       <div class="container">

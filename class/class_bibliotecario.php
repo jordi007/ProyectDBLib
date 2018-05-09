@@ -1,5 +1,4 @@
 <?php
-
 	include_once("class_suscriptor.php");
 
 	class Bibliotecario extends Suscriptor {
@@ -63,6 +62,34 @@
 			}
 
 			return $suscriptor;
+		}
+
+		static function listaBliotecariosSuscriptores($conexion) {
+			$sql = "SELECT B.SuscriptorId, S.Nombre, S.Apellido, S.Email, 
+					S.Telefono, B.Contrasenia, B.Salario
+					FROM Bibliotecario B
+					INNER JOIN Suscriptor S
+					ON S.SuscriptorId = B.SuscriptorId";
+
+			$cursor = $conexion->ejecutarConsulta($sql); 
+			$biblio = array();
+			if ($cursor) {
+				while ($temp = $conexion->obtenerFila($cursor)) {	
+					$biblio[] = new Bibliotecario(
+						$temp['SuscriptorId'],
+						$temp['Nombre'], 
+						$temp['Apellido'],
+						$temp['Email'],
+						$temp['Telefono'],
+						$temp['Contrasenia'],
+						$temp['Salario']
+					);
+				}
+			} else {
+				return false;
+			}
+
+			return $biblio;
 		}
 	}
 ?>

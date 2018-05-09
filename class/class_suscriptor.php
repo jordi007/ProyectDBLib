@@ -112,5 +112,29 @@
 
 			return $suscriptor;
 		}
+
+		
+		static function listaDeSuscriptores($conexion) {
+			$sql = "SELECT SuscriptorId,Nombre, Apellido, Email, Telefono
+					FROM Suscriptor";
+
+			$cursor = $conexion->ejecutarConsulta($sql); 
+			$suscriptores = array();
+			if ($cursor) {
+				while ($temp = $conexion->obtenerFila($cursor)) {	
+					$suscriptores[] = new Suscriptor(
+						$temp['SuscriptorId'], 
+						$temp['Nombre'], 
+						$temp['Apellido'], 
+						$temp['Email'],
+						$temp['Telefono']);
+				}
+			} else {
+				return false;
+			}
+
+			return $suscriptores;
+		}
+
 	}
 ?>

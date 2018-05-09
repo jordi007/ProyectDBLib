@@ -95,8 +95,6 @@ SELECT SuscriptorId, Nombre, Apellido, Email, Telefono
 FROM Suscriptor
 WHERE Email = 'maria97@gmail.com';
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 -- query para contar el numero de libros de una materia
 SELECT COUNT(M.MateriaId)
 FROM Materia M
@@ -136,7 +134,9 @@ ON E.PaisId = E.PaisId
 WHERE E.EditorialId = 1
 
 SELECT *
-FROM Libro
+FROM Libro L
+INNER JOIN LibroxAutor LA
+ON L.LibroId = LA.LibroId;
 
 SELECT * FROM Ejemplar;
 
@@ -155,4 +155,12 @@ FROM Suscriptor S
 INNER JOIN Bibliotecario B ON S.SuscriptorId = B.SuscriptorId
 WHERE S.Email = 'maria97@gmail.com';
 
-SELECT B.SuscriptorId, S.Nombre, S.Apellido, S.Email, S.Telefono, B.Contraseña Contrasena, B.Salario FROM Suscriptor S INNER JOIN Bibliotecario B ON S.SuscriptorId = B.SuscriptorId WHERE S.Email = 'maria97@gmail.com'
+-- SUSCRITORES
+SELECT *FROM Suscriptor
+--SELECT *FROM Bibliotecario
+
+--QUERY SOLO BIBLIOTECARIO QUE SON SUSCRIPTORES
+SELECT S.Nombre, S.Apellido, S.Email, S.Telefono
+FROM Bibliotecario B
+INNER JOIN Suscriptor S
+ON S.SuscriptorId = B.SuscriptorId
