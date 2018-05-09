@@ -149,3 +149,18 @@ FROM Suscriptor
 SELECT IIF (P.Entregado = 0, 1, 0) Responsable
 FROM Prestamos P
 WHERE P.Entregado = 0 AND P.LibroId = 1 AND P.Indice = 2 AND P.SuscriptorId = 2;
+
+-- SUSCRITORES
+SELECT *FROM Suscriptor
+--SELECT *FROM Bibliotecario
+
+--QUERY SOLO BIBLIOTECARIO QUE SON SUSCRIPTORES
+SELECT S.Nombre, S.Apellido, S.Email, S.Telefono
+FROM Bibliotecario B
+INNER JOIN Suscriptor S
+ON S.SuscriptorId = B.SuscriptorId
+
+
+
+
+

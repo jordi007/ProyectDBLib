@@ -48,7 +48,7 @@
         <div class="col-md-12 text-center">
           <h2 class="h2">Editoriales:</h2>
         </div>
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-8 mx-auto">
           <?php
             $conn = new Conexion();
 
