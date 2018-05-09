@@ -37,7 +37,7 @@
         	<nav class="my-2 my-md-0 mr-md-3">
               <a class="p-2 text-dark" href="autores.php">Autores</a>
               <a class="p-2 text-dark" href="editoriales.php">Editoriales</a>
-              <a class="p-2 text-dark" href="#">Materias</a>
+              <a class="p-2 text-dark" href="materias.php">Materias</a>
           </nav>
         	<a class="btn btn-outline-primary" href="login.php">Iniciar Sesión</a>
       	</div>

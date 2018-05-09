@@ -1,6 +1,6 @@
 <?php
   include_once('class/class_conexion.php');
-  include_once('class/class_materia.php');
+  include_once('class/class_editorial.php');
   include_once('class/class_libros.php');
   include_once('class/class_autor.php');
 
@@ -50,7 +50,7 @@
     <div class="row">
       <div class="col-12 text-center">
         <?php
-          echo '<h2>'.$_GET['materia'].':</h2>'
+          echo '<h2>'.$_GET['autor'].':</h2>'
         ?>
       </div>
       <div class="col-12">
