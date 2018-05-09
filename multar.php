@@ -75,7 +75,9 @@
                       <td>'.$value['Email'].'</td>
                       <td> L. '.$value['Multa'].'</td>
                       <td>'.$value['Titulo'].'</td>
-                      <td>SI</td>'; /*Gabriel aqui deberia ir el llamado a la funcion enviar correo*/
+                      <td>SI</td>'; 
+                      Correo::enviarCorreo($value['Email'], $value['Titulo'], $value['Multa'], $value['NombreCompleto']);
+                      /*Gabriel aqui deberia ir el llamado a la funcion enviar correo*/
                   }
                 }
               } else {
