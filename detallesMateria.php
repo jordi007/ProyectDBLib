@@ -3,6 +3,8 @@
   include_once('class/class_materia.php');
   include_once('class/class_libros.php');
   include_once('class/class_autor.php');
+  header('Content-Type: text/html; charset=iso-8859-1');
+  //&oacute
 
 ?>
 <!DOCTYPE html>
@@ -42,7 +44,7 @@
               <a class="p-2 text-dark" href="editoriales.php">Editoriales</a>
               <a class="p-2 text-dark" href="materias.php">Materias</a>
           </nav>
-          <a class="btn btn-outline-primary" href="login.php">Iniciar Sesión</a>
+          <a class="btn btn-outline-primary" href="login.php">Iniciar Sesi&oacuten</a>
         </div>
     </nav>
 
@@ -67,7 +69,7 @@
                             <th scope="col">Edición</th>
                             <th scope="col">Autor</th>
                             <th scope="col">Ejemplares</th>
-                            <th scope="col">Opción</th>
+                            <th scope="col">Opci&oacuten</th>
                           </tr>
                         </thead>
                         <tbody>';
@@ -87,7 +89,7 @@
                           <td>'.$valor['Edicion'].'</td>
                           <td>'.$autores.'</td>
                           <td>'.$valor['NEjemplares'].'</td>
-                          <td><a href="informacionLibro.php?codigo='.$valor['Codigo'].'">Ver más</a></td>
+                          <td><a href="informacionLibro.php?codigo='.$valor['Codigo'].'">Ver m&aacutes</a></td>
                         </tr>';
                   }
                   echo '</tbody>

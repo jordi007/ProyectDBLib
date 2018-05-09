@@ -1,6 +1,9 @@
 <?php
   include('class/class_conexion.php');
   include('class/class_editorial.php');
+  header('Content-Type: text/html; charset=iso-8859-1');
+  //&oacute
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +42,7 @@
               <a class="p-2 text-dark" href="editoriales.php">Editoriales</a>
               <a class="p-2 text-dark" href="materias.php">Materias</a>
           </nav>
-        	<a class="btn btn-outline-primary" href="login.php">Iniciar Sesión</a>
+        	<a class="btn btn-outline-primary" href="login.php">Iniciar Sesi&oacuten</a>
       	</div>
     </nav>
 
@@ -62,7 +65,7 @@
                             <th scope="col">Editorial</th>
                             <th scope="col">Email</th>
                             <th scope="col">Num. Libros</th>
-                            <th scope="col">Opción</th>
+                            <th scope="col">Opci&oacuten</th>
                           </tr>
                         </thead>
                         <tbody>';

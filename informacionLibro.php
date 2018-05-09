@@ -4,6 +4,8 @@
   include('class/class_materia.php');
   include('class/class_libros.php');
   include('class/class_ejemplar.php');
+    header('Content-Type: text/html; charset=iso-8859-1');
+  //&oacute
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +50,7 @@
                       </div>
                     </div>';
             } else {
-             echo '<a class="btn btn-outline-primary" href="login.php">Iniciar Sesión</a>';
+             echo '<a class="btn btn-outline-primary" href="login.php">Iniciar Sesi&oacuten</a>';
             }
           ?>
       	</div>
@@ -87,7 +89,7 @@
                             <td>'.$libro->getEditorial()->getNombre().'</td>
                           </tr>
                           <tr>
-                            <th class="text-right">Edicion:</th>
+                            <th class="text-right">Edici&oacuten:</th>
                             <td>'.$libro->getEdicion().'</td>
                           </tr>
                           <tr>
@@ -99,11 +101,11 @@
                             <td>'.$libro->getMateria()->getNombre().'</td>
                           </tr>
                           <tr>
-                            <th class="text-right">Año:</th>
+                            <th class="text-right">A&ntilde;o:</th>
                             <td>'.$libro->getAnio().'</td>
                           </tr>
                           <tr>
-                            <th class="text-right">Descripcion</th>
+                            <th class="text-right">Descripci&oacute;n</th>
                             <td>'.$libro->getDescripcion().'</td>
                           </tr>
                       </table>';
@@ -132,7 +134,7 @@
                         <tr>
                           <th scope="col">#</th>
                           <th scope="col">Estado</th>
-                          <th scope="col">Observación</th>
+                          <th scope="col">Observaci&oacute;n</th>
                           <th scope="col">Diponible</th>
                           <th scope="col">Opciones</th>
                         </tr>
