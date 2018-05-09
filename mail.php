@@ -6,8 +6,6 @@ require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
 class Correo{
-
-    $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
     public static function enviarCorreo($receptor, $libro, $multa, $nombre){
         $mail = new PHPMailer(true); 
         try {
@@ -44,12 +42,12 @@ class Correo{
             $mail->AltBody = '';
 
             $mail->send();
-            echo 'El correo ha sigo enviado satisfactoriamente';
         } 
         catch (Exception $e) {
-            echo 'Ha fallafo el envio del correo.';
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
+            return false;
+            // echo 'Mailer Error: ' . $mail->ErrorInfo;
         }
+        return true;
     }
     
 

@@ -33,7 +33,7 @@
 
 </head>
 
-<body>
+<body class="bg-light">
 
     <!-- Navigation -->
     <nav class="navbar navbar-light bg-light static-top">
@@ -44,7 +44,23 @@
               <a class="p-2 text-dark" href="editoriales.php">Editoriales</a>
               <a class="p-2 text-dark" href="materias.php">Materias</a>
           </nav>
-          <a class="btn btn-outline-primary" href="login.php">Iniciar Sesi&oacuten</a>
+          <?php
+            session_start();
+            if (isset($_SESSION["id"])){
+              echo '<div class="nav-item dropdown">
+                      <span class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$_SESSION['nombre'].' '.$_SESSION['apellido'].'</span>
+                      <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="paginaAdministrador.php">Administrar</a>
+                        <a class="dropdown-item" href="regresarLibro.php">Recibir Libro</a>
+                        <a class="dropdown-item" href="usuariosSuscriptores.php">Ver Suscritores</a>
+                        <a class="dropdown-item" href="usuariosBibliotecarios.php">Ver Bibliotecarios</a>
+                        <a class="dropdown-item" href="logout.php">Salir</a>
+                      </div>
+                    </div>';
+            } else {
+             echo '<a class="btn btn-outline-primary" href="login.php">Iniciar Sesión</a>';
+            }
+          ?>
         </div>
     </nav>
 
@@ -66,7 +82,7 @@
                           <tr>
                             <th scope="col">Codigo</th>
                             <th scope="col">Libro</th>
-                            <th scope="col">Edición</th>
+                            <th scope="col">Edici&oacuten</th>
                             <th scope="col">Autor</th>
                             <th scope="col">Ejemplares</th>
                             <th scope="col">Opci&oacuten</th>

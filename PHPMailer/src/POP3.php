@@ -328,7 +328,7 @@ class POP3
     {
         $response = fgets($this->pop_conn, $size);
         if ($this->do_debug >= 1) {
-            echo 'Server -> Client: ', $response;
+            /*echo 'Server -> Client: ', $response;*/
         }
 
         return $response;
@@ -345,7 +345,7 @@ class POP3
     {
         if ($this->pop_conn) {
             if ($this->do_debug >= 2) { //Show client messages when debug >= 2
-                echo 'Client -> Server: ', $string;
+                /*echo 'Client -> Server: ', $string;*/
             }
 
             return fwrite($this->pop_conn, $string, strlen($string));
@@ -383,11 +383,11 @@ class POP3
     {
         $this->errors[] = $error;
         if ($this->do_debug >= 1) {
-            echo '<pre>';
+            /*echo '<pre>';
             foreach ($this->errors as $error) {
                 print_r($error);
             }
-            echo '</pre>';
+            echo '</pre>';*/
         }
     }
 

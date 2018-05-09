@@ -75,6 +75,7 @@ INSERT INTO Suscriptor VALUES (2, 'Jose', 'Juarez', 'jjuarez@gmail.com', '9978-2
 INSERT INTO Suscriptor VALUES (4, 'Mario', 'Molina', 'mario.molina@hotmail.com', NULL);
 INSERT INTO Suscriptor VALUES (5, 'Susan', 'Gutierrez', 'susan_gut@gmail.com', '9315-7890');
 INSERT INTO Suscriptor VALUES (6, 'María', 'Medina', 'maria97@gmail.com', '9979-2117');
+INSERT INTO Suscriptor VALUES (9, 'Denis', 'Henriquez', 'denisadonis06@gmail.com', NULL);
 
 -- el password es asd.456 y el password root es asd.456
 INSERT INTO Bibliotecario VALUES (1, 'bcdcb29ed2aab16d48c11485264df665e906bdd9', 99999);
@@ -113,7 +114,8 @@ INSERT INTO Ejemplar VALUES (3, 2, 1, 3, 'Desgaste en la pasta', '2007-2-15', 80
 INSERT INTO Prestamos VALUES (1, 1, 2, 1, 2, '2018-5-7', '2018-5-15', 0, 0);
 INSERT INTO Prestamos VALUES (2, 1, 1, 1, 3, '2018-5-1', '2018-5-5', 0, 0);
 INSERT INTO Prestamos VALUES (3, 3, 1, 1, 3, GETDATE(), '2018-5-19', 1, 0);
+INSERT INTO Prestamos VALUES (4, 3, 1, 1, 9, '2018-5-7', '2018-5-8', 0, 0);
 --DELETE FROM Prestamos WHERE PrestamoId IN (4,5,6);
 
-UPDATE Prestamos SET Entregado = 0
-WHERE Entregado = 1 AND LibroId = 1 AND Indice = 1 AND SuscriptorId = 3;
+UPDATE Prestamos SET Entregado = 1
+WHERE Entregado = 0 AND LibroId = 1 AND Indice = 1 AND SuscriptorId = 3;

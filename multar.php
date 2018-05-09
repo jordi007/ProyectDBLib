@@ -1,6 +1,11 @@
 <?php
+  session_start();
+  if (!isset($_SESSION["id"])){
+    header("Location: index.php");
+  }
   include('class/class_conexion.php');
   include('class/class_prestamo.php');
+  include('mail.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,12 +39,22 @@
     <nav class="navbar navbar-light bg-light static-top">
      	 <div class="container">
         	<a class="navbar-brand" href="index.php">Biblioteca 935</a>
-        	<nav class="my-2 my-md-0 mr-md-3">
-              <a class="p-2 text-dark" href="autores.php">Autores</a>
-              <a class="p-2 text-dark" href="editoriales.php">Editoriales</a>
-              <a class="p-2 text-dark" href="materias.php">Materias</a>
-          </nav>
-        	<a class="btn btn-outline-primary" href="login.php">Iniciar Sesión</a>
+        	<?php
+            if (isset($_SESSION["id"])){
+              echo '<div class="nav-item dropdown">
+                      <span class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$_SESSION['nombre'].' '.$_SESSION['apellido'].'</span>
+                      <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="paginaAdministrador.php">Administrar</a>
+                        <a class="dropdown-item" href="regresarLibro.php">Recibir Libro</a>
+                        <a class="dropdown-item" href="usuariosSuscriptores.php">Ver Suscritores</a>
+                        <a class="dropdown-item" href="usuariosBibliotecarios.php">Ver Bibliotecarios</a>
+                        <a class="dropdown-item" href="logout.php">Salir</a>
+                      </div>
+                    </div>';
+            } else {
+             echo '<a class="btn btn-outline-primary" href="login.php">Iniciar Sesión</a>';
+            }
+          ?>
       	</div>
     </nav>
 
@@ -75,8 +90,8 @@
                       <td>'.$value['Email'].'</td>
                       <td> L. '.$value['Multa'].'</td>
                       <td>'.$value['Titulo'].'</td>
-                      <td>SI</td>'; 
-                      Correo::enviarCorreo($value['Email'], $value['Titulo'], $value['Multa'], $value['NombreCompleto']);
+                      <td>'.((Correo::enviarCorreo($value['Email'], $value['Titulo'],
+                        $value['Multa'], $value['NombreCompleto'])) ? 'Si' : 'No').'</td>';
                       /*Gabriel aqui deberia ir el llamado a la funcion enviar correo*/
                   }
                 }

@@ -1,6 +1,7 @@
 <?php 
   include 'class/class_conexion.php';
   include 'class/class_libros.php';
+  header('Content-Type: text/html; charset=iso-8859-1');
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +35,11 @@
   <nav class="navbar navbar-light bg-light static-top">
     	<div class="container">
       	<a class="navbar-brand" href="index.php">Biblioteca 935</a>
+        <nav class="my-2 my-md-0 mr-md-3">
+          <a class="p-2 text-dark" href="autores.php">Autores</a>
+          <a class="p-2 text-dark" href="editoriales.php">Editoriales</a>
+          <a class="p-2 text-dark" href="materias.php">Materias</a>
+        </nav>
         <?php
             session_start();
             if (isset($_SESSION["id"])){
