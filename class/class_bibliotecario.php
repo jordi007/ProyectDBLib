@@ -36,6 +36,18 @@
 				" Salario: " . $this->salario;
 		}
 
+		public function registrarBibliotecario($conexion) {
+			$sql = "INSERT INTO Bibliotecario 
+					VALUES (".$this->getSuscriptorId().",
+					 		'".$this->contrasenia."', 
+					 		".$this->salario.")"; 
+			
+			if ($conexion->ejecutarConsulta($sql)) {
+				return true;
+			}
+			return false;
+		}
+
 		static function buscarBibliotecarioEmail($conexion, $email) {
 			$sql = "SELECT B.SuscriptorId, S.Nombre, S.Apellido, S.Email, 
 					S.Telefono, B.Contrasenia, B.Salario

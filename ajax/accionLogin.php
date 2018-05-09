@@ -11,7 +11,7 @@
 		if (filter_var($_POST['txt-email'], FILTER_VALIDATE_EMAIL)) {
 			if ($bibl = Bibliotecario::buscarBibliotecarioEmail($conn, $_POST['txt-email'])) {
 				$resultado['email'] = true;
-				if ($_POST['txt-password'] == $bibl->getContrasenia()) {
+				if (sha1($_POST['txt-password']) == $bibl->getContrasenia()) {
 					$resultado['msg'] = 'Secion iniciada correctamente';
 					$resultado['realizado'] = true;
 					$resultado['password'] = true;

@@ -109,5 +109,5 @@ INSERT INTO Prestamos VALUES (2, 1, 1, 1, 3, '2018-5-1', '2018-5-5', 1, 0);
 INSERT INTO Prestamos VALUES (3, 3, 1, 1, 3, GETDATE(), '2018-5-19', 1, 0);
 --DELETE FROM Prestamos WHERE PrestamoId IN (4,5,6);
 
---UPDATE Prestamos SET Entregado = 0
---WHERE Entregado = 1 AND LibroId = 1 AND Indice = 2 AND SuscriptorId = 2;
+UPDATE Prestamos SET Entregado = 0
+WHERE Entregado = 1 AND LibroId = 1 AND Indice = 1 AND SuscriptorId = 3;

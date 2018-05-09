@@ -164,3 +164,11 @@ SELECT S.Nombre, S.Apellido, S.Email, S.Telefono
 FROM Bibliotecario B
 INNER JOIN Suscriptor S
 ON S.SuscriptorId = B.SuscriptorId
+
+-- verrificar si los prestamos no se han pasado de la fecha
+
+UPDATE Prestamos
+SET Multa = Multa+20.00
+WHERE FechaEntrega < GETDATE() AND Entregado = 0;
+
+SELECT * FROM Prestamos;
