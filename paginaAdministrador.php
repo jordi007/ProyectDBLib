@@ -33,7 +33,7 @@
       <ul class="nav-item dropdown">
         <span class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Acciones</span>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="paginaAdministrador.php">Administrar</a>
+          <a class="dropdown-item" href="multar.php">Multar</a>
          <button type="button" class="dropdown-item" data-toggle="modal" data-target="#bibliotecario">Nuevo Bibliotecario
           </button>
           <a class="dropdown-item" href="#">Salir</a>

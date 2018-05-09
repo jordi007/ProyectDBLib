@@ -153,5 +153,38 @@
 
 			return false;
 		}
+
+		static function ejecutarMultas($conexion) {
+			$sql = 'UPDATE Prestamos
+					SET Multa = Multa+20.00
+					WHERE FechaEntrega < GETDATE() AND Entregado = 0';
+
+			if ($conexion->ejecutarConsulta($sql)) {
+				return true;
+			}
+
+			return false;
+		}
+
+		static function regresarDeudores($conexion) {
+			$sql = "SELECT S.Email, S.Nombre+' '+S.Apellido NombreCompleto, P.Multa, L.Titulo
+					FROM  Prestamos P
+					INNER JOIN Suscriptor S ON S.SuscriptorId = P.SuscriptorId
+					INNER JOIN Ejemplar E ON E.LibroId = P.LibroId AND E.Indice = P.Indice
+					INNER JOIN Libro L ON L.LibroId = E.LibroId
+					WHERE P.FechaEntrega < GETDATE() AND P.Entregado = 0";
+
+			$cursor = $conexion->ejecutarConsulta($sql); 
+
+			$multados = array();
+
+			if ($cursor) {
+				while ($temp = $conexion->obtenerFila($cursor)) {
+					$multados[] = $temp;
+				}
+			}
+
+			return $multados;
+		}
 	}
 ?>
