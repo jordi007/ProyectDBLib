@@ -35,13 +35,13 @@
             <form action="enviarFormulario.php" method="POST">
               <div class="form-row">
                 <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  Nombre de la editorial<input type="text" name="txt-nombre" class="form-control espacio" required placeholder="Ingresar nombre">
+                  Nombre de la editorial<input type="text" name="txt-nombre" class="form-control espacio" pattern="^[A-Za-z]+" required placeholder="Ingresar nombre">
                 </div>
                 <div class="col-12 col-md-9 mb-2 mb-md-0">
                   E-mail<input type="email" name="txt-email" class="form-control espacio" required placeholder="Ingresar el E-mail">
                 </div>
                 <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  Pais de la editorial<input type="text" name="txt-pais" class="form-control espacio " required placeholder="Ingrese el pais de procedencia">
+                  Pais de la editorial<input type="text" name="txt-pais" class="form-control espacio " pattern="^[0-9]+" required placeholder="Ingrese el pais de procedencia">
                 </div>
                 <div class="col-12 col-md-9 mb-2 mb-md-0">
                   <input type="submit" class="btn btn-primary espacio" placeholder="Buscar...">
